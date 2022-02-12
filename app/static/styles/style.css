@@ -1,0 +1,68 @@
+html {
+  color: #666;
+  background: #eeeeee;
+  font-family: Calibri, sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  background-color: #dddddd;
+  height: 100px;
+  margin: 0;
+  text-align: center;
+  line-height: 100px;
+  font-size: 3.5rem;
+  font-weight: bold;
+  letter-spacing: 1.5rem;
+}
+
+p {
+  text-align: center;
+}
+p.hello {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+.click_hello {
+  animation: click_hello 0.8s 1 ease;
+}
+
+.click_h1 {
+  animation: click_h1 0.2s 2 alternate ease;
+}
+
+@keyframes click_hello {
+  0% {
+    transform: rotate(0);
+    font-size: 1.5em;
+  }
+  20% {
+    font-size: 2em;
+    transform: rotate(20deg);
+  }
+  30% {
+    transform: rotate(0);
+    font-size: 1.5em;
+  }
+  60% {
+    font-size: 2em;
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+@keyframes click_h1 {
+  to {
+    letter-spacing: 2em;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
