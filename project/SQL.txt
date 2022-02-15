@@ -4,16 +4,18 @@
   DROP DATABASE <db name>;
 
 # Создание/удаление таблицы
-  CREATE TABLE <table name>(
-    <column name> <data type>,              # types: INT, VARCHAR(max_size), CHAR(size), DATE
-    <column name> <data type> NOT NULL / AUTO_INCREMENT
+  CREATE TABLE <table>(
+    <column name1> <data type>,              # types: INT, VARCHAR(max_size), CHAR(size), DATE
+    <column name2> <data type> NOT NULL AUTO_INCREMENT,
+    <column name3> <data type>,
+    PRIMARY KEY(<culumn name>)              # Первичный столбец
   );
   
-  DROP TABLE <table name>
+  DROP TABLE <table>;
 
 # Добавление данных
   INSERT INTO 
-    <table name> 
+    <table> 
     (
       <column name1>,
       <column name2>,
@@ -24,5 +26,14 @@
       <data1>,
       <data2>,
       <data3>
-    )
+    );
+
+# Обновление данных
+  UPDATE <table> SET <column> = <value> WHERE <bool>;
+
+# bool
+  Пример: id = 5          # "=", "<", ">", "<=", ">=", "!=" / "<>", AND, OR, NOT, IS (name IS NULL), BETWEEN <from> AND <to>, IN(<value1>, <value2>, <value3>), LIKE "%...%"/"%..."/"...%"
+  
+  
+  
 
