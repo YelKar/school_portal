@@ -10,6 +10,7 @@
   );
   
   DROP TABLE <table name>
+
 # Добавление данных
   INSERT INTO 
     <table name> 
