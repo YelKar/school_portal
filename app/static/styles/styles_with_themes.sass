@@ -1,0 +1,37 @@
+$navbar-width: 80px
+$navbar-open-width: 250px
+$navbar-padding: 10px
+$element-padding: 20px
+$element-border-radius: 8px
+$element-height: 60px
+
+@font-face
+  font-family: Comfortaa
+  src: url(../fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf)
+
+  font-weight: normal
+  font-style: normal
+
+.dark-theme
+  $background-color: #2a2a2a
+  $text-color: #999
+
+  /* navbar */
+  $navbar-background-color: #444444
+  $element-hover-background-color: #4d4d4d
+  $header-color: #999
+  .navbar
+    font-weight: bold
+
+  @import "style"
+.light-theme
+  $text-color: #555
+  $background-color: #e4e9f7
+
+  /* navbar */
+  $navbar-background-color: #ffffff
+  $element-hover-background-color: #f2edff
+  $header-color: #8658ea
+
+  
+  @import "style"

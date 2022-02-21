@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" class="light-theme">
 <head>
     {% block head %}
     <meta charset="UTF-8">
@@ -7,14 +7,36 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_with_themes.css') }}" type="text/css">
     <script src="{{ url_for('static', filename='scripts/script.js') }}" type="text/javascript"></script>
     {% endblock %}
 </head>
-<header>
-    <h1 onclick="click_h1();">1060</h1>
-</header>
 <body>
-    {% block content %}{% endblock %}
+    <nav class="navbar open">
+        <header onclick="open_navbar();">
+            <span class="header open">School №1060</span>
+            <span class="header">1060</span>
+        </header>
+        <div class="navbar-btn" onclick="open_navbar();">
+            &#10148
+        </div>
+        <div class="navbar-elements">
+            <a href="{{ url_for('index') }}" id="index-link">
+                <img src="{{ url_for('static', filename='img/index.svg') }}" alt="Главная">
+                <span class="element-text">Главная</span>
+            </a>
+            <a href="{{ url_for('print_document') }}">
+                <img src="{{ url_for('static', filename='img/print.svg') }}" alt="Печать">
+                <span class="element-text">Документы</span>
+            </a>
+            <a href="#">
+                <img src="{{ url_for('static', filename='img/profile.svg') }}" alt="Профиль">
+                <span class="element-text">Профиль</span>
+            </a>
+        </div>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 </body>
 </html>

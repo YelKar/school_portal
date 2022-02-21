@@ -1,18 +1,10 @@
-function click_hello() {
-    const hello = document.querySelector(".hello");
-    hello.classList.add("click_hello");
-    setTimeout(
-        function () {
-            hello.classList.remove("click_hello");
-        }, 800
-    )
+function themes() {
+    document.querySelector("html").classList.toggle("light-theme")
+    document.querySelector("html").classList.toggle("dark-theme")
 }
-function click_h1() {
-    const h1 = document.querySelector("h1")
-    h1.classList.add("click_h1")
-    setTimeout(
-        function () {
-            h1.classList.remove("click_h1")
-        }, 400
-    )
+
+function open_navbar() {
+    document.querySelector('.navbar').classList.toggle('open')
 }
+
+

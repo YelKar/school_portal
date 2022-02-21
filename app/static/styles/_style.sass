@@ -1,0 +1,112 @@
+body
+  margin: 0
+  text-align: center
+  color: $text_color
+  background: $background-color
+  font:
+    family: "Comfortaa"
+    size: 15px
+  transition: all .3s
+
+/* navbar */
+.navbar
+  position: fixed
+  box-sizing: border-box
+  height: 100vh
+  width: $navbar-width
+  top: 0
+  padding: $navbar-padding
+  background-color: $navbar-background-color
+  transition: all .2s
+
+  + main
+    margin-left: $navbar-width 
+    transition: margin-left .2s
+
+  .header /* show header "school №1060" */
+    display: unset
+    white-space: nowrap
+    &.open /* hide header "1060" */
+      display: none
+
+  /* open navbar */
+  &.open
+    width: $navbar-open-width
+    .header /* hide header "school №1060" */
+      display: none
+      width: $navbar-open-width - $navbar-padding * 2
+      &.open /* show header "1060" */
+        display: unset
+        padding: $element-padding
+
+    .element-text
+      display: inline-block
+
+    + main
+      margin-left: $navbar-open-width
+
+    .navbar-btn
+      transform: rotate(180deg)
+
+
+  /* navbar-elements */
+  &-elements a
+    display: flex
+    position: relative
+    align-items: center
+    box-sizing: border-box
+    border-radius: $element-border-radius
+
+    height: $element-height
+    width: 100%
+    margin-bottom: $element-padding
+
+    transition: all .3s
+
+    color: $text-color
+    &:hover
+      background-color: $element-hover-background-color
+
+    img /* icons in elements */
+        display: inline-block
+        position: absolute
+        left: $element-height * .2
+        width: $element-height * .6
+    span.element-text /* text in elements */
+        display: none
+        position: absolute
+
+        left: $element-height + 15px
+
+
+header
+  display: block
+  position: relative
+  overflow: hidden
+  box-sizing: border-box
+  border-radius: $element-border-radius
+
+  padding: $element-padding 0
+  margin-bottom: $navbar-padding * 5
+
+  background-color: $header-color
+  color: $navbar-background-color
+
+  font-size: 25px
+
+.navbar-btn /* button for open/close navbar */
+  position: absolute
+  width: $element-height / 2
+  height: $element-height / 2
+  border-radius: 50px
+  text-align: center
+  line-height: $element-height / 1.9
+
+  bottom: $element-height / 2
+  right: -$element-height / 4
+
+  background-color: $header-color
+  color: $navbar-background-color
+
+
+@import "documents"
