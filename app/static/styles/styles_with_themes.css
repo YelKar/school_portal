@@ -8,6 +8,12 @@
   /* navbar */
   /* navbar */
 }
+.dark-theme .navbar-btn.theme .light {
+  display: unset;
+}
+.dark-theme .navbar-btn.theme .dark {
+  display: none;
+}
 .dark-theme .navbar {
   font-weight: bold;
 }
@@ -27,7 +33,7 @@
   width: 80px;
   top: 0;
   padding: 10px;
-  background-color: #444444;
+  background-color: #333;
   transition: all 0.2s;
   /* open navbar */
   /* navbar-elements */
@@ -78,11 +84,12 @@
 .dark-theme .navbar-elements a:hover {
   background-color: #4d4d4d;
 }
-.dark-theme .navbar-elements a img {
+.dark-theme .navbar-elements a svg {
   display: inline-block;
   position: absolute;
   left: 12px;
   width: 36px;
+  fill: #999;
 }
 .dark-theme .navbar-elements a span.element-text {
   display: none;
@@ -98,7 +105,7 @@
   padding: 20px 0;
   margin-bottom: 50px;
   background-color: #999;
-  color: #444444;
+  color: #333;
   font-size: 25px;
 }
 .dark-theme .navbar-btn {
@@ -108,10 +115,25 @@
   border-radius: 50px;
   text-align: center;
   line-height: 31.5789473684px;
-  bottom: 30px;
   right: -15px;
   background-color: #999;
-  color: #444444;
+  color: #333;
+}
+.dark-theme .navbar-btn svg {
+  fill: none;
+  stroke: #333;
+}
+.dark-theme .navbar-btn svg#moon {
+  fill: #333;
+}
+.dark-theme .navbar-btn.open {
+  bottom: 30px;
+}
+.dark-theme .navbar-btn.theme {
+  bottom: 72px;
+}
+.dark-theme svg.error_requests {
+  stroke: #999;
 }
 .dark-theme .documents {
   display: flex;
@@ -143,6 +165,12 @@
 .light-theme {
   /* navbar */
   /* navbar */
+}
+.light-theme .navbar-btn.theme .light {
+  display: none;
+}
+.light-theme .navbar-btn.theme .dark {
+  display: unset;
 }
 .light-theme body {
   margin: 0;
@@ -211,11 +239,12 @@
 .light-theme .navbar-elements a:hover {
   background-color: #f2edff;
 }
-.light-theme .navbar-elements a img {
+.light-theme .navbar-elements a svg {
   display: inline-block;
   position: absolute;
   left: 12px;
   width: 36px;
+  fill: #555;
 }
 .light-theme .navbar-elements a span.element-text {
   display: none;
@@ -241,10 +270,25 @@
   border-radius: 50px;
   text-align: center;
   line-height: 31.5789473684px;
-  bottom: 30px;
   right: -15px;
   background-color: #8658ea;
   color: #ffffff;
+}
+.light-theme .navbar-btn svg {
+  fill: none;
+  stroke: #ffffff;
+}
+.light-theme .navbar-btn svg#moon {
+  fill: #ffffff;
+}
+.light-theme .navbar-btn.open {
+  bottom: 30px;
+}
+.light-theme .navbar-btn.theme {
+  bottom: 72px;
+}
+.light-theme svg.error_requests {
+  stroke: #555;
 }
 .light-theme .documents {
   display: flex;

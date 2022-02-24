@@ -1,0 +1,12 @@
+{% extends base %}
+{% import "error_templates.html" as errors %}
+
+{% block content %}
+    {% if errors["e" + error.code|string] %}
+        {{ errors["e" + error.code|string](error) }}
+    {% else %}
+        <h1>{{ error.code }}</h1>
+        <p>{{ error }}</p>
+    {% endif %}
+{% endblock %}
+

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru" class="light-theme">
+{% import "navbar_icons.html" as ico %}
 <head>
     {% block head %}
     <meta charset="UTF-8">
@@ -17,20 +18,24 @@
             <span class="header open">School №1060</span>
             <span class="header">1060</span>
         </header>
-        <div class="navbar-btn" onclick="open_navbar();">
+        <div class="navbar-btn open" onclick="open_navbar();">
             &#10148
+        </div>
+        <div class="navbar-btn theme" onclick="change_themes();">
+            <div class="dark">{{ ico.theme_button("dark") }}</div>
+            <div class="light">{{ ico.theme_button("light") }}</div>
         </div>
         <div class="navbar-elements">
             <a href="{{ url_for('index') }}" id="index-link">
-                <img src="{{ url_for('static', filename='img/index.svg') }}" alt="Главная">
+                {{ ico.index() }}
                 <span class="element-text">Главная</span>
             </a>
             <a href="{{ url_for('print_document') }}">
-                <img src="{{ url_for('static', filename='img/print.svg') }}" alt="Печать">
+                {{ ico.print_doc() }}
                 <span class="element-text">Документы</span>
             </a>
-            <a href="#">
-                <img src="{{ url_for('static', filename='img/profile.svg') }}" alt="Профиль">
+            <a href="{{ url_for('login') }}">
+                {{ ico.profile() }}
                 <span class="element-text">Профиль</span>
             </a>
         </div>

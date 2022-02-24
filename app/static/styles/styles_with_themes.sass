@@ -17,9 +17,14 @@ $element-height: 60px
   $text-color: #999
 
   /* navbar */
-  $navbar-background-color: #444444
+  $navbar-background-color: #333
   $element-hover-background-color: #4d4d4d
   $header-color: #999
+  .navbar-btn.theme
+    .light
+      display: unset
+    .dark
+      display: none
   .navbar
     font-weight: bold
 
@@ -33,5 +38,10 @@ $element-height: 60px
   $element-hover-background-color: #f2edff
   $header-color: #8658ea
 
+  .navbar-btn.theme
+    .light
+      display: none
+    .dark
+      display: unset
   
   @import "style"

@@ -67,11 +67,12 @@ body
     &:hover
       background-color: $element-hover-background-color
 
-    img /* icons in elements */
+    svg /* icons in elements */
         display: inline-block
         position: absolute
         left: $element-height * .2
         width: $element-height * .6
+        fill: $text-color
     span.element-text /* text in elements */
         display: none
         position: absolute
@@ -101,12 +102,23 @@ header
   border-radius: 50px
   text-align: center
   line-height: $element-height / 1.9
-
-  bottom: $element-height / 2
   right: -$element-height / 4
 
   background-color: $header-color
   color: $navbar-background-color
+  svg
+    fill: none
+    stroke: $navbar-background-color
+    &#moon
+      fill: $navbar-background-color
+
+  &.open
+    bottom: $element-height / 2
+  &.theme
+    bottom: $element-height * 1.2
+
+svg.error_requests
+  stroke: $text-color
 
 
 @import "documents"
