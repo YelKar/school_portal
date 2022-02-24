@@ -1,4 +1,4 @@
-function themes() {
+function change_themes() {
     document.querySelector("html").classList.toggle("light-theme")
     document.querySelector("html").classList.toggle("dark-theme")
 }
