@@ -1,4 +1,5 @@
 body
+  min-height: 100vh
   margin: 0
   text-align: center
   color: $text_color
@@ -104,6 +105,8 @@ header
   line-height: $element-height / 1.9
   right: -$element-height / 4
 
+  @include cursor(default, $c_style)
+
   background-color: $header-color
   color: $navbar-background-color
   svg
@@ -111,6 +114,7 @@ header
     stroke: $navbar-background-color
     &#moon
       fill: $navbar-background-color
+
 
   &.open
     bottom: $element-height / 2

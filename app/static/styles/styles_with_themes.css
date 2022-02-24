@@ -4,8 +4,14 @@
   font-weight: normal;
   font-style: normal;
 }
+html {
+  min-height: 100vh;
+  border: 2px #f00;
+}
+
 .dark-theme {
   /* navbar */
+  cursor: url("../cursors/default/dark.cur"), default;
   /* navbar */
 }
 .dark-theme .navbar-btn.theme .light {
@@ -18,6 +24,7 @@
   font-weight: bold;
 }
 .dark-theme body {
+  min-height: 100vh;
   margin: 0;
   text-align: center;
   color: #999;
@@ -116,6 +123,7 @@
   text-align: center;
   line-height: 31.5789473684px;
   right: -15px;
+  cursor: url("../cursors/default/dark.cur"), default;
   background-color: #999;
   color: #333;
 }
@@ -164,6 +172,7 @@
 
 .light-theme {
   /* navbar */
+  cursor: url("../cursors/default/light.cur"), default;
   /* navbar */
 }
 .light-theme .navbar-btn.theme .light {
@@ -173,6 +182,7 @@
   display: unset;
 }
 .light-theme body {
+  min-height: 100vh;
   margin: 0;
   text-align: center;
   color: #555;
@@ -271,6 +281,7 @@
   text-align: center;
   line-height: 31.5789473684px;
   right: -15px;
+  cursor: url("../cursors/default/light.cur"), default;
   background-color: #8658ea;
   color: #ffffff;
 }

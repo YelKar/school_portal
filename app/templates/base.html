@@ -1,23 +1,25 @@
 <!doctype html>
-<html lang="ru" class="light-theme">
+<html lang="ru" class="{{ request.cookies.get("theme") if request.cookies.get("theme") else "light-theme" }}">
 {% import "navbar_icons.html" as ico %}
 <head>
     {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_with_themes.css') }}" type="text/css">
     <script src="{{ url_for('static', filename='scripts/script.js') }}" type="text/javascript"></script>
     {% endblock %}
 </head>
 <body>
-    <nav class="navbar open">
+    <nav class="navbar {{ request.cookies.get("navbar_is_open") if request.cookies.get("navbar_is_open") }}">
         <header onclick="open_navbar();">
             <span class="header open">School №1060</span>
             <span class="header">1060</span>
         </header>
+        <div class="navbar-btn open" onclick="open_navbar();">
+            &#10148
+        </div>
         <div class="navbar-btn open" onclick="open_navbar();">
             &#10148
         </div>

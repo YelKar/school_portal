@@ -12,6 +12,14 @@ $element-height: 60px
   font-weight: normal
   font-style: normal
 
+@mixin cursor($route, $c_style, $style: false)
+  cursor: url("../cursors/#{$route}/#{$c_style}.cur"), if($style, $style, $route)
+
+
+html
+  min-height: 100vh
+  border: 2px #f00
+
 .dark-theme
   $background-color: #2a2a2a
   $text-color: #999
@@ -28,6 +36,9 @@ $element-height: 60px
   .navbar
     font-weight: bold
 
+  // cursors
+  $c_style: "dark"
+  @include cursor(default, $c_style)
   @import "style"
 .light-theme
   $text-color: #555
@@ -43,5 +54,8 @@ $element-height: 60px
       display: none
     .dark
       display: unset
-  
+
+  // cursors
+  $c_style: "light"
+  @include cursor(default, $c_style)
   @import "style"
