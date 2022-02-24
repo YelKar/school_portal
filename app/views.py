@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, url_for, \
-    request, flash, abort
+    request, flash, abort, session
 from werkzeug.exceptions import HTTPException
 
 
