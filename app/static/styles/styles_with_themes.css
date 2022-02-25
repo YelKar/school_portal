@@ -12,7 +12,7 @@ html {
 .dark-theme {
   /* navbar */
   cursor: url("../cursors/default/dark.cur"), default;
-  /* navbar */
+  cursor: url("../cursors/default/dark.cur"), default;
 }
 .dark-theme .navbar-btn.theme .light {
   display: unset;
@@ -24,7 +24,6 @@ html {
   font-weight: bold;
 }
 .dark-theme body {
-  min-height: 100vh;
   margin: 0;
   text-align: center;
   color: #999;
@@ -73,7 +72,7 @@ html {
 .dark-theme .navbar.open + main {
   margin-left: 250px;
 }
-.dark-theme .navbar.open .navbar-btn {
+.dark-theme .navbar.open .navbar-btn.open {
   transform: rotate(180deg);
 }
 .dark-theme .navbar-elements a {
@@ -104,10 +103,12 @@ html {
   left: 75px;
 }
 .dark-theme header {
+  cursor: url("../cursors/default/dark.cur"), default;
   display: block;
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+  user-select: none;
   border-radius: 8px;
   padding: 20px 0;
   margin-bottom: 50px;
@@ -123,7 +124,7 @@ html {
   text-align: center;
   line-height: 31.5789473684px;
   right: -15px;
-  cursor: url("../cursors/default/dark.cur"), default;
+  cursor: url("../cursors/pointer/dark.cur"), pointer;
   background-color: #999;
   color: #333;
 }
@@ -140,8 +141,106 @@ html {
 .dark-theme .navbar-btn.theme {
   bottom: 72px;
 }
+.dark-theme main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dark-theme main::-webkit-scrollbar {
+  width: 20px;
+  padding: 2px;
+}
+.dark-theme main::-webkit-scrollbar-track {
+  background-color: #333;
+}
+.dark-theme main::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 10px;
+  border: 4px solid #333;
+}
+.dark-theme a, .dark-theme button, .dark-theme .navbar-elements,
+.dark-theme input[type=button],
+.dark-theme input[type=reset],
+.dark-theme input[type=submit] {
+  cursor: url("../cursors/pointer/dark.cur"), pointer;
+}
+.dark-theme span, .dark-theme p,
+.dark-theme input[type=text],
+.dark-theme input[type=password],
+.dark-theme input[type=email] {
+  cursor: url("../cursors/text/dark.cur"), text;
+}
 .dark-theme svg.error_requests {
   stroke: #999;
+}
+.dark-theme form {
+  display: block;
+  text-align: left;
+  width: 300px;
+}
+.dark-theme input, .dark-theme .button {
+  box-sizing: border-box;
+  height: 60px;
+  width: 300px;
+  background-color: #999;
+  border: 4px solid #999;
+  border-radius: 8px;
+  color: #333;
+  text-decoration: none;
+  font-family: Comfortaa;
+  font-weight: bold;
+  caret-color: #333;
+  padding: 20px 30px;
+}
+.dark-theme input[type=text]:hover, .dark-theme input[type=password]:hover, .dark-theme input[type=email]:hover, .dark-theme .button[type=text]:hover, .dark-theme .button[type=password]:hover, .dark-theme .button[type=email]:hover {
+  background-color: #888888;
+}
+.dark-theme input[type=text]:focus, .dark-theme input[type=password]:focus, .dark-theme input[type=email]:focus, .dark-theme .button[type=text]:focus, .dark-theme .button[type=password]:focus, .dark-theme .button[type=email]:focus {
+  border: 4px solid #333;
+  outline: none;
+  background-color: #888888;
+}
+.dark-theme input[type=button]:hover, .dark-theme input[type=reset]:hover, .dark-theme input[type=submit]:hover, .dark-theme input[href]:hover, .dark-theme .button[type=button]:hover, .dark-theme .button[type=reset]:hover, .dark-theme .button[type=submit]:hover, .dark-theme .button[href]:hover {
+  background-color: #888888;
+  border-color: #888888;
+}
+.dark-theme input[type=button]:active, .dark-theme input[type=reset]:active, .dark-theme input[type=submit]:active, .dark-theme input[href]:active, .dark-theme .button[type=button]:active, .dark-theme .button[type=reset]:active, .dark-theme .button[type=submit]:active, .dark-theme .button[href]:active {
+  opacity: 0.8;
+}
+.dark-theme input::placeholder, .dark-theme .button::placeholder {
+  color: #333;
+}
+.dark-theme input, .dark-theme .button {
+  box-sizing: border-box;
+  height: 60px;
+  width: 300px;
+  background-color: #999;
+  border: 4px solid #999;
+  border-radius: 8px;
+  color: #333;
+  text-decoration: none;
+  font-family: Comfortaa;
+  font-weight: bold;
+  caret-color: #333;
+  padding: 20px 30px;
+}
+.dark-theme input[type=text]:hover, .dark-theme input[type=password]:hover, .dark-theme input[type=email]:hover, .dark-theme .button[type=text]:hover, .dark-theme .button[type=password]:hover, .dark-theme .button[type=email]:hover {
+  background-color: #888888;
+}
+.dark-theme input[type=text]:focus, .dark-theme input[type=password]:focus, .dark-theme input[type=email]:focus, .dark-theme .button[type=text]:focus, .dark-theme .button[type=password]:focus, .dark-theme .button[type=email]:focus {
+  border: 4px solid #333;
+  outline: none;
+  background-color: #888888;
+}
+.dark-theme input[type=button]:hover, .dark-theme input[type=reset]:hover, .dark-theme input[type=submit]:hover, .dark-theme input[href]:hover, .dark-theme .button[type=button]:hover, .dark-theme .button[type=reset]:hover, .dark-theme .button[type=submit]:hover, .dark-theme .button[href]:hover {
+  background-color: #888888;
+  border-color: #888888;
+}
+.dark-theme input[type=button]:active, .dark-theme input[type=reset]:active, .dark-theme input[type=submit]:active, .dark-theme input[href]:active, .dark-theme .button[type=button]:active, .dark-theme .button[type=reset]:active, .dark-theme .button[type=submit]:active, .dark-theme .button[href]:active {
+  opacity: 0.8;
+}
+.dark-theme input::placeholder, .dark-theme .button::placeholder {
+  color: #333;
 }
 .dark-theme .documents {
   display: flex;
@@ -173,7 +272,6 @@ html {
 .light-theme {
   /* navbar */
   cursor: url("../cursors/default/light.cur"), default;
-  /* navbar */
 }
 .light-theme .navbar-btn.theme .light {
   display: none;
@@ -182,7 +280,6 @@ html {
   display: unset;
 }
 .light-theme body {
-  min-height: 100vh;
   margin: 0;
   text-align: center;
   color: #555;
@@ -231,7 +328,7 @@ html {
 .light-theme .navbar.open + main {
   margin-left: 250px;
 }
-.light-theme .navbar.open .navbar-btn {
+.light-theme .navbar.open .navbar-btn.open {
   transform: rotate(180deg);
 }
 .light-theme .navbar-elements a {
@@ -262,10 +359,12 @@ html {
   left: 75px;
 }
 .light-theme header {
+  cursor: url("../cursors/default/light.cur"), default;
   display: block;
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+  user-select: none;
   border-radius: 8px;
   padding: 20px 0;
   margin-bottom: 50px;
@@ -281,7 +380,7 @@ html {
   text-align: center;
   line-height: 31.5789473684px;
   right: -15px;
-  cursor: url("../cursors/default/light.cur"), default;
+  cursor: url("../cursors/pointer/light.cur"), pointer;
   background-color: #8658ea;
   color: #ffffff;
 }
@@ -298,8 +397,106 @@ html {
 .light-theme .navbar-btn.theme {
   bottom: 72px;
 }
+.light-theme main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.light-theme main::-webkit-scrollbar {
+  width: 20px;
+  padding: 2px;
+}
+.light-theme main::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+.light-theme main::-webkit-scrollbar-thumb {
+  background-color: #8658ea;
+  border-radius: 10px;
+  border: 4px solid #ffffff;
+}
+.light-theme a, .light-theme button, .light-theme .navbar-elements,
+.light-theme input[type=button],
+.light-theme input[type=reset],
+.light-theme input[type=submit] {
+  cursor: url("../cursors/pointer/light.cur"), pointer;
+}
+.light-theme span, .light-theme p,
+.light-theme input[type=text],
+.light-theme input[type=password],
+.light-theme input[type=email] {
+  cursor: url("../cursors/text/light.cur"), text;
+}
 .light-theme svg.error_requests {
   stroke: #555;
+}
+.light-theme form {
+  display: block;
+  text-align: left;
+  width: 300px;
+}
+.light-theme input, .light-theme .button {
+  box-sizing: border-box;
+  height: 60px;
+  width: 300px;
+  background-color: #8658ea;
+  border: 4px solid #8658ea;
+  border-radius: 8px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: Comfortaa;
+  font-weight: bold;
+  caret-color: #ffffff;
+  padding: 20px 30px;
+}
+.light-theme input[type=text]:hover, .light-theme input[type=password]:hover, .light-theme input[type=email]:hover, .light-theme .button[type=text]:hover, .light-theme .button[type=password]:hover, .light-theme .button[type=email]:hover {
+  background-color: #753def;
+}
+.light-theme input[type=text]:focus, .light-theme input[type=password]:focus, .light-theme input[type=email]:focus, .light-theme .button[type=text]:focus, .light-theme .button[type=password]:focus, .light-theme .button[type=email]:focus {
+  border: 4px solid #ffffff;
+  outline: none;
+  background-color: #753def;
+}
+.light-theme input[type=button]:hover, .light-theme input[type=reset]:hover, .light-theme input[type=submit]:hover, .light-theme input[href]:hover, .light-theme .button[type=button]:hover, .light-theme .button[type=reset]:hover, .light-theme .button[type=submit]:hover, .light-theme .button[href]:hover {
+  background-color: #753def;
+  border-color: #753def;
+}
+.light-theme input[type=button]:active, .light-theme input[type=reset]:active, .light-theme input[type=submit]:active, .light-theme input[href]:active, .light-theme .button[type=button]:active, .light-theme .button[type=reset]:active, .light-theme .button[type=submit]:active, .light-theme .button[href]:active {
+  opacity: 0.8;
+}
+.light-theme input::placeholder, .light-theme .button::placeholder {
+  color: #ffffff;
+}
+.light-theme input, .light-theme .button {
+  box-sizing: border-box;
+  height: 60px;
+  width: 300px;
+  background-color: #8658ea;
+  border: 4px solid #8658ea;
+  border-radius: 8px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: Comfortaa;
+  font-weight: bold;
+  caret-color: #ffffff;
+  padding: 20px 30px;
+}
+.light-theme input[type=text]:hover, .light-theme input[type=password]:hover, .light-theme input[type=email]:hover, .light-theme .button[type=text]:hover, .light-theme .button[type=password]:hover, .light-theme .button[type=email]:hover {
+  background-color: #753def;
+}
+.light-theme input[type=text]:focus, .light-theme input[type=password]:focus, .light-theme input[type=email]:focus, .light-theme .button[type=text]:focus, .light-theme .button[type=password]:focus, .light-theme .button[type=email]:focus {
+  border: 4px solid #ffffff;
+  outline: none;
+  background-color: #753def;
+}
+.light-theme input[type=button]:hover, .light-theme input[type=reset]:hover, .light-theme input[type=submit]:hover, .light-theme input[href]:hover, .light-theme .button[type=button]:hover, .light-theme .button[type=reset]:hover, .light-theme .button[type=submit]:hover, .light-theme .button[href]:hover {
+  background-color: #753def;
+  border-color: #753def;
+}
+.light-theme input[type=button]:active, .light-theme input[type=reset]:active, .light-theme input[type=submit]:active, .light-theme input[href]:active, .light-theme .button[type=button]:active, .light-theme .button[type=reset]:active, .light-theme .button[type=submit]:active, .light-theme .button[href]:active {
+  opacity: 0.8;
+}
+.light-theme input::placeholder, .light-theme .button::placeholder {
+  color: #ffffff;
 }
 .light-theme .documents {
   display: flex;

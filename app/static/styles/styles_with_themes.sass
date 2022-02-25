@@ -28,6 +28,7 @@ html
   $navbar-background-color: #333
   $element-hover-background-color: #4d4d4d
   $header-color: #999
+
   .navbar-btn.theme
     .light
       display: unset
@@ -36,8 +37,12 @@ html
   .navbar
     font-weight: bold
 
+  // forms
+  $input-hover-color: #888888
+
   // cursors
   $c_style: "dark"
+  @include cursor(default, $c_style)
   @include cursor(default, $c_style)
   @import "style"
 .light-theme
@@ -54,6 +59,9 @@ html
       display: none
     .dark
       display: unset
+
+  // forms
+  $input-hover-color: #753def
 
   // cursors
   $c_style: "light"

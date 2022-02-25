@@ -1,6 +1,6 @@
 {% extends base %}
 {% block content %}
-        {{ form.fields }}
+    <h2>Войти</h2>
     <form method="POST">
         {{ form.csrf_token }}
         {% for field in form if field.name != "csrf_token" %}
@@ -10,5 +10,6 @@
             </p>
         {% endfor %}
     </form>
-    <a href="{{ url_for('register') }}">регистрация</a>
+    <h3>или</h3>
+    <a href="{{ url_for('register') }}" class="button">Зарегистрироваться</a>
 {% endblock %}

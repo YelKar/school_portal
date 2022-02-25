@@ -1,5 +1,4 @@
 body
-  min-height: 100vh
   margin: 0
   text-align: center
   color: $text_color
@@ -9,120 +8,80 @@ body
     size: 15px
   transition: all .3s
 
-/* navbar */
-.navbar
-  position: fixed
-  box-sizing: border-box
-  height: 100vh
-  width: $navbar-width
-  top: 0
-  padding: $navbar-padding
-  background-color: $navbar-background-color
-  transition: all .2s
+@import "navbar"
 
-  + main
-    margin-left: $navbar-width 
-    transition: margin-left .2s
+main
+  display: flex
+  flex-direction: column
+  align-items: center
 
-  .header /* show header "school №1060" */
-    display: unset
-    white-space: nowrap
-    &.open /* hide header "1060" */
-      display: none
-
-  /* open navbar */
-  &.open
-    width: $navbar-open-width
-    .header /* hide header "school №1060" */
-      display: none
-      width: $navbar-open-width - $navbar-padding * 2
-      &.open /* show header "1060" */
-        display: unset
-        padding: $element-padding
-
-    .element-text
-      display: inline-block
-
-    + main
-      margin-left: $navbar-open-width
-
-    .navbar-btn
-      transform: rotate(180deg)
+  // Стилизация scrollbar
+  &::-webkit-scrollbar
+    width: 20px
+    padding: 2px
+    &-track // трек индикатора прокрутки
+      background-color: $navbar-background-color
+    &-thumb // индикатор прокрутки
+      background-color: $header-color
+      border-radius: 10px
+      border: 4px solid $navbar-background-color
 
 
-  /* navbar-elements */
-  &-elements a
-    display: flex
-    position: relative
-    align-items: center
-    box-sizing: border-box
-    border-radius: $element-border-radius
+// курсор для всех элементов, на которые требуется нажимать
+a, button, .navbar-elements,
+input[type="button"],
+input[type="reset"],
+input[type="submit"]
+    @include cursor(pointer, $c_style)
 
-    height: $element-height
-    width: 100%
-    margin-bottom: $element-padding
+// Курсор для всех текстовых элементов
+span, p,
+input[type="text"],
+input[type="password"],
+input[type="email"]
+  @include cursor(text, $c_style)
 
-    transition: all .3s
-
-    color: $text-color
-    &:hover
-      background-color: $element-hover-background-color
-
-    svg /* icons in elements */
-        display: inline-block
-        position: absolute
-        left: $element-height * .2
-        width: $element-height * .6
-        fill: $text-color
-    span.element-text /* text in elements */
-        display: none
-        position: absolute
-
-        left: $element-height + 15px
-
-
-header
-  display: block
-  position: relative
-  overflow: hidden
-  box-sizing: border-box
-  border-radius: $element-border-radius
-
-  padding: $element-padding 0
-  margin-bottom: $navbar-padding * 5
-
-  background-color: $header-color
-  color: $navbar-background-color
-
-  font-size: 25px
-
-.navbar-btn /* button for open/close navbar */
-  position: absolute
-  width: $element-height / 2
-  height: $element-height / 2
-  border-radius: 50px
-  text-align: center
-  line-height: $element-height / 1.9
-  right: -$element-height / 4
-
-  @include cursor(default, $c_style)
-
-  background-color: $header-color
-  color: $navbar-background-color
-  svg
-    fill: none
-    stroke: $navbar-background-color
-    &#moon
-      fill: $navbar-background-color
-
-
-  &.open
-    bottom: $element-height / 2
-  &.theme
-    bottom: $element-height * 1.2
 
 svg.error_requests
   stroke: $text-color
 
+
+form
+  display: block
+  text-align: left
+  width: 300px
+
+input, .button
+  box-sizing: border-box
+  height: $element-height
+  width: 300px
+  background-color: $header-color
+  border: 4px solid $header-color
+  border-radius: $element-border-radius
+  color: $navbar-background-color
+  text-decoration: none
+  font:
+    family: Comfortaa
+    weight: bold
+  caret-color: $navbar-background-color
+  padding: $element-padding $element-padding * 1.5
+  &[type=text], &[type=password], &[type=email]
+    &:hover
+      background-color: $input-hover-color
+    &:focus
+      border: 4px solid $navbar-background-color
+      outline: none
+      background-color: $input-hover-color
+  &[type=button], &[type=reset], &[type=submit], &[href]
+    &:hover
+      background-color: $input-hover-color
+      border-color: $input-hover-color
+    &:active
+      opacity: 0.8
+
+  &::placeholder
+    color: $navbar-background-color
+
+@import "forms"
 
 @import "documents"

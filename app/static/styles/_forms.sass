@@ -1,0 +1,30 @@
+input, .button
+  box-sizing: border-box
+  height: $element-height
+  width: 300px
+  background-color: $header-color
+  border: 4px solid $header-color
+  border-radius: $element-border-radius
+  color: $navbar-background-color
+  text-decoration: none
+  font:
+    family: Comfortaa
+    weight: bold
+  caret-color: $navbar-background-color
+  padding: $element-padding $element-padding * 1.5
+  &[type=text], &[type=password], &[type=email]
+    &:hover
+      background-color: $input-hover-color
+    &:focus
+      border: 4px solid $navbar-background-color
+      outline: none
+      background-color: $input-hover-color
+  &[type=button], &[type=reset], &[type=submit], &[href]
+    &:hover
+      background-color: $input-hover-color
+      border-color: $input-hover-color
+    &:active
+      opacity: 0.8
+
+  &::placeholder
+    color: $navbar-background-color
