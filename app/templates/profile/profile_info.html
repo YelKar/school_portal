@@ -1,0 +1,40 @@
+{% extends base %}
+
+{% block content %}
+    <h2>Информация о пользователе {{ current_user }}</h2>
+    <table class="user_info">
+        {% set user = current_user.get_user().__dict__ %}
+        <tr>
+            <th>id</th>
+            <td>{{ user.id }}</td>
+        </tr>
+        <tr>
+            <th>Логин</th>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <th>Имя</th>
+            <td>{{ user.firstname }}</td>
+        </tr>
+        <tr>
+            <th>Фамилия</th>
+            <td>{{ user.lastname }}</td>
+        </tr>
+        <tr>
+            <th>Отчество</th>
+            <td>{{ user.patronymic }}</td>
+        </tr>
+        <tr>
+            <th>Пол</th>
+            <td>{{ "Мужской" if user.sex == "М" else "Женский" }}</td>
+        </tr>
+        <tr>
+            <th>Класс</th>
+            <td>{{ user.classroom }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ user.email }}</td>
+        </tr>
+    </table>
+{% endblock %}

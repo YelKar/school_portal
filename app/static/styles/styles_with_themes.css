@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: Comfortaa;
   src: url(../fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf);
@@ -68,6 +69,7 @@ html {
 }
 .dark-theme .navbar.open .element-text {
   display: inline-block;
+  cursor: url("../cursors/pointer/dark.cur"), pointer;
 }
 .dark-theme .navbar.open + main {
   margin-left: 250px;
@@ -158,7 +160,7 @@ html {
   border-radius: 10px;
   border: 4px solid #333;
 }
-.dark-theme a, .dark-theme button, .dark-theme .navbar-elements,
+.dark-theme a, .dark-theme button, .dark-theme .navbar-elements, .dark-theme select, .dark-theme .header,
 .dark-theme input[type=button],
 .dark-theme input[type=reset],
 .dark-theme input[type=submit] {
@@ -173,15 +175,32 @@ html {
 .dark-theme svg.error_requests {
   stroke: #999;
 }
+.dark-theme .user_info th, .dark-theme .user_info td {
+  color: #2a2a2a;
+  padding: 10px;
+  background-color: #999;
+  border-radius: 5px;
+}
+.dark-theme .user_info th {
+  text-align: left;
+  min-width: 150px;
+  width: 25%;
+}
+.dark-theme .user_info td {
+  text-align: right;
+  min-width: 300px;
+  width: 50%;
+}
 .dark-theme form {
   display: block;
   text-align: left;
-  width: 300px;
+  width: 400px;
 }
-.dark-theme input, .dark-theme .button {
+.dark-theme input:not([type=checkbox], [type=radio]),
+.dark-theme .button, .dark-theme select {
   box-sizing: border-box;
   height: 60px;
-  width: 300px;
+  width: 400px;
   background-color: #999;
   border: 4px solid #999;
   border-radius: 8px;
@@ -192,63 +211,116 @@ html {
   caret-color: #333;
   padding: 20px 30px;
 }
-.dark-theme input[type=text]:hover, .dark-theme input[type=password]:hover, .dark-theme input[type=email]:hover, .dark-theme .button[type=text]:hover, .dark-theme .button[type=password]:hover, .dark-theme .button[type=email]:hover {
+.dark-theme input:not([type=checkbox], [type=radio])[type=text]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=password]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=email]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=number]:hover,
+.dark-theme .button[type=text]:hover,
+.dark-theme .button[type=password]:hover,
+.dark-theme .button[type=email]:hover,
+.dark-theme .button[type=number]:hover, .dark-theme select[type=text]:hover, .dark-theme select[type=password]:hover, .dark-theme select[type=email]:hover, .dark-theme select[type=number]:hover {
   background-color: #888888;
 }
-.dark-theme input[type=text]:focus, .dark-theme input[type=password]:focus, .dark-theme input[type=email]:focus, .dark-theme .button[type=text]:focus, .dark-theme .button[type=password]:focus, .dark-theme .button[type=email]:focus {
+.dark-theme input:not([type=checkbox], [type=radio])[type=text]:focus, .dark-theme input:not([type=checkbox], [type=radio])[type=password]:focus, .dark-theme input:not([type=checkbox], [type=radio])[type=email]:focus, .dark-theme input:not([type=checkbox], [type=radio])[type=number]:focus,
+.dark-theme .button[type=text]:focus,
+.dark-theme .button[type=password]:focus,
+.dark-theme .button[type=email]:focus,
+.dark-theme .button[type=number]:focus, .dark-theme select[type=text]:focus, .dark-theme select[type=password]:focus, .dark-theme select[type=email]:focus, .dark-theme select[type=number]:focus {
   border: 4px solid #333;
   outline: none;
   background-color: #888888;
 }
-.dark-theme input[type=button]:hover, .dark-theme input[type=reset]:hover, .dark-theme input[type=submit]:hover, .dark-theme input[href]:hover, .dark-theme .button[type=button]:hover, .dark-theme .button[type=reset]:hover, .dark-theme .button[type=submit]:hover, .dark-theme .button[href]:hover {
+.dark-theme input:not([type=checkbox], [type=radio])[type=button]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=reset]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=submit]:hover, .dark-theme input:not([type=checkbox], [type=radio])[href]:hover,
+.dark-theme .button[type=button]:hover,
+.dark-theme .button[type=reset]:hover,
+.dark-theme .button[type=submit]:hover,
+.dark-theme .button[href]:hover, .dark-theme select[type=button]:hover, .dark-theme select[type=reset]:hover, .dark-theme select[type=submit]:hover, .dark-theme select[href]:hover {
   background-color: #888888;
   border-color: #888888;
 }
-.dark-theme input[type=button]:active, .dark-theme input[type=reset]:active, .dark-theme input[type=submit]:active, .dark-theme input[href]:active, .dark-theme .button[type=button]:active, .dark-theme .button[type=reset]:active, .dark-theme .button[type=submit]:active, .dark-theme .button[href]:active {
+.dark-theme input:not([type=checkbox], [type=radio])[type=button]:active, .dark-theme input:not([type=checkbox], [type=radio])[type=reset]:active, .dark-theme input:not([type=checkbox], [type=radio])[type=submit]:active, .dark-theme input:not([type=checkbox], [type=radio])[href]:active,
+.dark-theme .button[type=button]:active,
+.dark-theme .button[type=reset]:active,
+.dark-theme .button[type=submit]:active,
+.dark-theme .button[href]:active, .dark-theme select[type=button]:active, .dark-theme select[type=reset]:active, .dark-theme select[type=submit]:active, .dark-theme select[href]:active {
   opacity: 0.8;
 }
-.dark-theme input::placeholder, .dark-theme .button::placeholder {
+.dark-theme input:not([type=checkbox], [type=radio])::placeholder,
+.dark-theme .button::placeholder, .dark-theme select::placeholder {
   color: #333;
+  opacity: 0.5;
 }
-.dark-theme input, .dark-theme .button {
-  box-sizing: border-box;
-  height: 60px;
-  width: 300px;
+.dark-theme .BooleanField, .dark-theme .checkbox {
+  position: relative;
+  height: 20px;
+}
+.dark-theme .BooleanField input, .dark-theme .checkbox input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+.dark-theme .BooleanField input:checked + label::before, .dark-theme .checkbox input:checked + label::before {
   background-color: #999;
-  border: 4px solid #999;
+}
+.dark-theme .BooleanField label, .dark-theme .checkbox label {
+  position: absolute;
+  padding-left: 40px;
+  line-height: 30px;
+  cursor: url("../cursors/link/pointer.cur"), link;
+}
+.dark-theme .BooleanField label:before, .dark-theme .checkbox label:before {
+  margin-right: 10px;
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #2a2a2a;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #999;
   border-radius: 8px;
+}
+.dark-theme .classroom, .dark-theme .classletter {
+  display: inline-block;
+}
+.dark-theme .classroom input, .dark-theme .classletter input {
+  width: 295px;
+}
+.dark-theme .classroom input::-webkit-outer-spin-button, .dark-theme .classroom input::-webkit-inner-spin-button, .dark-theme .classletter input::-webkit-outer-spin-button, .dark-theme .classletter input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: none;
+}
+.dark-theme .classroom select, .dark-theme .classletter select {
+  width: 100px;
+}
+.dark-theme .form_error {
+  position: relative;
+  background-color: #999;
+  border-radius: 8px;
+  padding: 4px 10px;
   color: #333;
-  text-decoration: none;
-  font-family: Comfortaa;
   font-weight: bold;
-  caret-color: #333;
-  padding: 20px 30px;
+  margin: 5px 0;
 }
-.dark-theme input[type=text]:hover, .dark-theme input[type=password]:hover, .dark-theme input[type=email]:hover, .dark-theme .button[type=text]:hover, .dark-theme .button[type=password]:hover, .dark-theme .button[type=email]:hover {
-  background-color: #888888;
+.dark-theme .form_error:after {
+  content: "╳";
+  position: absolute;
+  top: 0;
+  right: 5px;
 }
-.dark-theme input[type=text]:focus, .dark-theme input[type=password]:focus, .dark-theme input[type=email]:focus, .dark-theme .button[type=text]:focus, .dark-theme .button[type=password]:focus, .dark-theme .button[type=email]:focus {
-  border: 4px solid #333;
-  outline: none;
-  background-color: #888888;
-}
-.dark-theme input[type=button]:hover, .dark-theme input[type=reset]:hover, .dark-theme input[type=submit]:hover, .dark-theme input[href]:hover, .dark-theme .button[type=button]:hover, .dark-theme .button[type=reset]:hover, .dark-theme .button[type=submit]:hover, .dark-theme .button[href]:hover {
-  background-color: #888888;
-  border-color: #888888;
-}
-.dark-theme input[type=button]:active, .dark-theme input[type=reset]:active, .dark-theme input[type=submit]:active, .dark-theme input[href]:active, .dark-theme .button[type=button]:active, .dark-theme .button[type=reset]:active, .dark-theme .button[type=submit]:active, .dark-theme .button[href]:active {
-  opacity: 0.8;
-}
-.dark-theme input::placeholder, .dark-theme .button::placeholder {
-  color: #333;
+.dark-theme .register .repeat_password, .dark-theme .register .patronymic, .dark-theme .register .classletter {
+  margin-bottom: 50px;
 }
 .dark-theme .documents {
   display: flex;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  padding: 80px 50px 100px 150px;
-  width: 1000px;
+  padding: 80px 50px 100px 120px;
+  width: 970px;
   text-align: center;
   color: black;
   background-color: #fff;
@@ -267,6 +339,37 @@ html {
 }
 .dark-theme .tnr {
   font-family: "Times New Roman", serif;
+}
+.dark-theme .ar {
+  font-family: Arial, sans-serif;
+  font-weight: lighter;
+}
+@media print {
+  .dark-theme .navbar {
+    display: none;
+  }
+  .dark-theme .documents {
+    border: none;
+    padding: 80px 50px 100px 80px;
+  }
+}
+.dark-theme .chose_documents {
+  width: 500px;
+  text-align: left;
+}
+.dark-theme .chose_documents details {
+  border-width: 4px;
+  border-style: solid;
+  border-color: #999;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: #333;
+}
+.dark-theme .chose_documents details p {
+  margin: 10px;
+}
+.dark-theme .chose_documents summary {
+  padding: 10px;
 }
 
 .light-theme {
@@ -324,6 +427,7 @@ html {
 }
 .light-theme .navbar.open .element-text {
   display: inline-block;
+  cursor: url("../cursors/pointer/light.cur"), pointer;
 }
 .light-theme .navbar.open + main {
   margin-left: 250px;
@@ -414,7 +518,7 @@ html {
   border-radius: 10px;
   border: 4px solid #ffffff;
 }
-.light-theme a, .light-theme button, .light-theme .navbar-elements,
+.light-theme a, .light-theme button, .light-theme .navbar-elements, .light-theme select, .light-theme .header,
 .light-theme input[type=button],
 .light-theme input[type=reset],
 .light-theme input[type=submit] {
@@ -429,15 +533,32 @@ html {
 .light-theme svg.error_requests {
   stroke: #555;
 }
+.light-theme .user_info th, .light-theme .user_info td {
+  color: #e4e9f7;
+  padding: 10px;
+  background-color: #8658ea;
+  border-radius: 5px;
+}
+.light-theme .user_info th {
+  text-align: left;
+  min-width: 150px;
+  width: 25%;
+}
+.light-theme .user_info td {
+  text-align: right;
+  min-width: 300px;
+  width: 50%;
+}
 .light-theme form {
   display: block;
   text-align: left;
-  width: 300px;
+  width: 400px;
 }
-.light-theme input, .light-theme .button {
+.light-theme input:not([type=checkbox], [type=radio]),
+.light-theme .button, .light-theme select {
   box-sizing: border-box;
   height: 60px;
-  width: 300px;
+  width: 400px;
   background-color: #8658ea;
   border: 4px solid #8658ea;
   border-radius: 8px;
@@ -448,63 +569,116 @@ html {
   caret-color: #ffffff;
   padding: 20px 30px;
 }
-.light-theme input[type=text]:hover, .light-theme input[type=password]:hover, .light-theme input[type=email]:hover, .light-theme .button[type=text]:hover, .light-theme .button[type=password]:hover, .light-theme .button[type=email]:hover {
+.light-theme input:not([type=checkbox], [type=radio])[type=text]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=password]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=email]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=number]:hover,
+.light-theme .button[type=text]:hover,
+.light-theme .button[type=password]:hover,
+.light-theme .button[type=email]:hover,
+.light-theme .button[type=number]:hover, .light-theme select[type=text]:hover, .light-theme select[type=password]:hover, .light-theme select[type=email]:hover, .light-theme select[type=number]:hover {
   background-color: #753def;
 }
-.light-theme input[type=text]:focus, .light-theme input[type=password]:focus, .light-theme input[type=email]:focus, .light-theme .button[type=text]:focus, .light-theme .button[type=password]:focus, .light-theme .button[type=email]:focus {
+.light-theme input:not([type=checkbox], [type=radio])[type=text]:focus, .light-theme input:not([type=checkbox], [type=radio])[type=password]:focus, .light-theme input:not([type=checkbox], [type=radio])[type=email]:focus, .light-theme input:not([type=checkbox], [type=radio])[type=number]:focus,
+.light-theme .button[type=text]:focus,
+.light-theme .button[type=password]:focus,
+.light-theme .button[type=email]:focus,
+.light-theme .button[type=number]:focus, .light-theme select[type=text]:focus, .light-theme select[type=password]:focus, .light-theme select[type=email]:focus, .light-theme select[type=number]:focus {
   border: 4px solid #ffffff;
   outline: none;
   background-color: #753def;
 }
-.light-theme input[type=button]:hover, .light-theme input[type=reset]:hover, .light-theme input[type=submit]:hover, .light-theme input[href]:hover, .light-theme .button[type=button]:hover, .light-theme .button[type=reset]:hover, .light-theme .button[type=submit]:hover, .light-theme .button[href]:hover {
+.light-theme input:not([type=checkbox], [type=radio])[type=button]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=reset]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=submit]:hover, .light-theme input:not([type=checkbox], [type=radio])[href]:hover,
+.light-theme .button[type=button]:hover,
+.light-theme .button[type=reset]:hover,
+.light-theme .button[type=submit]:hover,
+.light-theme .button[href]:hover, .light-theme select[type=button]:hover, .light-theme select[type=reset]:hover, .light-theme select[type=submit]:hover, .light-theme select[href]:hover {
   background-color: #753def;
   border-color: #753def;
 }
-.light-theme input[type=button]:active, .light-theme input[type=reset]:active, .light-theme input[type=submit]:active, .light-theme input[href]:active, .light-theme .button[type=button]:active, .light-theme .button[type=reset]:active, .light-theme .button[type=submit]:active, .light-theme .button[href]:active {
+.light-theme input:not([type=checkbox], [type=radio])[type=button]:active, .light-theme input:not([type=checkbox], [type=radio])[type=reset]:active, .light-theme input:not([type=checkbox], [type=radio])[type=submit]:active, .light-theme input:not([type=checkbox], [type=radio])[href]:active,
+.light-theme .button[type=button]:active,
+.light-theme .button[type=reset]:active,
+.light-theme .button[type=submit]:active,
+.light-theme .button[href]:active, .light-theme select[type=button]:active, .light-theme select[type=reset]:active, .light-theme select[type=submit]:active, .light-theme select[href]:active {
   opacity: 0.8;
 }
-.light-theme input::placeholder, .light-theme .button::placeholder {
+.light-theme input:not([type=checkbox], [type=radio])::placeholder,
+.light-theme .button::placeholder, .light-theme select::placeholder {
   color: #ffffff;
+  opacity: 0.5;
 }
-.light-theme input, .light-theme .button {
-  box-sizing: border-box;
-  height: 60px;
-  width: 300px;
+.light-theme .BooleanField, .light-theme .checkbox {
+  position: relative;
+  height: 20px;
+}
+.light-theme .BooleanField input, .light-theme .checkbox input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+.light-theme .BooleanField input:checked + label::before, .light-theme .checkbox input:checked + label::before {
   background-color: #8658ea;
-  border: 4px solid #8658ea;
+}
+.light-theme .BooleanField label, .light-theme .checkbox label {
+  position: absolute;
+  padding-left: 40px;
+  line-height: 30px;
+  cursor: url("../cursors/link/pointer.cur"), link;
+}
+.light-theme .BooleanField label:before, .light-theme .checkbox label:before {
+  margin-right: 10px;
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #e4e9f7;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #8658ea;
   border-radius: 8px;
+}
+.light-theme .classroom, .light-theme .classletter {
+  display: inline-block;
+}
+.light-theme .classroom input, .light-theme .classletter input {
+  width: 295px;
+}
+.light-theme .classroom input::-webkit-outer-spin-button, .light-theme .classroom input::-webkit-inner-spin-button, .light-theme .classletter input::-webkit-outer-spin-button, .light-theme .classletter input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: none;
+}
+.light-theme .classroom select, .light-theme .classletter select {
+  width: 100px;
+}
+.light-theme .form_error {
+  position: relative;
+  background-color: #8658ea;
+  border-radius: 8px;
+  padding: 4px 10px;
   color: #ffffff;
-  text-decoration: none;
-  font-family: Comfortaa;
   font-weight: bold;
-  caret-color: #ffffff;
-  padding: 20px 30px;
+  margin: 5px 0;
 }
-.light-theme input[type=text]:hover, .light-theme input[type=password]:hover, .light-theme input[type=email]:hover, .light-theme .button[type=text]:hover, .light-theme .button[type=password]:hover, .light-theme .button[type=email]:hover {
-  background-color: #753def;
+.light-theme .form_error:after {
+  content: "╳";
+  position: absolute;
+  top: 0;
+  right: 5px;
 }
-.light-theme input[type=text]:focus, .light-theme input[type=password]:focus, .light-theme input[type=email]:focus, .light-theme .button[type=text]:focus, .light-theme .button[type=password]:focus, .light-theme .button[type=email]:focus {
-  border: 4px solid #ffffff;
-  outline: none;
-  background-color: #753def;
-}
-.light-theme input[type=button]:hover, .light-theme input[type=reset]:hover, .light-theme input[type=submit]:hover, .light-theme input[href]:hover, .light-theme .button[type=button]:hover, .light-theme .button[type=reset]:hover, .light-theme .button[type=submit]:hover, .light-theme .button[href]:hover {
-  background-color: #753def;
-  border-color: #753def;
-}
-.light-theme input[type=button]:active, .light-theme input[type=reset]:active, .light-theme input[type=submit]:active, .light-theme input[href]:active, .light-theme .button[type=button]:active, .light-theme .button[type=reset]:active, .light-theme .button[type=submit]:active, .light-theme .button[href]:active {
-  opacity: 0.8;
-}
-.light-theme input::placeholder, .light-theme .button::placeholder {
-  color: #ffffff;
+.light-theme .register .repeat_password, .light-theme .register .patronymic, .light-theme .register .classletter {
+  margin-bottom: 50px;
 }
 .light-theme .documents {
   display: flex;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  padding: 80px 50px 100px 150px;
-  width: 1000px;
+  padding: 80px 50px 100px 120px;
+  width: 970px;
   text-align: center;
   color: black;
   background-color: #fff;
@@ -523,6 +697,37 @@ html {
 }
 .light-theme .tnr {
   font-family: "Times New Roman", serif;
+}
+.light-theme .ar {
+  font-family: Arial, sans-serif;
+  font-weight: lighter;
+}
+@media print {
+  .light-theme .navbar {
+    display: none;
+  }
+  .light-theme .documents {
+    border: none;
+    padding: 80px 50px 100px 80px;
+  }
+}
+.light-theme .chose_documents {
+  width: 500px;
+  text-align: left;
+}
+.light-theme .chose_documents details {
+  border-width: 4px;
+  border-style: solid;
+  border-color: #8658ea;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: #ffffff;
+}
+.light-theme .chose_documents details p {
+  margin: 10px;
+}
+.light-theme .chose_documents summary {
+  padding: 10px;
 }
 
 /*# sourceMappingURL=styles_with_themes.css.map */

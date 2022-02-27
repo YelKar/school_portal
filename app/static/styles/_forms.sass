@@ -1,7 +1,13 @@
-input, .button
+form
+  display: block
+  text-align: left
+  width: 400px
+
+input:not([type="checkbox"], [type="radio"]),
+.button, select
   box-sizing: border-box
   height: $element-height
-  width: 300px
+  width: 400px
   background-color: $header-color
   border: 4px solid $header-color
   border-radius: $element-border-radius
@@ -12,13 +18,15 @@ input, .button
     weight: bold
   caret-color: $navbar-background-color
   padding: $element-padding $element-padding * 1.5
-  &[type=text], &[type=password], &[type=email]
+  // styles for text elements
+  &[type=text], &[type=password], &[type=email], &[type=number]
     &:hover
       background-color: $input-hover-color
     &:focus
       border: 4px solid $navbar-background-color
       outline: none
       background-color: $input-hover-color
+  // styles for button elements
   &[type=button], &[type=reset], &[type=submit], &[href]
     &:hover
       background-color: $input-hover-color
@@ -28,3 +36,71 @@ input, .button
 
   &::placeholder
     color: $navbar-background-color
+    opacity: 0.5
+
+
+.BooleanField, .checkbox
+    position: relative
+    height: 20px
+    input
+        -webkit-appearance: none
+        -moz-appearance: none
+        appearance: none
+        position: absolute
+    input:checked + label::before
+        background-color: $header_color
+    label
+        position: absolute
+        padding-left: 40px
+        line-height: 30px
+        @include cursor(link, pointer)
+        &:before
+            margin-right: 10px
+            content: ""
+            display: block
+            width: 20px
+            height: 20px
+            position: absolute
+            top: 0
+            left: 0
+            background-color: $background_color
+
+            border:
+              width: 4px
+              style: solid
+              color: $header-color
+              radius: $element-border-radius
+
+
+// Форма выбора класса
+.classroom, .classletter
+  display: inline-block
+  input
+    width: 295px
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+      -webkit-appearance: none
+      -moz-appearance: none
+      appearance: none
+      display: none
+  select
+    width: 100px
+
+// Отображение ошибок
+.form_error
+  position: relative
+  background-color: $header-color
+  border-radius: $element-border-radius
+  padding: 4px 10px
+  color: $navbar-background-color
+  font-weight: bold
+  margin: 5px 0
+
+  &:after
+    content: "╳"
+    position: absolute
+    top: 0
+    right: 5px
+
+.register
+  .repeat_password, .patronymic, .classletter
+    margin-bottom: 50px

@@ -2,9 +2,21 @@
 {% block content %}
     <h2>Войти</h2>
     <form method="POST">
+        {% for msg in get_flashed_messages() %}
+            <div class="form_error">
+                {{ msg }}
+            </div>
+        {% endfor %}
         {{ form.csrf_token }}
+        {% if form.submit.errors %}
+        <div class="form_error">
+        {% for error in form.submit.errors %}
+            {{ error if error }}
+        {% endfor %}
+        </div>
+        {% endif %}
         {% for field in form if field.name != "csrf_token" %}
-            <p>
+            <p class="{{ field.name }}">
                 {{ field.label() if field.type != "SubmitField" }}<br>
                 {{ field }}
             </p>

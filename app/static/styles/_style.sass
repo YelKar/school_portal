@@ -26,9 +26,8 @@ main
       border-radius: 10px
       border: 4px solid $navbar-background-color
 
-
 // курсор для всех элементов, на которые требуется нажимать
-a, button, .navbar-elements,
+a, button, .navbar-elements, select, .header,
 input[type="button"],
 input[type="reset"],
 input[type="submit"]
@@ -41,47 +40,25 @@ input[type="password"],
 input[type="email"]
   @include cursor(text, $c_style)
 
-
 svg.error_requests
   stroke: $text-color
 
+// table in page /profile/info
+.user_info
+  th, td
+    color: $background-color
+    padding: 10px
+    background-color: $header-color
+    border-radius: 5px
+  th
+    text-align: left
+    min-width: 150px
+    width: 25%
+  td
+    text-align: right
+    min-width: 300px
+    width: 50%
 
-form
-  display: block
-  text-align: left
-  width: 300px
-
-input, .button
-  box-sizing: border-box
-  height: $element-height
-  width: 300px
-  background-color: $header-color
-  border: 4px solid $header-color
-  border-radius: $element-border-radius
-  color: $navbar-background-color
-  text-decoration: none
-  font:
-    family: Comfortaa
-    weight: bold
-  caret-color: $navbar-background-color
-  padding: $element-padding $element-padding * 1.5
-  &[type=text], &[type=password], &[type=email]
-    &:hover
-      background-color: $input-hover-color
-    &:focus
-      border: 4px solid $navbar-background-color
-      outline: none
-      background-color: $input-hover-color
-  &[type=button], &[type=reset], &[type=submit], &[href]
-    &:hover
-      background-color: $input-hover-color
-      border-color: $input-hover-color
-    &:active
-      opacity: 0.8
-
-  &::placeholder
-    color: $navbar-background-color
 
 @import "forms"
-
 @import "documents"
