@@ -23,17 +23,16 @@ class MyForm(FlaskForm):
 <br>
 
 ---
-<div style="border: 2px solid red; 
-    border-radius: 5px; 
-    background-color: rgba(255, 0, 0, 0.2);">
+## ___!important!___
+### ___if you need to validate email, you need to install it___
 
-<h3 style="color: black; background-color: rgba(255, 0, 0, 0.5); margin: 0;">
-if you need to validate email, you need to install it
-</h3>
 
 ```
 pip install email_validator
 ```
+    
+##### but newer verions of flask_wtf have validator ```Email```
+    
 </div>
 
 ---
