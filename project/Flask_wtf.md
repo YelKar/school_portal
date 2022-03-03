@@ -1,7 +1,7 @@
 # Flask_wtf
 
 ## create form
-#### import FlaskForm, Fields and validators
+### import FlaskForm, Fields and validators
 
 ```python
 from flask_wtf import FlaskForm
@@ -9,7 +9,7 @@ from wtforms import FieldType
 from wtforms.validators import SomeValidator
 ```
 
-#### Create class
+### Create class
 ```python
 class MyForm(FlaskForm):
     field_name = FieldType("label text", 
@@ -28,44 +28,42 @@ class MyForm(FlaskForm):
 def form_view():
     form = MyForm()
     if form.validate_on_submit():    # check validate
-        print(form.field_name.data)     # print entered data
+        print(form.field_name.data)     # get and print entered data
     return render_template("form.html", form=form)
 ```
 
 ### frontend. Template
 
-###### not use "for"
-```
+#### not use "for"
+```html
 <form method="POST">
     {{ form.csrf_token }}
-    {% for field in form if field.name != "csrf_token" %}
-        <p class="{{ field.name }}">
-            {% if field.errors %}
-            <div class="form_error">
-            {% for error in field.errors %}
-                {{ error if error }}
-            {% endfor %}
+    <p>
+        {% if form.field_name.errors %}
+            <div>
+                {% for error in form.field_name.errors %}
+                    {{ error if error }}
+                {% endfor %}
             </div>
-            {% endif %}
-            {{ field.label() if field.type != "SubmitField" }}<br>
-            {{ field }}
-        </p>
-    {% endfor %}
+        {% endif %}
+        {{ form.field_name }}
+        {{ form.field_name.label() }}
+    </p>
 </form>
 ```
 
 #### with "for"
-```
+```html
 <form method="POST">
     {{ form.csrf_token }}
     {% for field in form if field.name != "csrf_token" %}
-        <p class="{{ field.name }}">
+        <p>
             {% if field.errors %}
-            <div class="form_error">
-            {% for error in field.errors %}
-                {{ error if error }}
-            {% endfor %}
-            </div>
+                <div class="form_error">
+                    {% for error in field.errors %}
+                        {{ error if error }}
+                    {% endfor %}
+                </div>
             {% endif %}
             {{ field.label() if field.type != "SubmitField" }}<br>
             {{ field }}
