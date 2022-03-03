@@ -13,13 +13,30 @@ from wtforms.validators import SomeValidator
 ```python
 class MyForm(FlaskForm):
     field_name = FieldType("label text", 
-                           validators=[SomeValidator()]
+                           validators=[SomeValidator()],
                            render_kw={
                                "field-tag-argument": "value", 
                                "argument2": "value2"
                                }
                            )
 ```
+<br>
+
+---
+<div style="border: 2px solid red; 
+    border-radius: 5px; 
+    background-color: rgba(255, 0, 0, 0.2);">
+
+<h3 style="color: black; background-color: rgba(255, 0, 0, 0.5); margin: 0;">
+if you need to validate email, you need to install it
+</h3>
+
+```
+pip install email_validator
+```
+</div>
+
+---
 
 ## view form
 ### Flask backend
@@ -73,9 +90,38 @@ def form_view():
 ```
 
 ## Field types
-```StringField``` - ```<input type="text">```
-| Таблицы       | Это                | Круто |
-| ------------- |:------------------:| -----:|
-| столбец 3     | выровнен вправо    | $1600 |
-| столбец 2     | выровнен по центру |   $12 |
-| зебра-строки  | прикольные         |    $1 |
+<table class="user_info">
+    <tr>
+        <th>Wtf field</th>
+        <th>input type</th>
+    </tr>
+    <tr>
+        <td>StringField</td>
+        <td>text</td>
+    </tr>
+    <tr>
+        <td>PasswordField</td>
+        <td>password</td>
+    </tr>
+    <tr>
+        <td>EmailField</td>
+        <td>email</td>
+    </tr>
+    <tr>
+        <td>BooleanField</td>
+        <td>checkbox</td>
+    </tr>
+    <tr>
+        <td>SubmitField</td>
+        <td>submit</td>
+    </tr>
+</table>
+
+## validators
+
+```DataRequired()``` - checking if value exist
+
+```Length(max=..., min=...)```
+
+```EqualTo("field_name", "message")``` - checking for a match with another field
+
