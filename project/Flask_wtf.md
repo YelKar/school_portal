@@ -31,9 +31,9 @@ class MyForm(FlaskForm):
 pip install email_validator
 ```
     
-##### but newer verions of flask_wtf have validator ```Email```
+##### but newer versions of flask_wtf have validator ```Email```
     
-</div>
+
 
 ---
 
