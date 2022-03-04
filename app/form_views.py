@@ -20,13 +20,16 @@ def load_user(user_id):
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    form = RegisterForm()
-    if form.validate_on_submit():
+    form = RegisterForm()   # create form object
+    if form.validate_on_submit():    # if form passed validation
+        # coding password
         password_hash = generate_password_hash(form.password.data)
+        # get data and create row for database
         u = Users(username=form.username.data, password=password_hash,
                   email=form.email.data,
                   firstname=form.firstname.data, lastname=form.lastname.data, patronymic=form.patronymic.data,
                   sex=form.sex.data, classroom=str(form.classroom.data)+form.classletter.data)
+        # add row to database
         db.session.add(u)
         db.session.flush()
         db.session.commit()
@@ -36,14 +39,14 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if current_user.is_authenticated:
+    if current_user.is_authenticated:  # if user is authorized, he is redirected to the profile
         return redirect(url_for("profile"))
     else:
-        form = LoginForm()
-        if form.validate_on_submit():
-            user = Users.query.filter(form.username.data == Users.username).first()
+        form = LoginForm()   # create form object
+        if form.validate_on_submit():   # if form passed validation
+            user = Users.query.filter(form.username.data == Users.username).first()  # get user from database
             user_login = UserLogin().create(user)
-            login_user(user_login)
+            login_user(user_login)    # user authorization
             return redirect(url_for("profile"))
     return render_template("login.html", base=base, form=form)
 
@@ -52,4 +55,3 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for("index"))
-
