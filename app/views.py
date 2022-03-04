@@ -1,7 +1,9 @@
-from app import app
+from app import app, db
 from flask import render_template, url_for, \
     request, flash, abort, session
 from werkzeug.exceptions import HTTPException
+from flask_login import login_required
+from app.database import Users
 
 
 base = "base.html"
@@ -13,15 +15,31 @@ def index():
     return render_template("index.html", title=title, base=base)
 
 
-@app.route("/print")
-def print_document():
-    return render_template("print.html", base=base)
-
-
 @app.route("/abort-<int:error_code>")
 def abort_error(error_code):
     abort(error_code)
     return f"{error_code}"
+
+
+@app.route("/profile")
+@login_required
+def profile():
+    return render_template("profile/profile.html", base=base)
+
+
+@app.route('/profile/info')
+def profile_info():
+    return render_template("profile/profile_info.html", base=base)
+
+
+@app.route('/chose_documents')
+def chose_documents():
+    return render_template("documents/chose_documents.html", base=base, users=Users, db=db)
+
+
+@app.route("/print")
+def print_document():
+    return render_template("print.html", base=base)
 
 
 @app.errorhandler(HTTPException)

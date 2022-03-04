@@ -13,7 +13,7 @@
 </head>
 <body>
     <nav class="navbar {{ request.cookies.get("navbar_is_open") if request.cookies.get("navbar_is_open") }}">
-        <header onclick="open_navbar();">
+        <header onclick="return location.href = '{{ url_for("index") }}'">
             <span class="header open">School №1060</span>
             <span class="header">1060</span>
         </header>
@@ -32,7 +32,7 @@
                 {{ ico.index() }}
                 <span class="element-text">Главная</span>
             </a>
-            <a href="{{ url_for('print_document') }}">
+            <a href="{{ url_for('chose_documents') }}">
                 {{ ico.print_doc() }}
                 <span class="element-text">Документы</span>
             </a>

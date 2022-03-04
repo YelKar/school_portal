@@ -12,7 +12,8 @@ class LoginForm(FlaskForm):
     username = StringField("Логин: *", validators=[DataRequired()],
                            render_kw={"placeholder": "Введите имя пользователя"})
     password = PasswordField("Пароль: *", validators=[Length(min=6)], render_kw={"placeholder": "Введите пароль"})
-    def validate_user(self, field):
+
+    def validate_user(self, _):
         if not Users.query.filter(Users.username == self.username.data
                                   and check_password_hash(Users.password, self.password.data))\
                 .limit(1).all():
@@ -55,4 +56,3 @@ class RegisterForm(FlaskForm):
     email = EmailField("Email", validators=[Email(), DataRequired()],
                        render_kw={"placeholder": "your@ema.il"})
     submit = SubmitField("Создать")
-

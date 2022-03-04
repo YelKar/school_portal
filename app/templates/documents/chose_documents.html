@@ -1,0 +1,17 @@
+{% extends base %}
+{% block content %}
+    <div class="chose_documents">
+    {% set full_names = db.session.query(users.firstname, users.lastname,  users.patronymic) %}
+    {% for classroom in range(1, 12) if full_names.filter(users.classroom == classroom|string + "н").all() %}
+        <details>
+        <summary>{{ classroom|string + "н" }}</summary>
+        {% for firstname, lastname, patronymic in full_names.filter(users.classroom == classroom|string + "н").all() %}
+            <p class="checkbox">
+                <input type="checkbox" id="{{ firstname }}">
+                <label for="{{ firstname }}">{{ lastname }} {{ firstname }} {{ patronymic }}</label>
+            </p>
+        {% endfor %}
+        </details>
+    {% endfor %}
+    </div>
+{% endblock %}
