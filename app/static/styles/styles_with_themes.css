@@ -202,9 +202,11 @@ html {
   height: 60px;
   width: 400px;
   background-color: #999;
-  border: 4px solid #999;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #999;
   border-radius: 8px;
-  color: #333;
+  color: #2a2a2a;
   text-decoration: none;
   font-family: Comfortaa;
   font-weight: bold;
@@ -223,7 +225,6 @@ html {
 .dark-theme .button[type=password]:focus,
 .dark-theme .button[type=email]:focus,
 .dark-theme .button[type=number]:focus, .dark-theme select[type=text]:focus, .dark-theme select[type=password]:focus, .dark-theme select[type=email]:focus, .dark-theme select[type=number]:focus {
-  border: 4px solid #333;
   outline: none;
   background-color: #888888;
 }
@@ -244,8 +245,11 @@ html {
 }
 .dark-theme input:not([type=checkbox], [type=radio])::placeholder,
 .dark-theme .button::placeholder, .dark-theme select::placeholder {
-  color: #333;
+  color: #2a2a2a;
   opacity: 0.5;
+}
+.dark-theme select:focus {
+  outline: none;
 }
 .dark-theme .BooleanField, .dark-theme .checkbox {
   position: relative;
@@ -562,9 +566,11 @@ html {
   height: 60px;
   width: 400px;
   background-color: #8658ea;
-  border: 4px solid #8658ea;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #8658ea;
   border-radius: 8px;
-  color: #ffffff;
+  color: #e4e9f7;
   text-decoration: none;
   font-family: Comfortaa;
   font-weight: bold;
@@ -583,7 +589,6 @@ html {
 .light-theme .button[type=password]:focus,
 .light-theme .button[type=email]:focus,
 .light-theme .button[type=number]:focus, .light-theme select[type=text]:focus, .light-theme select[type=password]:focus, .light-theme select[type=email]:focus, .light-theme select[type=number]:focus {
-  border: 4px solid #ffffff;
   outline: none;
   background-color: #753def;
 }
@@ -604,8 +609,11 @@ html {
 }
 .light-theme input:not([type=checkbox], [type=radio])::placeholder,
 .light-theme .button::placeholder, .light-theme select::placeholder {
-  color: #ffffff;
+  color: #e4e9f7;
   opacity: 0.5;
+}
+.light-theme select:focus {
+  outline: none;
 }
 .light-theme .BooleanField, .light-theme .checkbox {
   position: relative;
