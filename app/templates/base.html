@@ -3,12 +3,17 @@
 {% import "navbar_icons.html" as ico %}
 <head>
     {% block head %}
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles_with_themes.css') }}" type="text/css">
-    <script src="{{ url_for('static', filename='scripts/script.js') }}" type="text/javascript"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+        <title>{{ title if title else request.path.split("/")[-1] }}</title>
+
+        <link rel="stylesheet" type="text/css"
+              href="{{ url_for('static', filename='styles/styles_with_themes.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename=('img/site_icon_{}.ico'.format(request.cookies.get("theme")[:-6] if request.cookies.get("theme") else "light"))) }}">
+
+        <script src="{{ url_for('static', filename='scripts/script.js') }}" type="text/javascript"></script>
     {% endblock %}
 </head>
 <body>
@@ -36,10 +41,22 @@
                 {{ ico.print_doc() }}
                 <span class="element-text">Документы</span>
             </a>
-            <a href="{{ url_for('login') }}">
-                {{ ico.profile() }}
-                <span class="element-text">Профиль</span>
-            </a>
+            <div class="profile-link">
+                <a href="{{ url_for('login') }}">
+                    {{ ico.profile() }}
+                    <span class="element-text">Профиль</span>
+                </a>
+                {% if current_user.is_authenticated %}
+                    <div class="profile-link-contextmenu">
+                        <a href="{{ url_for('logout') }}">
+                            <span class="element-text">Выйти</span>
+                        </a>
+                        <a href="{{ url_for('profile_info') }}">
+                            <span class="element-text">Информация</span>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
         </div>
     </nav>
     <main>

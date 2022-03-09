@@ -1,3 +1,5 @@
+$profile-contextmenu-width: $navbar-open-width / 1.5
+
 .navbar
   position: fixed
   box-sizing: border-box
@@ -41,6 +43,7 @@
 
   /* navbar-elements */
   &-elements a
+    text-decoration: none
     display: flex
     position: relative
     align-items: center
@@ -111,3 +114,26 @@ header
     bottom: $element-height / 2
   &.theme
     bottom: $element-height * 1.2
+
+.profile-link
+  position: relative
+  &-contextmenu
+    display: none
+    position: absolute
+    width: $profile-contextmenu-width
+    padding-left: $element-padding
+
+    left: $navbar-open-width - $element-padding
+    top: 0
+    a
+      background-color: $header-color
+      color: $navbar-background-color
+      justify-content: center
+      span.element-text
+        left: 0
+        position: relative
+      &:hover
+        background-color: $input-hover-color
+  &:hover
+    .profile-link-contextmenu
+      display: block
