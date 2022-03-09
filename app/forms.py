@@ -14,10 +14,11 @@ class LoginForm(FlaskForm):
     password = PasswordField("Пароль: *", validators=[Length(min=6)], render_kw={"placeholder": "Введите пароль"})
 
     def validate_user(self, _):
-        if not Users.query.filter(Users.username == self.username.data
-                                  and check_password_hash(Users.password, self.password.data))\
-                .limit(1).all():
-            raise ValidationError("Неверный логин или пароль")
+        u = Users.query.filter(Users.username == self.username.data).all()
+        if u:
+            if check_password_hash(u[0].password, self.password.data):
+                return
+        raise ValidationError("Неверный логин или пароль")
     submit = SubmitField("Войти", validators=[validate_user])
 
 
