@@ -1,12 +1,15 @@
 from app import app, login_manager
 from app.userLogin import UserLogin
+from app.config import my_resp
 from flask_login import login_user, login_required, logout_user, current_user
 from .views import base
-from flask import render_template, url_for, session, redirect
+from flask import render_template, url_for, session, redirect, request, make_response
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import db
 from app.database import Users
 from app.forms import *
+from colorama import Fore, Style
+from time import strftime
 
 
 login_manager.login_view = "login"
@@ -44,9 +47,13 @@ def login():
     else:
         form = LoginForm()   # create form object
         if form.validate_on_submit():   # if form passed validation
-            user = Users.query.filter(form.username.data == Users.username).first()  # get user from database
+            user: Users = Users.query.filter(form.username.data == Users.username).first()  # get user from database
             user_login = UserLogin().create(user)
+            print(Fore.LIGHTGREEN_EX + Style.BRIGHT
+                  + my_resp(f' User "{user.username}" was logged in')
+                  + Style.RESET_ALL)
             login_user(user_login)    # user authorization
+
             return redirect(url_for("profile"))
     return render_template("login.html", base=base, form=form)
 

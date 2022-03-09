@@ -1,4 +1,6 @@
 import os
+from flask import request
+from time import strftime
 
 
 class Config(object):
@@ -6,3 +8,7 @@ class Config(object):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = "sqlite:///db.db"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+def my_resp(text: str = ""):
+    return f'{request.remote_addr} - - {strftime("[%d/%b/%Y %H:%M:%S]")} {text}'
