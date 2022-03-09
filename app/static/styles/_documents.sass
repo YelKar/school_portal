@@ -4,8 +4,8 @@
   flex-direction: column
   justify-content: center
   box-sizing: border-box
-  padding: 80px 50px 100px 150px
-  width: 1000px
+  padding: 80px 50px 100px 120px
+  width: 970px
   text-align: center
 
   color: black
@@ -25,3 +25,32 @@ hr
 
 .tnr
   font-family: "Times New Roman", serif
+.ar
+  font-family: Arial, sans-serif
+  font-weight: lighter
+
+@media print
+  .navbar
+    display: none
+  .documents
+    border: none
+    padding: 80px 50px 100px 80px
+
+.chose_documents
+  width: 500px
+  text-align: left
+  details
+    border:
+      width: 4px
+      style: solid
+      color: $header-color
+      radius: $element-border-radius
+    margin: 10px
+    background-color: $navbar-background-color
+    p
+      margin: 10px
+  summary
+    font:
+      size: 20px
+      weight: bold
+    padding: 10px

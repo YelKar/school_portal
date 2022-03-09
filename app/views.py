@@ -1,8 +1,8 @@
 from app import app, db
 from flask import render_template, url_for, \
-    request, flash, abort, session
+    request, flash, abort, session, make_response, Response
 from werkzeug.exceptions import HTTPException
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.database import Users
 
 
@@ -46,6 +46,12 @@ def print_document():
 def error_requests(e: HTTPException):
     return render_template("errors.html", base=base,
                            error=e, title=e.name), e.code
+
+
+@app.route('/docs-<name>')
+def docs(name):
+    return render_template("documents/show_docs.html", name=name,
+                           base=base)
 
 
 from . import form_views

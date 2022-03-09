@@ -1,0 +1,18 @@
+{% extends base %}
+{% import "documents/documents.html" as doc %}
+{% block content %}
+    <div class="print">
+    {{ doc[name]() }}
+    </div>
+    <button onclick="window.print()">Печать</button>
+    <style>
+    @media print {
+        body {
+            display: none !important;
+        }
+        .print {
+            display: block !important;
+        }
+    }
+    </style>
+{% endblock %}
