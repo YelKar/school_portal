@@ -42,6 +42,7 @@ html {
   padding: 10px;
   background-color: #333;
   transition: all 0.2s;
+  z-index: 8;
   /* open navbar */
   /* navbar-elements */
 }
@@ -77,6 +78,9 @@ html {
 .dark-theme .navbar.open .navbar-btn.open {
   transform: rotate(180deg);
 }
+.dark-theme .navbar.open .profile-link-contextmenu {
+  left: 230px;
+}
 .dark-theme .navbar-elements a {
   text-decoration: none;
   display: flex;
@@ -88,6 +92,7 @@ html {
   width: 100%;
   margin-bottom: 20px;
   transition: all 0.3s;
+  user-select: none;
   color: #999;
 }
 .dark-theme .navbar-elements a:hover {
@@ -152,10 +157,12 @@ html {
   position: absolute;
   width: 166.6666666667px;
   padding-left: 20px;
-  left: 230px;
+  left: 60px;
   top: 0;
 }
 .dark-theme .profile-link-contextmenu a {
+  box-sizing: border-box;
+  border: 2px solid #2a2a2a;
   background-color: #999;
   color: #333;
   justify-content: center;
@@ -163,6 +170,7 @@ html {
 .dark-theme .profile-link-contextmenu a span.element-text {
   left: 0;
   position: relative;
+  display: inline-block !important;
 }
 .dark-theme .profile-link-contextmenu a:hover {
   background-color: #888888;
@@ -188,6 +196,7 @@ html {
   border: 4px solid #333;
 }
 .dark-theme a, .dark-theme button, .dark-theme .navbar-elements, .dark-theme select, .dark-theme .header,
+.dark-theme .Boolean, .dark-theme .checkbox,
 .dark-theme input[type=button],
 .dark-theme input[type=reset],
 .dark-theme input[type=submit] {
@@ -403,6 +412,12 @@ html {
   font-size: 20px;
   font-weight: bold;
   padding: 10px;
+  position: relative;
+}
+.dark-theme .chose_documents summary div.checkbox {
+  position: absolute;
+  top: 8px;
+  right: 40px;
 }
 
 .light-theme {
@@ -433,6 +448,7 @@ html {
   padding: 10px;
   background-color: #ffffff;
   transition: all 0.2s;
+  z-index: 8;
   /* open navbar */
   /* navbar-elements */
 }
@@ -468,6 +484,9 @@ html {
 .light-theme .navbar.open .navbar-btn.open {
   transform: rotate(180deg);
 }
+.light-theme .navbar.open .profile-link-contextmenu {
+  left: 230px;
+}
 .light-theme .navbar-elements a {
   text-decoration: none;
   display: flex;
@@ -479,6 +498,7 @@ html {
   width: 100%;
   margin-bottom: 20px;
   transition: all 0.3s;
+  user-select: none;
   color: #555;
 }
 .light-theme .navbar-elements a:hover {
@@ -543,10 +563,12 @@ html {
   position: absolute;
   width: 166.6666666667px;
   padding-left: 20px;
-  left: 230px;
+  left: 60px;
   top: 0;
 }
 .light-theme .profile-link-contextmenu a {
+  box-sizing: border-box;
+  border: 2px solid #e4e9f7;
   background-color: #8658ea;
   color: #ffffff;
   justify-content: center;
@@ -554,6 +576,7 @@ html {
 .light-theme .profile-link-contextmenu a span.element-text {
   left: 0;
   position: relative;
+  display: inline-block !important;
 }
 .light-theme .profile-link-contextmenu a:hover {
   background-color: #753def;
@@ -579,6 +602,7 @@ html {
   border: 4px solid #ffffff;
 }
 .light-theme a, .light-theme button, .light-theme .navbar-elements, .light-theme select, .light-theme .header,
+.light-theme .Boolean, .light-theme .checkbox,
 .light-theme input[type=button],
 .light-theme input[type=reset],
 .light-theme input[type=submit] {
@@ -794,6 +818,12 @@ html {
   font-size: 20px;
   font-weight: bold;
   padding: 10px;
+  position: relative;
+}
+.light-theme .chose_documents summary div.checkbox {
+  position: absolute;
+  top: 8px;
+  right: 40px;
 }
 
 /*# sourceMappingURL=styles_with_themes.css.map */

@@ -1,11 +1,15 @@
 {% extends base %}
 
 {% block content %}
-    <h2>Информация о пользователе {{ current_user }}</h2>
+    <h2>
+        Информация о пользователе
+        <br>
+        {{ current_user }}
+    </h2>
     <table class="user_info">
-        {% set user = current_user.get_user().__dict__ %}
+        {% set user = current_user.get_user() %}
         <tr>
-            <th>id</th>
+            <th>Идентификатор</th>
             <td>{{ user.id }}</td>
         </tr>
         <tr>
@@ -26,7 +30,7 @@
         </tr>
         <tr>
             <th>Пол</th>
-            <td>{{ "Мужской" if user.sex == "М" else "Женский" }}</td>
+            <td>{{ ("Мужской" if user.info.sex == "М" else "Женский") if user.info.sex else "Не указан" }}</td>
         </tr>
         <tr>
             <th>Класс</th>
