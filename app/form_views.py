@@ -30,8 +30,7 @@ def register():
         # get data and create row for database
         u = Users(username=form.username.data, password=password_hash,
                   email=form.email.data,
-                  firstname=form.firstname.data, lastname=form.lastname.data, patronymic=form.patronymic.data,
-                  sex=form.sex.data, classroom=str(form.classroom.data)+form.classletter.data)
+                  firstname=form.firstname.data, lastname=form.lastname.data, patronymic=form.patronymic.data, classroom=str(form.classroom.data)+form.classletter.data)
         # add row to database
         db.session.add(u)
         db.session.flush()
