@@ -1,3 +1,7 @@
+$navbar-width: 80px
+$navbar-open-width: 250px
+$navbar-padding: 10px
+
 $profile-contextmenu-width: $navbar-open-width / 1.5
 
 .navbar
@@ -9,6 +13,7 @@ $profile-contextmenu-width: $navbar-open-width / 1.5
   padding: $navbar-padding
   background-color: $navbar-background-color
   transition: all .2s
+  z-index: 8
 
   + main
     margin-left: $navbar-width
@@ -40,6 +45,10 @@ $profile-contextmenu-width: $navbar-open-width / 1.5
     .navbar-btn.open
       transform: rotate(180deg)
 
+    .profile-link-contextmenu
+      left: $navbar-open-width - $element-padding
+
+
 
   /* navbar-elements */
   &-elements a
@@ -55,6 +64,8 @@ $profile-contextmenu-width: $navbar-open-width / 1.5
     margin-bottom: $element-padding
 
     transition: all .3s
+
+    user-select: none
 
     color: $text-color
     &:hover
@@ -123,15 +134,18 @@ header
     width: $profile-contextmenu-width
     padding-left: $element-padding
 
-    left: $navbar-open-width - $element-padding
+    left: $navbar-width - $element-padding
     top: 0
     a
+      box-sizing: border-box
+      border: 2px solid $background-color
       background-color: $header-color
       color: $navbar-background-color
       justify-content: center
       span.element-text
         left: 0
         position: relative
+        display: inline-block !important
       &:hover
         background-color: $input-hover-color
   &:hover

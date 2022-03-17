@@ -1,5 +1,5 @@
 {% extends base %}
-{% import "documents/documents.html" as doc %}
+{% from "documents/documents.html" import documents as doc %}
 {% block content %}
     <div class="print">
     {{ doc[name]() }}

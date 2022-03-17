@@ -1,3 +1,9 @@
+{#
+Настройка ширины документа на весь экран:
+Ширина экрана делится на ширину документа,
+затем из полученого значения устанавливается "transform: scale();"
+#}
+
 {% macro title1() %}
     <p class="tnr" style="font-size: 20px">ДЕПАРТАМЕНТ ОБРАЗОВАНИЯ И НАУКИ ГОРОДА МОСКВЫ</p>
     <p class="tnr" style="font-size: 19px"><b>ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБЩЕОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ<br>
@@ -14,7 +20,7 @@
 {% macro ul(count) %}
     {{ "_" * count }}
 {% endmacro %}
-{%  macro rzhd() %}
+{%  macro rzd() %}
     <div>
         {{ title1() }}
     </div>
@@ -42,14 +48,15 @@
 
 {% endmacro %}
 
-{% macro rzhd2() %}
+{% macro rzhd() %}
     <div style="background-color: #fff;
     box-sizing: border-box;
     font-size: 12px;
-    font-family: 'Arial Narrow';
+    font-family: 'Arial Narrow', sans-serif;
     font-weight: bold;
     width: 620px;
-    padding: 47px 52px 59px 94px" class="rzhd">
+    padding: 47px 52px 59px 94px;
+    transform: scale(1)" class="rzhd">
         <span>
             ДЕПАРТАМЕНТ ОБРАЗОВАНИЯ ГОРОДА МОСКВЫ<br>
 ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБЩЕОБРАЗОВАТЕЛЬНОЕ<br>
@@ -60,4 +67,7 @@
         </span>
     </div>
 {% endmacro %}
+{% set documents = {
+"rzhd": rzhd
+} %}
 

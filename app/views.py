@@ -32,14 +32,19 @@ def profile_info():
     return render_template("profile/profile_info.html", base=base)
 
 
-@app.route('/chose_documents')
+@app.route('/chose/documents')
 def chose_documents():
     return render_template("documents/chose_documents.html", base=base, users=Users, db=db)
 
 
+@app.route('/chose/students')
+def chose_students():
+    return render_template("documents/chose_students.html", base=base, users=Users, db=db)
+
+
 @app.route("/print")
 def print_document():
-    return render_template("print.html", base=base)
+    return render_template("documents/print.html", base=base)
 
 
 @app.errorhandler(HTTPException)
