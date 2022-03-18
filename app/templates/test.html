@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <svg viewBox="-60 -60 120 120">
-        <rect x="-50" y="-50" width="100" height="100" fill="none"
-        stroke-width="3" stroke="#000"></rect>
-        <path fill="none" stroke="#000" stroke-width="3" d="
-        M -20 -30
-        c 70 -25 70 85 0 60
-        M -20 -30
-        c 40 0 40 60 0 60
-    "></path>
-    </svg>
-</body>
+<html lang="ru" dir="ltr">
+    <head>
+        <title>⠀</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 90vh;
+                width: 100%;
+            }
+            .something {
+                font-size: 100px;
+                border: 2px solid black;
+                width: 100%;
+                aspect-ratio: 6;
+                transform: scale(1);
+                transform-origin: 50% 50%;
+                transition: .2s transform ease-in-out;
+            }
+            .something:hover {
+                transform: scale(0.5);
+            }
+        </style>
+    </head>
+    <body>
+    <div class="something">Какой-то текст</div>
+    </body>
 </html>

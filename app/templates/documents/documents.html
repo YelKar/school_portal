@@ -50,21 +50,46 @@
 
 {% macro rzhd() %}
     <div style="background-color: #fff;
+    text-align: left;
     box-sizing: border-box;
     font-size: 12px;
     font-family: 'Arial Narrow', sans-serif;
-    font-weight: bold;
     width: 620px;
-    padding: 47px 52px 59px 94px;
+    height: 800px;
+    padding: 47px 52px 40px 94px;
     transform: scale(1)" class="rzhd">
-        <span>
+        <div style="text-align: center; font-weight: bold">
             ДЕПАРТАМЕНТ ОБРАЗОВАНИЯ ГОРОДА МОСКВЫ<br>
 ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБЩЕОБРАЗОВАТЕЛЬНОЕ<br>
 УЧРЕЖДЕНИЕ ГОРОДА МОСКВЫ «ШКОЛА № 627 ИМЕНИ ГЕНЕРАЛА Д.Д. ЛЕЛЮШЕНКО»<br>
 (ГБОУ ШКОЛА № 627)<br>
 УК-4 «ВАЛЬДОРФСКАЯ ШКОЛА ИМ. А.А. ПИНСКОГО»
-
-        </span>
+            <hr>
+            <span style="font-size: 10px; font-weight: normal">Россия, 115093 Москва, Стремянный пер., 33/35, Тел.: (499) 236-52-14, Факс: (499) 236-54-92, sch1060@yandex.ru</span>
+        </div>
+            <br><br><br><br>
+    <div>________   б/н</div>
+    <br><br><br><br><br><br><br><br><br>
+    <div style="text-align: center; font-weight: bold">СПРАВКА</div>
+    <br>
+    <br>
+    <div style="font-weight: normal; line-height: 21px; text-align: justify">
+        {% for _ in range(4) %}&nbsp;{% endfor %}Данной справкой удостоверяется, что __________________________________________, _________ года рождения, обучается в _____ «___» классе Государственного бюджетного общеобразовательного учреждения города Москвы «Школа № 627 имени генерала Д.Д. Лелюшенко». Форма обучения очная. Лицензия 036787 от 24.11.2015 г.
+    </div>
+    <br><br><br>
+    <span>Для предъявления по месту требования.</span>
+    <br><br><br><br><br><br><br><br>
+        <div style="display: flex; justify-content: space-around"><span>Руководитель УК-4</span> <span>А.А. Алхазова</span></div>
+    <style>
+    hr {
+        border: none;
+        height: 1px;
+        border-top: 3px solid #000000;
+        border-bottom: 1px solid #000000;
+        margin: 0;
+        width: 100%;
+    }
+</style>
     </div>
 {% endmacro %}
 {% set documents = {

@@ -369,11 +369,11 @@ html {
 .dark-theme .documents p {
   margin: 3px;
 }
-.dark-theme hr {
+.dark-theme .documents hr {
   border: none;
   height: 1px;
   border-top: 3px solid #000000;
-  border-bottom: 5px solid #000000;
+  border-bottom: 1px solid #000000;
   margin: 0;
   width: 100%;
 }
@@ -775,11 +775,11 @@ html {
 .light-theme .documents p {
   margin: 3px;
 }
-.light-theme hr {
+.light-theme .documents hr {
   border: none;
   height: 1px;
   border-top: 3px solid #000000;
-  border-bottom: 5px solid #000000;
+  border-bottom: 1px solid #000000;
   margin: 0;
   width: 100%;
 }
