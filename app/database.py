@@ -19,7 +19,7 @@ class Users(db.Model):
     info = db.relationship("UserInfo", backref="users", uselist=False)
 
     def __repr__(self):
-        return f"<users {self.id}>"
+        return f"<Users {self.id}>"
 
 
 class UserInfo(db.Model):
@@ -29,7 +29,7 @@ class UserInfo(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
     sex = db.Column(db.String(1), nullable=False)
-    birthdate = db.Column(db.Date)
+    birthdate = db.Column(db.Integer)
     many_children = db.Column(db.Boolean)
 
     fathers_firstname = db.Column(db.String(30))
@@ -39,3 +39,6 @@ class UserInfo(db.Model):
     mothers_firstname = db.Column(db.String(30))
     mothers_lastname = db.Column(db.String(50))
     mothers_patronymic = db.Column(db.String(50))
+
+    def __repr__(self):
+        return f"<UserInfo {self.id} for {self.user_id}>"
