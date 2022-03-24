@@ -17,12 +17,12 @@
             <td>{{ user.username }}</td>
         </tr>
         <tr>
-            <th>Имя</th>
-            <td>{{ user.firstname }}</td>
-        </tr>
-        <tr>
             <th>Фамилия</th>
             <td>{{ user.lastname }}</td>
+        </tr>
+        <tr>
+            <th>Имя</th>
+            <td>{{ user.firstname }}</td>
         </tr>
         <tr>
             <th>Отчество</th>
@@ -33,12 +33,42 @@
             <td>{{ ("Мужской" if user.info.sex == "М" else "Женский") if user.info.sex else "Не указан" }}</td>
         </tr>
         <tr>
+            <th>Дата рождения</th>
+            <td>{{ user.info.birthdate|fromTimestamp|strftime("%d.%m.%Y") }}</td>
+        </tr>
+        {% if user.info.many_children %}
+            <tr>
+                <th>Многодетная семья</th>
+                <td>Да</td>
+            </tr>
+        {% endif %}
+        <tr>
             <th>Класс</th>
             <td>{{ user.classroom }}</td>
         </tr>
         <tr>
             <th>Email</th>
             <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th rowspan="3">Отец</th>
+            <td>{{ user.info.fathers_lastname }}</td>
+        </tr>
+        <tr>
+            <td>{{ user.info.fathers_firstname }}</td>
+        </tr>
+        <tr>
+            <td>{{ user.info.fathers_patronymic }}</td>
+        </tr>
+        <tr>
+            <th rowspan="3">Мать</th>
+            <td>{{ user.info.mothers_lastname }}</td>
+        </tr>
+        <tr>
+            <td>{{ user.info.mothers_firstname }}</td>
+        </tr>
+        <tr>
+            <td>{{ user.info.mothers_patronymic }}</td>
         </tr>
     </table>
 {% endblock %}
