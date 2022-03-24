@@ -48,7 +48,15 @@
 
 {% endmacro %}
 
-{% macro rzhd() %}
+{% macro just(str, lenght, let) %}
+    {% set count = (lenght - str|length) // 2 %}
+    {{ let * count + str + let * count }}
+{% endmacro %}
+
+{% macro rzhd(user_id, table) %}
+    {% if table %}
+        {% set user = table.query.filter(table.id == user_id).first() %}
+    {% endif %}
     <div style="background-color: #fff;
     text-align: left;
     box-sizing: border-box;
@@ -56,7 +64,7 @@
     font-family: 'Arial Narrow', sans-serif;
     width: 620px;
     height: 800px;
-    padding: 47px 52px 40px 94px;
+    padding: 55px 52px 40px 94px;
     transform: scale(1)" class="rzhd">
         <div style="text-align: center; font-weight: bold">
             ДЕПАРТАМЕНТ ОБРАЗОВАНИЯ ГОРОДА МОСКВЫ<br>
@@ -74,7 +82,16 @@
     <br>
     <br>
     <div style="font-weight: normal; line-height: 21px; text-align: justify">
-        {% for _ in range(4) %}&nbsp;{% endfor %}Данной справкой удостоверяется, что __________________________________________, _________ года рождения, обучается в _____ «___» классе Государственного бюджетного общеобразовательного учреждения города Москвы «Школа № 627 имени генерала Д.Д. Лелюшенко». Форма обучения очная. Лицензия 036787 от 24.11.2015 г.
+        {% for _ in range(4) %}&nbsp;{% endfor %}
+        Данной справкой удостоверяется, что
+        {% if user_id %}
+            <u>{{ just(user.lastname + " " + user.firstname + " " + user.patronymic, 36, "_") }}</u>,
+            <u>{{ just((1970 + (user.info.birthdate / 31436e6)|int)|string, 10, "_") }}</u>
+        {% else %}
+            {{ "_" * 42 + "\n" }}, _________
+        {% endif %}
+        {{ "\n" }}
+        года рождения, обучается в _____ «___» классе Государственного бюджетного общеобразовательного учреждения города Москвы «Школа № 627 имени генерала Д.Д. Лелюшенко». Форма обучения очная. Лицензия 036787 от 24.11.2015 г.
     </div>
     <br><br><br>
     <span>Для предъявления по месту требования.</span>

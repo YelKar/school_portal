@@ -7,12 +7,13 @@
 </head>
 <body style="display: flex; justify-content: center;">
 {% import "documents/documents.html" as d %}
-    <div class="documents" style="display: inline-block">
-        {{ d.rzhd() }}
+    <div class="documents" style="display: inline-block; border: 0 solid">
+        {{ d.rzhd(2, Users) }}
+        {{ Users }}
     </div>
 <script>
     let d = document.querySelector(".documents");
-    let scale = innerWidth / 620;
+    let scale = 1.5
     d.style.transform = `scale(${scale})`;
     d.style.marginTop = 800 / 2 * scale - (800 / 2) + "px"
 </script>
