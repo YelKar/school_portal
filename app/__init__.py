@@ -3,7 +3,6 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from .config import Config
-import datetime
 
 
 app = Flask(__name__)
@@ -17,15 +16,5 @@ db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
 
-
-@app.template_filter("fromTimestamp")
-def from_timestamp_filter(product):
-    return datetime.datetime.fromtimestamp(product)
-
-
-@app.template_filter("strftime")
-def strftime_filter(product: datetime.datetime, form: str):
-    return product.strftime(form)
-
-
+from app import jinja_filters
 from app import database, views
