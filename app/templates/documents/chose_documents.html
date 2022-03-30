@@ -1,34 +1,20 @@
 {% extends base %}
+{% from "documents/documents.html" import documents %}
+
 {% block content %}
-    <div class="chose_documents">
-    {% set full_names = db.session.query(users.firstname, users.lastname,  users.patronymic) %}
-    {% for classroom in range(1, 12) if full_names.filter(users.classroom == classroom|string + "н").all() %}
+    <form class="chose_documents" method="post">
+    {% for code_word, (document, name) in documents.items() %}
         <details>
         <summary>
-            {{ classroom }}
+            {{ name }}
             <div class="checkbox">
-                <input id="chose_class{{ classroom }}" type="checkbox">
-                <label for="chose_class{{ classroom }}"></label>
+                <input id="{{ code_word }}" type="radio" name="doc" value="{{ code_word }}">
+                <label for="{{ code_word }}"></label>
             </div>
         </summary>
-        {% for let in ["н", "о", "п"] %}
-            <details>
-            <summary>
-                {{ classroom|string + let }}
-                <div class="checkbox">
-                    <input id="chose_class{{ classroom }}{{ let }}" type="checkbox">
-                    <label for="chose_class{{ classroom }}{{ let }}"></label>
-                </div>
-            </summary>
-            {% for firstname, lastname, patronymic in full_names.filter(users.classroom == classroom|string + let).all() %}
-                <p class="checkbox">
-                    <input type="checkbox" id="{{ firstname }}">
-                    <label for="{{ firstname }}">{{ lastname }} {{ firstname }} {{ patronymic }}</label>
-                </p>
-            {% endfor %}
-            </details>
-        {% endfor %}
+        {{ document() }}
         </details>
     {% endfor %}
-    </div>
+    <input type="submit" value="Далее">
+    </form>
 {% endblock %}

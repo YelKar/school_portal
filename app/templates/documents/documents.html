@@ -1,51 +1,5 @@
-{#
-Настройка ширины документа на весь экран:
-Ширина экрана делится на ширину документа,
-затем из полученого значения устанавливается "transform: scale();"
-#}
-
-{% macro title1() %}
-    <p class="tnr" style="font-size: 20px">ДЕПАРТАМЕНТ ОБРАЗОВАНИЯ И НАУКИ ГОРОДА МОСКВЫ</p>
-    <p class="tnr" style="font-size: 19px"><b>ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБЩЕОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ<br>
-        ГОРОДА МОСКВЫ «ШКОЛА № 627 ИМЕНИ ГЕНЕРАЛА Д.Д. ЛЕЛЮШЕНКО»<br>
-        (ГБОУ Школа № 627)</b>
-    </p>
-    <p class="tnr"><span style="font-size: 20.5px;">
-        115054 г. Москва, ул. Дубининская,
-        д.42; тел/факс (495) 959-78-31;
-        e-mail:<u>627@edu.mos.ru</u></span><br>
-        <span style="font-size: 17px;">ОКПО 14172615 ОГРН 1127747118003 ИНН/КПП 7713757043/770501001</span></p>
-    <hr>
-{% endmacro %}
 {% macro ul(count) %}
     {{ "_" * count }}
-{% endmacro %}
-{%  macro rzd() %}
-    <div>
-        {{ title1() }}
-    </div>
-    <br><br>
-    <div style="font-size: 20px; text-align: left" class="ar">
-        &nbsp;&laquo;____&raquo;________ &nbsp;&nbsp; №____
-    </div>
-    <br><br><br><br><br><br><br><br><br><br>
-    <div class="ar" style="font-size: 20px; text-align: center">
-    <b>СПРАВКА</b>
-    </div>
-    <br>
-    <div class="ar" style="font-size: 18px; line-height: 40px; text-align: left">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        Данной справкой удостоверяется, что {{ ul(40) }},
-        <br>{{ ul(12) }} года рождения, обучается в ____ &laquo;____&raquo; классе Государственного бюджетного
-        <br>общеобразовательного учреждения города Москвы &laquo;Школа № 627 имени генерала Д.Д.<br>
-        Лелюшенко&raquo;. Форма обучения очная. Лицензия 036787 от 24.11.2015 г.
-        <br><br><br>
-    <span>Для предъявления по месту требования</span>
-    <br><br><br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span>Директор ГБОУ Школа №627</span><span style="margin-left: 350px">Л.В. Павлюченко</span>
-    </div>
-        <br><br><br><br><br>
-
 {% endmacro %}
 
 {% macro just(str, lenght, let) %}
@@ -109,7 +63,9 @@
 </style>
     </div>
 {% endmacro %}
+{% macro some() %}{% endmacro %}
 {% set documents = {
-"rzhd": rzhd
+"rzhd": [rzhd, "Справка об обучении"],
+"some": [some, "Документ"]
 } %}
 

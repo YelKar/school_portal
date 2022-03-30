@@ -395,9 +395,14 @@ html {
 }
 .dark-theme .chose_students {
   width: 500px;
+}
+.dark-theme .chose_documents {
+  width: 648px;
+}
+.dark-theme .chose_students, .dark-theme .chose_documents {
   text-align: left;
 }
-.dark-theme .chose_students details {
+.dark-theme .chose_students details, .dark-theme .chose_documents details {
   border-width: 4px;
   border-style: solid;
   border-color: #999;
@@ -405,21 +410,21 @@ html {
   margin: 10px;
   background-color: #333;
 }
-.dark-theme .chose_students details p {
+.dark-theme .chose_students details p, .dark-theme .chose_documents details p {
   margin: 10px;
 }
-.dark-theme .chose_students summary {
+.dark-theme .chose_students summary, .dark-theme .chose_documents summary {
   font-size: 20px;
   font-weight: bold;
   padding: 10px;
   position: relative;
 }
-.dark-theme .chose_students summary div.checkbox {
+.dark-theme .chose_students summary div.checkbox, .dark-theme .chose_documents summary div.checkbox {
   position: absolute;
   top: 8px;
   right: 40px;
 }
-.dark-theme .chose_students input[type=submit] {
+.dark-theme .chose_students input[type=submit], .dark-theme .chose_documents input[type=submit] {
   width: 100%;
 }
 
@@ -804,9 +809,14 @@ html {
 }
 .light-theme .chose_students {
   width: 500px;
+}
+.light-theme .chose_documents {
+  width: 648px;
+}
+.light-theme .chose_students, .light-theme .chose_documents {
   text-align: left;
 }
-.light-theme .chose_students details {
+.light-theme .chose_students details, .light-theme .chose_documents details {
   border-width: 4px;
   border-style: solid;
   border-color: #8658ea;
@@ -814,21 +824,21 @@ html {
   margin: 10px;
   background-color: #ffffff;
 }
-.light-theme .chose_students details p {
+.light-theme .chose_students details p, .light-theme .chose_documents details p {
   margin: 10px;
 }
-.light-theme .chose_students summary {
+.light-theme .chose_students summary, .light-theme .chose_documents summary {
   font-size: 20px;
   font-weight: bold;
   padding: 10px;
   position: relative;
 }
-.light-theme .chose_students summary div.checkbox {
+.light-theme .chose_students summary div.checkbox, .light-theme .chose_documents summary div.checkbox {
   position: absolute;
   top: 8px;
   right: 40px;
 }
-.light-theme .chose_students input[type=submit] {
+.light-theme .chose_students input[type=submit], .light-theme .chose_documents input[type=submit] {
   width: 100%;
 }
 
