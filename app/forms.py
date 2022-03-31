@@ -9,14 +9,19 @@ from app.database import Users
 
 
 class LoginForm(FlaskForm):
+    """Creating form for authorization
+
+    adding username, password and submit fields
+    checking user in database
+    """
     username = StringField("Логин: *", validators=[DataRequired()],
                            render_kw={"placeholder": "Введите имя пользователя"})
     password = PasswordField("Пароль: *", validators=[Length(min=6)], render_kw={"placeholder": "Введите пароль"})
 
     def validate_user(self, _):
-        u = Users.query.filter(Users.username == self.username.data).all()
+        u = Users.query.filter(Users.username == self.username.data).first()
         if u:
-            if check_password_hash(u[0].password, self.password.data):
+            if check_password_hash(u.password, self.password.data):
                 return
         raise ValidationError("Неверный логин или пароль")
     submit = SubmitField("Войти", validators=[validate_user])
@@ -54,6 +59,6 @@ class RegisterForm(FlaskForm):
                              render_kw={"placeholder": "1-11"})
     classletter = SelectField("Буква: ", choices=["н", "о", "п"])
 
-    email = EmailField("Email", validators=[Email(), DataRequired()],
-                       render_kw={"placeholder": "your@ema.il"})
+    # email = EmailField("Email", validators=[Email(), DataRequired()],
+    #                    render_kw={"placeholder": "your@ema.il"})
     submit = SubmitField("Создать")

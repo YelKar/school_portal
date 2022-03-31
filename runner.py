@@ -1,5 +1,7 @@
+"""
+importing app object and running site
+"""
 from app import app
-from colorama import Style
 
 
 if __name__ == '__main__':

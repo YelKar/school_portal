@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="../../static/styles/styles_with_themes.css">
 </head>
 <body style="display: flex; justify-content: center;">
-{% import "documents/documents.html" as d %}
-    <div class="documents" style="display: inline-block; border: 0 solid">
-        {{ d.rzhd(2, Users) }}
-        {{ Users }}
+{% from "documents/documents.html" import documents %}
+    <div class="documents" style="display: inline-block; border: none">
+        {% for user_id in request.args.getlist("s") %}
+            {{ documents["rzhd"][0](user_id, Users) }}
+        {% endfor %}
     </div>
 <script>
     let d = document.querySelector(".documents");

@@ -1,3 +1,14 @@
+"""Creating app
+
+creating app object
+adding configuration for app
+
+creating login manager object
+adding login route and message that user need to authorize
+
+importing routes from views.py and models from database.py
+importing custom filters for jinja
+"""
 from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy

@@ -4,9 +4,12 @@ from time import strftime
 
 
 class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or "any_key"
-    DEBUG = True
-    SQLALCHEMY_DATABASE_URI = "sqlite:///db.db"
+    """
+    adding configuration to app
+    """
+    SECRET_KEY = os.environ.get('SECRET_KEY') or "any_key"  # Creating secret key for forms
+    DEBUG = True  # Activating debug mode
+    SQLALCHEMY_DATABASE_URI = "sqlite:///db.db"  # route to database
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 

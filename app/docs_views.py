@@ -29,17 +29,20 @@ def chose_students():
 
     if request method is POST goto print
     else render form for chose students
-    TODO Реализовать получение данных о выбранных пользователях
     TODO и переброску их на страницу печати
     TODO реализовать фильтры
     :return: str (HTML_Template)
     """
     if request.method == "POST":
-        print(
-            list(map(
+        students_for_print = list(map(
                 lambda u: int(u[1:]),
                 list(request.form)
             ))
+        return redirect(
+            url_for(
+                "print_document",
+                s=students_for_print
+            )
         )
     return render_template(
         "documents/chose_students.html",
