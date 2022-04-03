@@ -7,7 +7,7 @@
 </head>
 <body style="display: flex; justify-content: center;">
 {% from "documents/documents.html" import documents %}
-    <div class="documents" style="display: inline-block; border: none">
+    <div class="documents" style="display: inline-block; border: 1px solid">
         {% for user_id in request.args.getlist("s") %}
             {{ documents["rzhd"][0](user_id, Users) }}
         {% endfor %}
@@ -16,7 +16,7 @@
     let d = document.querySelector(".documents");
     let scale = 1.5
     d.style.transform = `scale(${scale})`;
-    d.style.marginTop = 800 / 2 * scale - (800 / 2) + "px"
+    d.style.marginTop = "1100px"
 </script>
 
 </body>

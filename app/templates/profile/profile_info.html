@@ -7,7 +7,7 @@
         {{ current_user }}
     </h2>
     <table class="user_info">
-        {% set user = current_user.get_user() %}
+        {% set user = current_user.user %}
         <tr>
             <th>Идентификатор</th>
             <td>{{ user.id }}</td>
@@ -30,11 +30,11 @@
         </tr>
         <tr>
             <th>Пол</th>
-            <td>{{ ("Мужской" if user.info.sex == "М" else "Женский") if user.info.sex else "Не указан" }}</td>
+            <td>{{ ("Мужской" if user.info.sex else "Женский") if user.info.sex }}</td>
         </tr>
         <tr>
             <th>Дата рождения</th>
-            <td>{{ user.info.birthdate|fromTimestamp|strftime("%d.%m.%Y") }}</td>
+            <td>{{ user.info.birthdate|fromTimestamp|strftime("%d.%m.%Y") if user.info.birthdate }}</td>
         </tr>
         {% if user.info.many_children %}
             <tr>

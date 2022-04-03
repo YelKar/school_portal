@@ -13,6 +13,7 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_admin import Admin
 from .config import Config
 
 
@@ -26,6 +27,10 @@ login_manager.login_message = "Вы не авторизованы"
 db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
+
+admin = Admin(app, name="Admin", template_mode='bootstrap4')
+
+from app import admin_panel
 
 from app import jinja_filters
 from app import database, views

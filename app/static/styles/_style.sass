@@ -13,12 +13,6 @@ body
     size: 15px
   transition: all .3s
 
-@import "navbar"
-
-main
-  display: flex
-  flex-direction: column
-  align-items: center
 
   // Стилизация scrollbar
   &::-webkit-scrollbar
@@ -30,6 +24,19 @@ main
       background-color: $header-color
       border-radius: 10px
       border: 4px solid $navbar-background-color
+
+@import "navbar"
+
+footer
+  margin-bottom: 0
+  bottom: 0
+
+main
+  display: flex
+  flex-direction: column
+  align-items: center
+  min-height: 70vh
+
 
 // курсор для всех элементов, на которые требуется нажимать
 a, button, .navbar-elements, select, .header,
@@ -51,6 +58,8 @@ svg.error_requests
 
 // table in page /profile/info
 .user_info
+  tr
+    height: 36px
   th, td
     color: $background-color
     padding: 10px

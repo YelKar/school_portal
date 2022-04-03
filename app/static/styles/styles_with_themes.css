@@ -33,6 +33,18 @@ html {
   font-size: 15px;
   transition: all 0.3s;
 }
+.dark-theme body::-webkit-scrollbar {
+  width: 20px;
+  padding: 2px;
+}
+.dark-theme body::-webkit-scrollbar-track {
+  background-color: #333;
+}
+.dark-theme body::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 10px;
+  border: 4px solid #333;
+}
 .dark-theme .navbar {
   position: fixed;
   box-sizing: border-box;
@@ -178,22 +190,15 @@ html {
 .dark-theme .profile-link:hover .profile-link-contextmenu {
   display: block;
 }
+.dark-theme footer {
+  margin-bottom: 0;
+  bottom: 0;
+}
 .dark-theme main {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.dark-theme main::-webkit-scrollbar {
-  width: 20px;
-  padding: 2px;
-}
-.dark-theme main::-webkit-scrollbar-track {
-  background-color: #333;
-}
-.dark-theme main::-webkit-scrollbar-thumb {
-  background-color: #999;
-  border-radius: 10px;
-  border: 4px solid #333;
+  min-height: 70vh;
 }
 .dark-theme a, .dark-theme button, .dark-theme .navbar-elements, .dark-theme select, .dark-theme .header,
 .dark-theme .Boolean, .dark-theme .checkbox,
@@ -210,6 +215,9 @@ html {
 }
 .dark-theme svg.error_requests {
   stroke: #999;
+}
+.dark-theme .user_info tr {
+  height: 36px;
 }
 .dark-theme .user_info th, .dark-theme .user_info td {
   color: #2a2a2a;
@@ -247,7 +255,8 @@ html {
   font-family: Comfortaa;
   font-weight: bold;
   caret-color: #333;
-  padding: 20px 30px;
+  padding: 20px 20px;
+  transition: all 0.2s;
 }
 .dark-theme input:not([type=checkbox], [type=radio])[type=text]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=password]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=email]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=number]:hover,
 .dark-theme .button[type=text]:hover,
@@ -321,20 +330,11 @@ html {
   border-color: #999;
   border-radius: 8px;
 }
-.dark-theme .classroom, .dark-theme .classletter {
-  display: inline-block;
-}
-.dark-theme .classroom input, .dark-theme .classletter input {
-  width: 295px;
-}
-.dark-theme .classroom input::-webkit-outer-spin-button, .dark-theme .classroom input::-webkit-inner-spin-button, .dark-theme .classletter input::-webkit-outer-spin-button, .dark-theme .classletter input::-webkit-inner-spin-button {
+.dark-theme .classroom input::-webkit-outer-spin-button, .dark-theme .classroom input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   display: none;
-}
-.dark-theme .classroom select, .dark-theme .classletter select {
-  width: 100px;
 }
 .dark-theme .form_error {
   position: relative;
@@ -351,8 +351,27 @@ html {
   top: 0;
   right: 5px;
 }
-.dark-theme .register .repeat_password, .dark-theme .register .patronymic, .dark-theme .register .classletter {
-  margin-bottom: 50px;
+.dark-theme .register {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dark-theme .register_fields {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.dark-theme .register .field_group {
+  margin: 10px;
+}
+.dark-theme label {
+  margin: 5px auto;
+  display: inline-block;
+}
+.dark-theme .submit {
+  margin-top: 30px;
 }
 .dark-theme .documents {
   display: flex;
@@ -421,7 +440,7 @@ html {
 }
 .dark-theme .chose_students summary div.checkbox, .dark-theme .chose_documents summary div.checkbox {
   position: absolute;
-  top: 8px;
+  top: 3px;
   right: 40px;
 }
 .dark-theme .chose_students input[type=submit], .dark-theme .chose_documents input[type=submit] {
@@ -446,6 +465,18 @@ html {
   font-family: "Comfortaa";
   font-size: 15px;
   transition: all 0.3s;
+}
+.light-theme body::-webkit-scrollbar {
+  width: 20px;
+  padding: 2px;
+}
+.light-theme body::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+.light-theme body::-webkit-scrollbar-thumb {
+  background-color: #8658ea;
+  border-radius: 10px;
+  border: 4px solid #ffffff;
 }
 .light-theme .navbar {
   position: fixed;
@@ -592,22 +623,15 @@ html {
 .light-theme .profile-link:hover .profile-link-contextmenu {
   display: block;
 }
+.light-theme footer {
+  margin-bottom: 0;
+  bottom: 0;
+}
 .light-theme main {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.light-theme main::-webkit-scrollbar {
-  width: 20px;
-  padding: 2px;
-}
-.light-theme main::-webkit-scrollbar-track {
-  background-color: #ffffff;
-}
-.light-theme main::-webkit-scrollbar-thumb {
-  background-color: #8658ea;
-  border-radius: 10px;
-  border: 4px solid #ffffff;
+  min-height: 70vh;
 }
 .light-theme a, .light-theme button, .light-theme .navbar-elements, .light-theme select, .light-theme .header,
 .light-theme .Boolean, .light-theme .checkbox,
@@ -624,6 +648,9 @@ html {
 }
 .light-theme svg.error_requests {
   stroke: #555;
+}
+.light-theme .user_info tr {
+  height: 36px;
 }
 .light-theme .user_info th, .light-theme .user_info td {
   color: #e4e9f7;
@@ -661,7 +688,8 @@ html {
   font-family: Comfortaa;
   font-weight: bold;
   caret-color: #ffffff;
-  padding: 20px 30px;
+  padding: 20px 20px;
+  transition: all 0.2s;
 }
 .light-theme input:not([type=checkbox], [type=radio])[type=text]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=password]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=email]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=number]:hover,
 .light-theme .button[type=text]:hover,
@@ -735,20 +763,11 @@ html {
   border-color: #8658ea;
   border-radius: 8px;
 }
-.light-theme .classroom, .light-theme .classletter {
-  display: inline-block;
-}
-.light-theme .classroom input, .light-theme .classletter input {
-  width: 295px;
-}
-.light-theme .classroom input::-webkit-outer-spin-button, .light-theme .classroom input::-webkit-inner-spin-button, .light-theme .classletter input::-webkit-outer-spin-button, .light-theme .classletter input::-webkit-inner-spin-button {
+.light-theme .classroom input::-webkit-outer-spin-button, .light-theme .classroom input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   display: none;
-}
-.light-theme .classroom select, .light-theme .classletter select {
-  width: 100px;
 }
 .light-theme .form_error {
   position: relative;
@@ -765,8 +784,27 @@ html {
   top: 0;
   right: 5px;
 }
-.light-theme .register .repeat_password, .light-theme .register .patronymic, .light-theme .register .classletter {
-  margin-bottom: 50px;
+.light-theme .register {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.light-theme .register_fields {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.light-theme .register .field_group {
+  margin: 10px;
+}
+.light-theme label {
+  margin: 5px auto;
+  display: inline-block;
+}
+.light-theme .submit {
+  margin-top: 30px;
 }
 .light-theme .documents {
   display: flex;
@@ -835,7 +873,7 @@ html {
 }
 .light-theme .chose_students summary div.checkbox, .light-theme .chose_documents summary div.checkbox {
   position: absolute;
-  top: 8px;
+  top: 3px;
   right: 40px;
 }
 .light-theme .chose_students input[type=submit], .light-theme .chose_documents input[type=submit] {

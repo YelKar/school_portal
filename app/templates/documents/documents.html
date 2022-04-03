@@ -19,8 +19,10 @@
     width: 620px;
     height: 800px;
     padding: 55px 52px 40px 94px;
-    transform: scale(1)" class="rzhd">
-        <div style="text-align: center; font-weight: bold">
+    transform: scale(1);
+    break-after: page;
+    " class="rzhd">
+        <div style="text-align: center; font-weight: bold;">
             ДЕПАРТАМЕНТ ОБРАЗОВАНИЯ ГОРОДА МОСКВЫ<br>
 ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБЩЕОБРАЗОВАТЕЛЬНОЕ<br>
 УЧРЕЖДЕНИЕ ГОРОДА МОСКВЫ «ШКОЛА № 627 ИМЕНИ ГЕНЕРАЛА Д.Д. ЛЕЛЮШЕНКО»<br>
@@ -35,16 +37,24 @@
     <div style="text-align: center; font-weight: bold">СПРАВКА</div>
     <br>
     <br>
-    <div style="font-weight: normal; line-height: 21px; text-align: justify">
+    <div style="font-weight: normal; line-height: 21px; text-align: justify; text-align-last: justify;">
         {% for _ in range(4) %}&nbsp;{% endfor %}
         Данной справкой удостоверяется, что
+        <span style="border: 0 solid #000; display: inline-block; min-width: 270px; text-align: justify">
         {% if user_id %}
-            <u>{{ just(user.lastname + " " + user.firstname + " " + user.patronymic, 36, "_") }}</u>,
-            <u>{{ just((1970 + (user.info.birthdate / 31436e6)|int)|string, 10, "_") }}</u>
+                <u>{{ just(user.lastname + " " + user.firstname + " " + user.patronymic, 40, "_") }}</u>
         {% else %}
-            {{ "_" * 42 + "\n" }}, _________
+            {{ "_" * 50 + "\n" }}
         {% endif %}
-        {{ "\n" }}
+        </span>
+        {{ "," }}
+        <span style="border: 0 solid #000; display: inline-block; min-width: 55px; text-align: justify">
+            {% if user_id and user.info.birthdate %}
+                    <u>{{ just((1970 + (user.info.birthdate / 31436e3)|int)|string, 10, "_") }}</u>
+            {% else %}
+                __________
+            {% endif %}
+        </span>
         года рождения, обучается в _____ «___» классе Государственного бюджетного общеобразовательного учреждения города Москвы «Школа № 627 имени генерала Д.Д. Лелюшенко». Форма обучения очная. Лицензия 036787 от 24.11.2015 г.
     </div>
     <br><br><br>

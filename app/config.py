@@ -11,6 +11,7 @@ class Config(object):
     DEBUG = True  # Activating debug mode
     SQLALCHEMY_DATABASE_URI = "sqlite:///db.db"  # route to database
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    FLASK_ADMIN_SWATCH = "solar"
 
 
 def my_resp(text: str = ""):

@@ -1,6 +1,6 @@
 {% extends base %}
 
 {% block content %}
-    <p class="hello">Hello, world!</p>
+    <p class="hello">Hello, {{ current_user.user.username if current_user.is_authenticated else "World" }}!</p>
     <p>it`s site for school 1060</p>
 {% endblock %}

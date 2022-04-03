@@ -1,6 +1,5 @@
 /**
  * Script for checkboxes in details
- *
  */
 
 const details_all = document.querySelectorAll(" details") //

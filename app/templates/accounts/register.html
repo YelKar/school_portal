@@ -1,0 +1,78 @@
+{% extends base %}
+{% block content %}
+    <h2>Создать аккаунт</h2>
+    {% set form_list = form|list %}
+    <form method="POST" class="register">
+        {{ form.csrf_token }}
+        <div class="register_fields">
+            <div class="field_group">
+                {% for field in form_list[:4] %}
+                    <p class="{{ field.name }}">
+                        {% if field.errors %}
+                            <div class="form_error">
+                                {% for error in field.errors %}
+                                    {{ error if error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        {{ field.label() if field.type != "SubmitField" }}<br>
+                        {{ field }}
+                    </p>
+                {% endfor %}
+            </div>
+            <div class="field_group">
+                {% for field in form_list[4:7] %}
+                    <p class="{{ field.name }}">
+                        {% if field.errors %}
+                            <div class="form_error">
+                                {% for error in field.errors %}
+                                    {{ error if error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        {{ field.label() if field.type != "SubmitField" }}<br>
+                        {{ field }}
+                    </p>
+                {% endfor %}
+            </div>
+            <div class="field_group">
+                {% for field in form_list[7:-2] %}
+                    <p class="{{ field.name }}">
+                        {% if field.errors %}
+                            <div class="form_error">
+                                {% for error in field.errors %}
+                                    {{ error if error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        {{ field.label() if field.type != "SubmitField" }}<br>
+                        {{ field }}
+                    </p>
+                {% endfor %}
+            </div>
+        </div>
+    <br>
+        <div class="submit">
+            {{ form.submit }}
+        </div>
+    </form>
+{#    <form method="POST" class="register">#}
+{#        {{ form.csrf_token }}#}
+{#        {% for field in form if field.name != "csrf_token" %}#}
+{#            <p class="{{ field.name }}">#}
+{#                {% if field.errors %}#}
+{#                    <div class="form_error">#}
+{#                        {% for error in field.errors %}#}
+{#                            {{ error if error }}#}
+{#                        {% endfor %}#}
+{#                    </div>#}
+{#                {% endif %}#}
+{#                {{ field.label() if field.type != "SubmitField" }}<br>#}
+{#                {{ field }}#}
+{#            </p>#}
+{#        {% endfor %}#}
+{#    </form>#}
+
+    <h3>или</h3>
+    <a href="{{ url_for('login') }}" class="button">Войти</a><br>
+{% endblock %}

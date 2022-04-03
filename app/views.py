@@ -4,7 +4,7 @@ from werkzeug.exceptions import HTTPException
 from flask_login import login_required
 
 
-base = "base.html"  # Путь к базе данных
+base = "base/base.html"  # Путь к базе данных
 
 
 # main page
@@ -14,6 +14,7 @@ def index() -> str:
     render html template from "index.html"
     :return: str
     """
+
     return render_template(
         "index.html",
         title="1060",
@@ -21,14 +22,15 @@ def index() -> str:
     )
 
 
-@app.route("/abort-<int:error_code>")
-def abort_error(error_code: int) -> None:
-    """
-    cause <response error_code> (400 <= error_code <= 505)
-    :param error_code: int
-    :return: None
-    """
-    abort(error_code)
+if app.debug:
+    @app.route("/abort-<int:error_code>")
+    def abort_error(error_code: int) -> None:
+        """
+        cause <response error_code> (400 <= error_code <= 505)
+        :param error_code: int
+        :return: None
+        """
+        abort(error_code)
 
 
 @app.route("/profile")
@@ -45,6 +47,7 @@ def profile():
 @app.route('/profile/info')
 @login_required
 def profile_info():
+    """Table with information about user"""
     return render_template("profile/profile_info.html", base=base)
 
 

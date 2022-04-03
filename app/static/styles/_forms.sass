@@ -9,9 +9,9 @@ $fields-border-radius: $element-border-radius
 
 $fields-background-color: $header-color
 $fields-text-color: $background-color
-$fields-horizontal-padding: $element-padding * 1.5
+$fields-horizontal-padding: $element-padding
 $fields-vertical-padding: $element-padding
-$fields-groups-space: 50px
+$fields-groups-space: 60px
 
 $caret-color: $navbar-background-color
 
@@ -46,6 +46,8 @@ input:not([type="checkbox"], [type="radio"]),
     weight: bold
   caret-color: $caret-color
   padding: $fields-vertical-padding $fields-horizontal-padding
+
+  transition: all 0.2s
   // styles for text elements
   &[type=text], &[type=password], &[type=email], &[type=number]
     &:hover
@@ -102,17 +104,13 @@ select:focus
               radius: $fields-border-radius
 
 // Форма выбора класса
-.classroom, .classletter
-  display: inline-block
+.classroom
   input
-    width: $classroom-field-width
     &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
       -webkit-appearance: none
       -moz-appearance: none
       appearance: none
       display: none
-  select
-    width: $classletter-field-width
 
 // Отображение ошибок
 .form_error
@@ -132,5 +130,21 @@ select:focus
 
 // register form
 .register
-  .repeat_password, .patronymic, .classletter
-    margin-bottom: $fields-groups-space
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  &_fields
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-around
+  .field_group
+    margin: 10px
+
+label
+  margin: 5px auto
+  display: inline-block
+
+.submit
+  margin-top: 30px

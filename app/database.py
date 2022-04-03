@@ -6,6 +6,9 @@ from app import db
 
 
 class Users(db.Model):
+    """Main database
+
+    """
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -16,9 +19,11 @@ class Users(db.Model):
     lastname = db.Column(db.String(50))
     patronymic = db.Column(db.String(50))
 
-    classroom = db.Column(db.String(3))
+    classroom = db.Column(db.String(3), nullable=False)
 
     email = db.Column(db.String(100), unique=True)
+
+    role = db.Column(db.String(10), nullable=False, default="student")
 
     info = db.relationship("UserInfo", backref="users", uselist=False)
 
@@ -32,7 +37,7 @@ class UserInfo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
-    sex = db.Column(db.String(1), nullable=False)
+    sex = db.Column(db.Boolean, nullable=False)
     birthdate = db.Column(db.Integer)
     many_children = db.Column(db.Boolean)
 

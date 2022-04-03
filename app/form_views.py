@@ -1,24 +1,24 @@
 from app import app, login_manager
 from app.userLogin import UserLogin
 from app.config import my_resp
-from flask_login import login_user, login_required, logout_user, current_user
+from flask_login import login_user, logout_user, current_user
 from .views import base
-from flask import render_template, url_for, session, redirect, request, make_response
+from flask import render_template, url_for, redirect, request, make_response
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.wrappers import Response
 from app import db
 from app.database import Users, UserInfo
 from app.forms import *
 from colorama import Fore, Style
-from time import strftime
 
 
 @login_manager.user_loader
 def load_user(user_id) -> UserLogin:
-    return UserLogin().from_db(user_id)
+    return UserLogin(user_id)
 
 
 @app.route("/register", methods=["GET", "POST"])
-def register():
+def register() -> str or Response:
     """Add user to db
 
     render form from RegisterForm object
@@ -37,21 +37,23 @@ def register():
             firstname=form.firstname.data, lastname=form.lastname.data, patronymic=form.patronymic.data,
             classroom=str(form.classroom.data) + form.classletter.data
         )
+        # adding row to database
+        db.session.add(u)
+        db.session.flush()
+
+        # adding info about user
         ui = UserInfo(
             user_id=u.id,
-            sex=form.sex.data,
+            sex=form.sex.data == "М",
         )
-        # add row to database
-        db.session.add(u)
         db.session.add(ui)
-        db.session.flush()
         db.session.commit()
         return redirect(url_for("login"))
-    return render_template("register.html", base=base, title="Регистрация", form=form)
+    return render_template("accounts/register.html", base=base, title="Регистрация", form=form)
 
 
 @app.route("/login", methods=["GET", "POST"])
-def login():
+def login() -> str or Response:
     """Log in user
 
     if user is logged in, he is redirected to the profile
@@ -64,20 +66,25 @@ def login():
     if current_user.is_authenticated:  # if user is authorized, he is redirected to the profile
         return redirect(url_for("profile"))
     else:
-        form: FlaskForm = LoginForm()   # create form object
+        form = LoginForm()   # create form object
         if form.validate_on_submit():   # if form passed validation
             user: Users = Users.query.filter(form.username.data == Users.username).first()  # get user from database
-            user_login = UserLogin().create(user)
+            user_login = UserLogin(user)
             print(Fore.LIGHTGREEN_EX + Style.BRIGHT
                   + my_resp(f' User "{user.username}" was logged in')
                   + Style.RESET_ALL)
             login_user(user_login)    # user authorization
 
             return redirect(url_for("profile"))
-    return render_template("login.html", base=base, form=form)
+    return render_template("accounts/login.html", base=base, form=form)
 
 
 @app.route("/logout")
-def logout():
+def logout() -> Response:
+    """logout
+
+    logging out user and redirecting to main page
+    :return:
+    """
     logout_user()
     return redirect(url_for("index"))

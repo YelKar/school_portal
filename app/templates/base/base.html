@@ -48,12 +48,7 @@
                 </a>
                 {% if current_user.is_authenticated %}
                     <div class="profile-link-contextmenu">
-                        <a href="{{ url_for('logout') }}">
-                            <span class="element-text">Выйти</span>
-                        </a>
-                        <a href="{{ url_for('profile_info') }}">
-                            <span class="element-text">Информация</span>
-                        </a>
+                    {% include "base/profile_links.html" %}
                     </div>
                 {% endif %}
             </div>
@@ -62,5 +57,6 @@
     <main>
         {% block content %}{% endblock %}
     </main>
+    {% include "base/footer.html" %}
 </body>
 </html>

@@ -1,0 +1,5 @@
+<a href="{{ url_for('profile_info') }}" class="button">Информация</a>
+{% if current_user.is_admin %}
+    <a href="/admin" class="button">Админ-панель</a>
+{% endif %}
+<a href="{{ url_for('logout') }}" class="button submit">Выйти</a>
