@@ -73,7 +73,8 @@ def login() -> str or Response:
             print(Fore.LIGHTGREEN_EX + Style.BRIGHT
                   + my_resp(f' User "{user.username}" was logged in')
                   + Style.RESET_ALL)
-            login_user(user_login)    # user authorization
+
+            login_user(user_login, remember=form.remember.data)    # user authorization
 
             return redirect(url_for("profile"))
     return render_template("accounts/login.html", base=base, form=form)

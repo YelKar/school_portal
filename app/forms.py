@@ -1,6 +1,7 @@
 """Creating form objects"""
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, EmailField, SubmitField, SelectField, IntegerField
+from wtforms import StringField, PasswordField, EmailField, IntegerField, \
+    SubmitField, SelectField, BooleanField
 from wtforms.validators import DataRequired, Length,\
     Email, EqualTo, \
     NumberRange, ValidationError
@@ -18,6 +19,8 @@ class LoginForm(FlaskForm):
     username = StringField("Логин: *", validators=[DataRequired()],
                            render_kw={"placeholder": "Введите имя пользователя"})
     password = PasswordField("Пароль: *", validators=[Length(min=6)], render_kw={"placeholder": "Введите пароль"})
+
+    remember = BooleanField("Запомнить")
 
     def validate_user(self, _: SubmitField) -> ValidationError or None:
         """checking, if user in db

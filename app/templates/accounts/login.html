@@ -2,11 +2,11 @@
 {% block content %}
     <h2>Войти</h2>
     <form method="POST">
-        {% for msg in get_flashed_messages() %}
-            <div class="form_error">
-                {{ msg }}
-            </div>
-        {% endfor %}
+{#        {% for msg in get_flashed_messages() %}#}
+{#            <div class="form_error">#}
+{#                {{ msg }}#}
+{#            </div>#}
+{#        {% endfor %}#}
         {{ form.csrf_token }}
         {% if form.submit.errors %}
         <div class="form_error">
@@ -16,9 +16,10 @@
         </div>
         {% endif %}
         {% for field in form if field.name != "csrf_token" %}
-            <p class="{{ field.name }}">
-                {{ field.label() if field.type != "SubmitField" }}<br>
+            <p class="{{ field.name }} {{ 'checkbox' if field.type == "BooleanField" }}">
+                {{ field.label() if field.type != "SubmitField" and field.type != "BooleanField" }}<br>
                 {{ field }}
+                {{ field.label() if field.type == "BooleanField" }}
             </p>
         {% endfor %}
     </form>
