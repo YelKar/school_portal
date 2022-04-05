@@ -1,19 +1,36 @@
-from app import app, login_manager
-from app.userLogin import UserLogin
+"""All routes with forms
+
+routes for:
+    Login form
+    Register form
+
+user authorization and creating accounts
+"""
+from flask import render_template, url_for, redirect
+
+# import configuration and db models
+from app import app, login_manager, db
 from app.config import my_resp
-from flask_login import login_user, logout_user, current_user
-from .views import base
-from flask import render_template, url_for, redirect, request, make_response
-from werkzeug.security import generate_password_hash, check_password_hash
-from werkzeug.wrappers import Response
-from app import db
 from app.database import Users, UserInfo
-from app.forms import *
+
+# import all for authorization
+from flask_login import login_user, logout_user, current_user
+from app.userLogin import UserLogin
+from app.forms import LoginForm, RegisterForm
+
+from werkzeug.security import generate_password_hash
+from werkzeug.wrappers import Response
 from colorama import Fore, Style
+from .views import base
 
 
 @login_manager.user_loader
 def load_user(user_id) -> UserLogin:
+    """Load user and return object for currant_user
+
+    :param user_id:
+    :return: UserLogin
+    """
     return UserLogin(user_id)
 
 
@@ -24,7 +41,7 @@ def register() -> str or Response:
     render form from RegisterForm object
 
     get form data if form passed validation, generate password hash and add data to the DataBase
-    :return: str (HTML_Template)
+    :return: str (HTML_Template) or Response
     """
     form = RegisterForm()   # create form object
     if form.validate_on_submit():    # if form passed validation
@@ -47,6 +64,8 @@ def register() -> str or Response:
             sex=form.sex.data == "М",
         )
         db.session.add(ui)
+
+        # saving data
         db.session.commit()
         return redirect(url_for("login"))
     return render_template("accounts/register.html", base=base, title="Регистрация", form=form)
@@ -61,15 +80,18 @@ def login() -> str or Response:
     if user is not logged, render the form from RegisterForm object
     after filling out the form, authorized user
 
-    :return: str (HTML_Template)
+    :return: str (HTML_Template) or Response
     """
     if current_user.is_authenticated:  # if user is authorized, he is redirected to the profile
         return redirect(url_for("profile"))
     else:
         form = LoginForm()   # create form object
+
         if form.validate_on_submit():   # if form passed validation
             user: Users = Users.query.filter(form.username.data == Users.username).first()  # get user from database
             user_login = UserLogin(user)
+
+            # print info about authorization
             print(Fore.LIGHTGREEN_EX + Style.BRIGHT
                   + my_resp(f' User "{user.username}" was logged in')
                   + Style.RESET_ALL)
@@ -85,7 +107,7 @@ def logout() -> Response:
     """logout
 
     logging out user and redirecting to main page
-    :return:
+    :return: Response
     """
     logout_user()
     return redirect(url_for("index"))
