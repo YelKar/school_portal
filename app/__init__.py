@@ -19,7 +19,7 @@ from .config import Config
 
 app = Flask(__name__)  # creating main object for app
 app.config.from_object(Config)  # adding configuration
-app.context_processor(lambda: dict(base="base/base.html"))
+app.context_processor(lambda: dict(base="base/base.html"))  # adding variable <base> for jinja
 
 login_manager = LoginManager(app)  # creating account object
 login_manager.login_view = "login"  # adding route to redirecting unauthorized
