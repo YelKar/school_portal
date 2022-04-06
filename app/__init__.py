@@ -17,18 +17,19 @@ from flask_admin import Admin
 from .config import Config
 
 
-app = Flask(__name__)
-app.config.from_object(Config)
+app = Flask(__name__)  # creating main object for app
+app.config.from_object(Config)  # adding configuration
 
-login_manager = LoginManager(app)
-login_manager.login_view = "login"
-login_manager.login_message = "Вы не авторизованы"
+login_manager = LoginManager(app)  # creating account object
+login_manager.login_view = "login"  # adding route to redirecting unauthorized
+login_manager.login_message = "Вы не авторизованы"  # and massage
 
-db = SQLAlchemy(app)
+db = SQLAlchemy(app)  # creating database model object
 
 migrate = Migrate(app, db)
 
-admin = Admin(app, name="Admin", template_mode='bootstrap4')
+admin = Admin(app, name="Admin", template_mode='bootstrap4')  # creating object for admin panel
+
 
 from app import admin_panel
 

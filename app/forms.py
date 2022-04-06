@@ -1,13 +1,14 @@
 """Creating form objects"""
+from app.database import Users
+
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, EmailField, IntegerField, \
     SubmitField, SelectField, BooleanField
 from wtforms.validators import DataRequired, Length,\
     Email, EqualTo, \
     NumberRange, ValidationError
+
 from werkzeug.security import check_password_hash
-from app import db
-from app.database import Users
 
 
 class LoginForm(FlaskForm):
@@ -58,6 +59,7 @@ class RegisterForm(FlaskForm):
             raise ValidationError("Такой логин уже есть")
 
     def validate_email(self, field) -> ValidationError or None:
+        """checking if email is used"""
         emails = [user.email for user in Users.query.all()]
         if field.data in emails:
             raise ValidationError("Такой email уже зарегистрирован")

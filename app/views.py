@@ -1,7 +1,13 @@
+"""All routes for app
+
+all routes for app
+error handling
+and importing other routes
+"""
 from app import app
 from flask import render_template, abort
-from werkzeug.exceptions import HTTPException
 from flask_login import login_required
+from werkzeug.exceptions import HTTPException
 
 
 base = "base/base.html"  # Путь к базе данных

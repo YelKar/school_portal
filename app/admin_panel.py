@@ -2,22 +2,29 @@
 
 """
 from flask import redirect, url_for
-from flask_admin.contrib.sqla import ModelView
-from flask_admin import expose, BaseView
 from app import admin, db
 from app.database import Users, UserInfo
 from flask_login import current_user
 
+from flask_admin.contrib.sqla import ModelView
+from flask_admin import expose, BaseView
+
 
 class AdminView(ModelView):
+    """Object for view database models
+
+    checking user role and view database model
+    """
     def __init__(self, *args, column_list=None, **kwargs):
         super().__init__(*args, **kwargs)
         self._list_columns = column_list or self._list_columns
 
-    def is_accessible(self):
+    def is_accessible(self) -> bool:
+        """check user role and return True if user is admin"""
         return current_user.is_authenticated and current_user.user.role == "admin"
 
     def inaccessible_callback(self, name, **kwargs):
+        """if user not authorized or he is not admin redirect his to main page"""
         if not self.is_accessible():
             return redirect(url_for('index'))
 
@@ -25,25 +32,11 @@ class AdminView(ModelView):
     column_exclude_list = ("password", "users")
 
 
-class Page(BaseView):
-    """Views for other pages in admin panel"""
-
-    def __init__(self, *args, **kwargs):
-        super(Page, self).__init__(*args, **kwargs)
-        # self.route = route
-    @expose("/")
-    def page(self):
-        return self.render("admin/index.html")
-
-    @expose("/in")
-    def page2(self):
-        return self.render("admin/some.html")
-
-
 class ToMainPage(BaseView):
-    """redirect to index"""
+    """creating button for index page"""
     @expose()
     def to_main(self):
+        """redirect to main page"""
         return redirect(url_for("index"))
 
 

@@ -6,9 +6,7 @@ from app import db
 
 
 class Users(db.Model):
-    """Main database
-
-    """
+    """Main database for users"""
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -32,6 +30,8 @@ class Users(db.Model):
 
 
 class UserInfo(db.Model):
+    """Database for userinfo"""
+
     __tablename__ = 'user_info'
 
     id = db.Column(db.Integer, primary_key=True)

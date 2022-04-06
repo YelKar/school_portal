@@ -25,6 +25,7 @@ class UserLogin(UserMixin):
         return self.user.username
 
     def update(self):
+        """getting up-to-date data from the database"""
         self.__init__(Users.query.filter_by(id=self.user.id).first())
 
 
@@ -40,6 +41,7 @@ def is_role(role):
         """
         @wraps(func)
         def decorated_view(*args, **kwargs):
+            """checking if user role is <role>"""
             if current_user.user.role == role:
                 return func(*args, **kwargs)
             return current_app.login_manager.unauthorized()

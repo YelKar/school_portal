@@ -1,7 +1,7 @@
 """All views for documents"""
 
-from app import app, db
 from flask import render_template, redirect, request, url_for
+from app import app, db
 from app.database import Users
 from .views import base
 
@@ -56,10 +56,15 @@ def chose_students():
 
 @app.route("/print")
 def print_document():
+    """page for getting document and students data from request.args and printing
+
+    :return:
+    """
     return render_template("documents/print.html", base=base, Users=Users)
 
 
 @app.route('/docs-<name>')
 def docs(name):
+    """getting doc name from url and showing this document"""
     return render_template("documents/show_docs.html", name=name,
                            base=base)
