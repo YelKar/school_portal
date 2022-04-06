@@ -21,7 +21,6 @@ from app.forms import LoginForm, RegisterForm
 from werkzeug.security import generate_password_hash
 from werkzeug.wrappers import Response
 from colorama import Fore, Style
-from .views import base
 
 
 @login_manager.user_loader
@@ -68,7 +67,7 @@ def register() -> str or Response:
         # saving data
         db.session.commit()
         return redirect(url_for("login"))
-    return render_template("accounts/register.html", base=base, title="Регистрация", form=form)
+    return render_template("accounts/register.html", title="Регистрация", form=form)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -99,7 +98,7 @@ def login() -> str or Response:
             login_user(user_login, remember=form.remember.data)    # user authorization
 
             return redirect(url_for("profile"))
-    return render_template("accounts/login.html", base=base, form=form)
+    return render_template("accounts/login.html", form=form)
 
 
 @app.route("/logout")

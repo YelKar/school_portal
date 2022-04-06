@@ -10,9 +10,6 @@ from flask_login import login_required
 from werkzeug.exceptions import HTTPException
 
 
-base = "base/base.html"  # Путь к базе данных
-
-
 # main page
 @app.route('/')
 def index() -> str:
@@ -23,8 +20,7 @@ def index() -> str:
 
     return render_template(
         "index.html",
-        title="1060",
-        base=base
+        title="1060"
     )
 
 
@@ -47,14 +43,14 @@ def profile():
     else redirect to <login_manager.login_view> and show message <login_manager.login_message>
     :return: str (HTML_Template)
     """
-    return render_template("profile/profile.html", base=base)
+    return render_template("profile/profile.html")
 
 
 @app.route('/profile/info')
 @login_required
 def profile_info():
     """Table with information about user"""
-    return render_template("profile/profile_info.html", base=base)
+    return render_template("profile/profile_info.html")
 
 
 @app.errorhandler(HTTPException)
@@ -66,7 +62,6 @@ def error_requests(e: HTTPException):
     """
     return render_template(
         "errors.html",
-        base=base,
         error=e,
         title=e.name
     ), e.code

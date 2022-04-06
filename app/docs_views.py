@@ -3,7 +3,6 @@
 from flask import render_template, redirect, request, url_for
 from app import app, db
 from app.database import Users
-from .views import base
 
 
 @app.route('/chose/documents', methods=["GET", "POST"])
@@ -19,7 +18,6 @@ def chose_documents():
         return redirect(url_for("chose_students", doc_name=request.form["doc"]))
     return render_template(
         "documents/chose_documents.html",
-        base=base,
         users=Users,
         db=db
     )
@@ -48,7 +46,6 @@ def chose_students():
         )
     return render_template(
         "documents/chose_students.html",
-        base=base,
         users=Users,
         db=db
     )
@@ -60,11 +57,10 @@ def print_document():
 
     :return:
     """
-    return render_template("documents/print.html", base=base, Users=Users)
+    return render_template("documents/print.html", Users=Users)
 
 
 @app.route('/docs-<name>')
 def docs(name):
     """getting doc name from url and showing this document"""
-    return render_template("documents/show_docs.html", name=name,
-                           base=base)
+    return render_template("documents/show_docs.html", name=name)
