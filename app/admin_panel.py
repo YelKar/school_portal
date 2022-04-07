@@ -54,10 +54,27 @@ Users_column_list = (
     ("role", "Роль")
 )
 
+UserInfo_column_list = (
+    ("user_id", "ID"),
+    ("birthdate", "Дата рождения"),
+    ("sex", "Пол"),
+    ("many_children", "Многодетность"),
+    ("fathers_lastname", "Фамилия отца"),
+    ("fathers_firstname", "Имя отца"),
+    ("fathers_patronymic", "Отчество отца"),
+    ("mothers_lastname", "Фамилия матери"),
+    ("mothers_firstname", "Имя матери"),
+    ("mothers_patronymic", "Отчество матери"),
+)
+
 admin.add_view(ToMainPage(name="На главную страницу"))
 
-admin.add_view(AdminView(Users, db.session, name="Пользователи", column_list=Users_column_list))
+admin.add_view(AdminView(Users, db.session,
+                         name="Пользователи",
+                         column_list=Users_column_list
+                         ))
 
-ui = AdminView(UserInfo, db.session, name="Информация о пользователях")
-ui._list_columns = [["user_id", "ID"]] + list(ui._list_columns)
-admin.add_view(ui)
+admin.add_view(AdminView(UserInfo, db.session,
+                         name="Информация о пользователях",
+                         column_list=UserInfo_column_list
+                         ))
