@@ -29,7 +29,7 @@ db = SQLAlchemy(app)  # creating database model object
 
 migrate = Migrate(app, db)
 
-admin = Admin(app, name="Admin", template_mode='bootstrap4')  # creating object for admin panel
+admin = Admin(app, name="School_№1060", template_mode='bootstrap4')  # creating object for admin panel
 
 
 from app import admin_panel
