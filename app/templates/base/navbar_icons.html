@@ -1,0 +1,45 @@
+{% macro icons(s) %}base/icons/{{ s }}.svg{% endmacro %}
+
+{% macro index() %}
+    {% include icons("index") %}
+{% endmacro %}
+
+{% macro print_doc() %}
+    {% include icons("print") %}
+{% endmacro %}
+
+{% macro profile() %}
+    {% include icons("profile") %}
+{% endmacro %}
+
+{% macro admin_panel() %}
+    {% include icons("admin_panel") %}
+{% endmacro %}
+
+{% macro theme_button(theme) %}
+    {% if theme == "light" %}
+        <svg viewBox="-50 -50 100 100"
+                stroke-width="3" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <path id="line" d="
+                M 12 0
+                l 10 0
+                "></path>
+            </defs>
+            <circle r="10" cx="0"></circle>
+            {% for deg in range(0, 360, 30) %}
+                <use href="#line" transform="rotate({{ deg }})"></use>
+            {% endfor %}
+        </svg>
+    {% elif theme == "dark" %}
+        <svg id="moon"
+                stroke-width="6" viewBox="-80 -80 160 160" xmlns="http://www.w3.org/2000/svg">
+            <path transform="rotate(180)" fill="none" d="
+        M -20 -30
+        c 70 -25 70 85 0 60
+        M -20 -30
+        c 40 0 40 60 0 60
+    "></path>
+        </svg>
+    {% endif %}
+{% endmacro %}

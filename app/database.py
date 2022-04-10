@@ -17,7 +17,7 @@ class Users(db.Model):
     lastname = db.Column(db.String(50))
     patronymic = db.Column(db.String(50))
 
-    classroom = db.Column(db.String(3), nullable=False)
+    classroom = db.Column(db.String(3))
 
     email = db.Column(db.String(100), unique=True)
 
@@ -37,7 +37,7 @@ class UserInfo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
-    sex = db.Column(db.Boolean, nullable=False)
+    sex = db.Column(db.Boolean, default=True)
     birthdate = db.Column(db.Integer)
     many_children = db.Column(db.Boolean)
 

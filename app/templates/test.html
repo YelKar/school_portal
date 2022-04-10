@@ -4,29 +4,9 @@
         <title>⠀</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 90vh;
-                width: 100%;
-            }
-            .something {
-                font-size: 100px;
-                border: 2px solid black;
-                width: 100%;
-                aspect-ratio: 6;
-                transform: scale(1);
-                transform-origin: 50% 50%;
-                transition: .2s transform ease-in-out;
-            }
-            .something:hover {
-                transform: scale(0.5);
-            }
-        </style>
     </head>
     <body>
-    <div class="something">Какой-то текст</div>
+        {% from "base/navbar_icons.html" import admin_panel %}
+        {{ admin_panel() }}
     </body>
 </html>

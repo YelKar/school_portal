@@ -17,8 +17,9 @@ class UserLogin(UserMixin):
         else:
             self.user = Users.query.filter_by(id=user).first()
 
-        self.is_admin = self.user.role == "admin"
-        self.is_student = self.user.role == "student"
+        self.is_admin = "admin" in self.user.role
+        self.is_student = "student" in self.user.role
+        self.is_teacher = "teacher" in self.user.role
         self.id = self.user.id
 
     def __repr__(self):

@@ -30,11 +30,11 @@
         </tr>
         <tr>
             <th>Пол</th>
-            <td>{{ ("Мужской" if user.info.sex else "Женский") if user.info.sex }}</td>
+            <td>{{ ("Мужской" if user.info.sex else "Женский") if user.info.sex else "Не указан" }}</td>
         </tr>
         <tr>
             <th>Дата рождения</th>
-            <td>{{ user.info.birthdate|fromTimestamp|strftime("%d.%m.%Y") if user.info.birthdate }}</td>
+            <td>{{ user.info.birthdate|fromTimestamp|strftime("%d.%m.%Y") if user.info.birthdate else "Не указана" }}</td>
         </tr>
         {% if user.info.many_children %}
             <tr>
@@ -49,6 +49,10 @@
         <tr>
             <th>Email</th>
             <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>Роль</th>
+            <td>{{ ", ".join(user.role.split()) }}</td>
         </tr>
         <tr>
             <th rowspan="3">Отец</th>

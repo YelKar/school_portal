@@ -34,6 +34,10 @@ if app.debug:
         """
         abort(error_code)
 
+    @app.route("/test")
+    def test_view():
+        return render_template("test.html")
+
 
 @app.route("/profile")
 @login_required

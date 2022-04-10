@@ -1,0 +1,52 @@
+<nav class="navbar {{ request.cookies.get("navbar_is_open") if request.cookies.get("navbar_is_open") }}">
+    <header onclick="return location.href = '{{ url_for("index") }}'">
+        <span class="header open">School №1060</span>
+        <span class="header">1060</span>
+    </header>
+
+    <div class="navbar-btn open" onclick="open_navbar();">
+        &#10148
+    </div>
+    <div class="navbar-btn open" onclick="open_navbar();">
+        &#10148
+    </div>
+
+    <div class="navbar-btn theme" onclick="change_themes();">
+        <div class="dark">{{ ico.theme_button("dark") }}</div>
+        <div class="light">{{ ico.theme_button("light") }}</div>
+    </div>
+
+    <div class="navbar-elements">
+        <a href="{{ url_for('index') }}" id="index-link">
+            {{ ico.index() }}
+            <span class="element-text">Главная</span>
+        </a>
+
+        {% if current_user.is_authenticated and not current_user.is_student %}
+            <a href="{{ url_for('chose_documents') }}">
+                {{ ico.print_doc() }}
+                <span class="element-text">Документы</span>
+            </a>
+        {% endif %}
+
+        {% if current_user.is_admin %}
+            <a href="/admin">
+                {{ ico.admin_panel() }}
+                <span class="element-text">Админ-панель</span>
+            </a>
+        {% endif %}
+
+        <div class="profile-link">
+            <a href="{{ url_for('login') }}">
+                {{ ico.profile() }}
+                <span class="element-text">{{ "Профиль" if current_user.is_authenticated else "Войти" }}</span>
+            </a>
+
+            {% if current_user.is_authenticated %}
+                <div class="profile-link-contextmenu">
+                    {% include "base/profile_links.html" %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>
