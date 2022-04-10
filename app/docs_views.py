@@ -3,9 +3,13 @@
 from flask import render_template, redirect, request, url_for
 from app import app, db
 from app.database import Users
+from app.userLogin import is_role
+from flask_login import login_required
 
 
 @app.route('/chose/documents', methods=["GET", "POST"])
+@is_role(role="teacher admin")
+@login_required
 def chose_documents():
     """chose document to print
 
@@ -24,6 +28,8 @@ def chose_documents():
 
 
 @app.route('/chose/students', methods=['GET', 'POST'])
+@is_role(role="teacher admin")
+@login_required
 def chose_students():
     """chose students and goto print
 
@@ -52,6 +58,8 @@ def chose_students():
 
 
 @app.route("/print")
+@is_role(role="teacher admin")
+@login_required
 def print_document():
     """page for getting document and students data from request.args and printing
 
@@ -61,6 +69,8 @@ def print_document():
 
 
 @app.route('/docs-<name>')
+@is_role(role="teacher admin")
+@login_required
 def docs(name):
     """getting doc name from url and showing this document"""
     return render_template("documents/show_docs.html", name=name)
