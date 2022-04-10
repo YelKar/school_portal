@@ -1,3 +1,12 @@
 <footer>
-    <a href="//1060.ru">Сайт школы</a>
+    <fieldset>
+        <legend>Информация</legend>
+
+        <a href="{{ url_for('profile') }}">Профиль</a>
+        <a href="{{ url_for('profile_info') }}">Информация о пользователе</a>
+    </fieldset>
+    <fieldset>
+        <legend>Разные ссылки</legend>
+        <a href="//1060.ru">Сайт школы</a>
+    </fieldset>
 </footer>

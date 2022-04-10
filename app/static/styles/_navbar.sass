@@ -15,7 +15,7 @@ $profile-contextmenu-width: $navbar-open-width / 1.5
   transition: all .2s
   z-index: 8
 
-  + main
+  + main, + main + footer
     margin-left: $navbar-width
     transition: margin-left .2s
 
@@ -39,7 +39,7 @@ $profile-contextmenu-width: $navbar-open-width / 1.5
       display: inline-block
       @include cursor(pointer, $c_style)
 
-    + main
+    + main, + main + footer
       margin-left: $navbar-open-width
 
     .navbar-btn.open

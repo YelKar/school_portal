@@ -25,8 +25,11 @@ html {
   font-weight: bold;
 }
 .dark-theme body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   text-align: center;
+  height: 100vh;
   color: #999;
   background: #2a2a2a;
   font-family: "Comfortaa";
@@ -58,7 +61,7 @@ html {
   /* open navbar */
   /* navbar-elements */
 }
-.dark-theme .navbar + main {
+.dark-theme .navbar + main, .dark-theme .navbar + main + footer {
   margin-left: 80px;
   transition: margin-left 0.2s;
 }
@@ -84,7 +87,7 @@ html {
   display: inline-block;
   cursor: url("../cursors/pointer/dark.cur"), pointer;
 }
-.dark-theme .navbar.open + main {
+.dark-theme .navbar.open + main, .dark-theme .navbar.open + main + footer {
   margin-left: 250px;
 }
 .dark-theme .navbar.open .navbar-btn.open {
@@ -191,14 +194,39 @@ html {
   display: block;
 }
 .dark-theme footer {
-  margin-bottom: 0;
-  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex: 1 1 auto;
+  padding: 30px;
+  margin-top: 300px;
+  background-color: #222;
+}
+.dark-theme footer fieldset {
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  margin: auto 20px;
+  background-color: #333;
+}
+.dark-theme footer fieldset legend {
+  text-align: left;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.dark-theme footer fieldset a {
+  display: block;
+  padding: 10px;
+  text-align: left;
+  font-size: 1em;
+  font-weight: bold;
+  color: #999;
+  text-decoration: none;
 }
 .dark-theme main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 70vh;
 }
 .dark-theme a, .dark-theme button, .dark-theme .navbar-elements, .dark-theme select, .dark-theme .header,
 .dark-theme .Boolean, .dark-theme .checkbox,
@@ -458,8 +486,11 @@ html {
   display: unset;
 }
 .light-theme body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   text-align: center;
+  height: 100vh;
   color: #555;
   background: #e4e9f7;
   font-family: "Comfortaa";
@@ -491,7 +522,7 @@ html {
   /* open navbar */
   /* navbar-elements */
 }
-.light-theme .navbar + main {
+.light-theme .navbar + main, .light-theme .navbar + main + footer {
   margin-left: 80px;
   transition: margin-left 0.2s;
 }
@@ -517,7 +548,7 @@ html {
   display: inline-block;
   cursor: url("../cursors/pointer/light.cur"), pointer;
 }
-.light-theme .navbar.open + main {
+.light-theme .navbar.open + main, .light-theme .navbar.open + main + footer {
   margin-left: 250px;
 }
 .light-theme .navbar.open .navbar-btn.open {
@@ -624,14 +655,39 @@ html {
   display: block;
 }
 .light-theme footer {
-  margin-bottom: 0;
-  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex: 1 1 auto;
+  padding: 30px;
+  margin-top: 300px;
+  background-color: rgba(134, 88, 234, 0.13);
+}
+.light-theme footer fieldset {
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  margin: auto 20px;
+  background-color: rgba(134, 88, 234, 0.19);
+}
+.light-theme footer fieldset legend {
+  text-align: left;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.light-theme footer fieldset a {
+  display: block;
+  padding: 10px;
+  text-align: left;
+  font-size: 1em;
+  font-weight: bold;
+  color: #555;
+  text-decoration: none;
 }
 .light-theme main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 70vh;
 }
 .light-theme a, .light-theme button, .light-theme .navbar-elements, .light-theme select, .light-theme .header,
 .light-theme .Boolean, .light-theme .checkbox,
