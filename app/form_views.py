@@ -6,7 +6,7 @@ routes for:
 
 user authorization and creating accounts
 """
-from flask import render_template, url_for, redirect
+from flask import render_template, url_for, redirect, request
 
 # import configuration and db models
 from app import app, login_manager, db
@@ -96,8 +96,8 @@ def login() -> str or Response:
                   + Style.RESET_ALL)
 
             login_user(user_login, remember=form.remember.data)    # user authorization
-
-            return redirect(url_for("profile"))
+            next_page = request.args.get("next")
+            return redirect(next_page or url_for("profile"))
     return render_template("accounts/login.html", form=form)
 
 
