@@ -197,6 +197,7 @@ html {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  flex-wrap: wrap;
   flex: 1 1 auto;
   padding: 30px;
   margin-top: 300px;
@@ -206,7 +207,7 @@ html {
   border: none;
   border-radius: 8px;
   padding: 20px;
-  margin: auto 20px;
+  margin: 20px;
   background-color: #333;
 }
 .dark-theme footer fieldset legend {
@@ -222,6 +223,10 @@ html {
   font-weight: bold;
   color: #999;
   text-decoration: none;
+}
+.dark-theme footer fieldset a:hover {
+  color: #999;
+  opacity: 0.9;
 }
 .dark-theme main {
   display: flex;
@@ -658,6 +663,7 @@ html {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  flex-wrap: wrap;
   flex: 1 1 auto;
   padding: 30px;
   margin-top: 300px;
@@ -667,7 +673,7 @@ html {
   border: none;
   border-radius: 8px;
   padding: 20px;
-  margin: auto 20px;
+  margin: 20px;
   background-color: rgba(134, 88, 234, 0.19);
 }
 .light-theme footer fieldset legend {
@@ -683,6 +689,10 @@ html {
   font-weight: bold;
   color: #555;
   text-decoration: none;
+}
+.light-theme footer fieldset a:hover {
+  color: #555;
+  opacity: 0.9;
 }
 .light-theme main {
   display: flex;

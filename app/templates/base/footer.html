@@ -1,9 +1,18 @@
 <footer>
     <fieldset>
         <legend>Информация</legend>
-
+        <a href="{{ url_for('index') }}">Главная страница</a>
+        {% if current_user.is_teacher or current_user.is_admin %}
+            <a href="{{ url_for('chose_documents') }}">Печать документов</a>
+        {% endif %}
+        {% if current_user.is_admin %}
+            <a href="{{ url_for('admin.index') }}">Админ-панель</a>
+        {% endif %}
         <a href="{{ url_for('profile') }}">Профиль</a>
         <a href="{{ url_for('profile_info') }}">Информация о пользователе</a>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('logout') }}">Выйти</a>
+        {% endif %}
     </fieldset>
     <fieldset>
         <legend>Разные ссылки</legend>

@@ -41,6 +41,7 @@ footer
   display: flex
   justify-content: space-around
   flex-direction: row
+  flex-wrap: wrap
   flex: 1 1 auto
   padding: $footer-padding
   margin-top: $footer-margin-top
@@ -51,7 +52,7 @@ footer
     border: none
     border-radius: $element-border-radius
     padding: $footer-elements-padding
-    margin: auto $footer-elements-space
+    margin: $footer-elements-space
 
     background-color: $footer-elements-bgc
 
@@ -72,6 +73,10 @@ footer
 
       color: $text-color
       text-decoration: none
+
+      &:hover
+        color: $text-color
+        opacity: 0.9
 
 main
   display: flex
