@@ -68,3 +68,5 @@ class Publications(db.Model):
 
     type = db.Column(db.String(15), default=False)
     date = db.Column(db.Integer)
+
+    publication_date = db.Column(db.Integer)

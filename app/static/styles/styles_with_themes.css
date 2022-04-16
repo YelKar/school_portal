@@ -283,17 +283,21 @@ html {
   border-color: #999;
   border-radius: 8px;
 }
-.dark-theme .post h2 {
+.dark-theme .post .post_header {
   margin: 0;
   padding: 10px;
   background-color: #999;
   color: #2a2a2a;
 }
-.dark-theme .post p {
+.dark-theme .post .post_text {
   padding: 10px;
   margin-bottom: 30px;
 }
+.dark-theme .post .post_about {
+  display: flex;
+}
 .dark-theme .post .post_author {
+  box-sizing: border-box;
   border-width: 3px;
   border-style: solid;
   border-color: #999;
@@ -303,8 +307,25 @@ html {
   width: 50%;
   margin-right: 0;
   margin-left: auto;
-  padding: 5px;
+  padding: 10px;
   flex: 1 1 auto;
+}
+.dark-theme .post .post_date {
+  box-sizing: border-box;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #999;
+  border-bottom: none;
+  border-left: none;
+  border-top-right-radius: 10px;
+  width: 50%;
+  margin-right: auto;
+  margin-left: 0;
+  padding: 10px;
+  flex: 1 1 auto;
+}
+.dark-theme .post .post_date_text {
+  display: inline-block;
 }
 .dark-theme .post .event_date {
   background-color: #999;
@@ -861,17 +882,21 @@ html {
   border-color: #8658ea;
   border-radius: 8px;
 }
-.light-theme .post h2 {
+.light-theme .post .post_header {
   margin: 0;
   padding: 10px;
   background-color: #8658ea;
   color: #e4e9f7;
 }
-.light-theme .post p {
+.light-theme .post .post_text {
   padding: 10px;
   margin-bottom: 30px;
 }
+.light-theme .post .post_about {
+  display: flex;
+}
 .light-theme .post .post_author {
+  box-sizing: border-box;
   border-width: 3px;
   border-style: solid;
   border-color: #8658ea;
@@ -881,8 +906,25 @@ html {
   width: 50%;
   margin-right: 0;
   margin-left: auto;
-  padding: 5px;
+  padding: 10px;
   flex: 1 1 auto;
+}
+.light-theme .post .post_date {
+  box-sizing: border-box;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #8658ea;
+  border-bottom: none;
+  border-left: none;
+  border-top-right-radius: 10px;
+  width: 50%;
+  margin-right: auto;
+  margin-left: 0;
+  padding: 10px;
+  flex: 1 1 auto;
+}
+.light-theme .post .post_date_text {
+  display: inline-block;
 }
 .light-theme .post .event_date {
   background-color: #8658ea;

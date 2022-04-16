@@ -10,6 +10,10 @@ $footer-margin-top: 300px
 $scroll-bar-width: 20px
 
 
+$post-space: 60px
+$post-bgc: $navbar-bgc
+$post-header-padding: 10px
+
 
 body
   display: flex
@@ -120,17 +124,19 @@ svg.error_requests
     text-align: right
     min-width: 300px
     width: 50%
+
+
 .post
   display: flex
   flex-direction: column
   margin:
-    top: 30px
-    bottom: 30px
+    top: $post-space / 2
+    bottom: $post-space / 2
     left: auto
     right: auto
   width: 700px
   max-width: 80%
-  background-color: $navbar-background-color
+  background-color: $post-bgc
 
   border:
     width: 5px
@@ -138,17 +144,21 @@ svg.error_requests
     color: $header-color
     radius: $element-border-radius
 
-  h2
+  .post_header
     margin: 0
-    padding: 10px
+    padding: $post-header-padding
     background-color: $header-color
     color: $background-color
 
-  p
-    padding: 10px
+  .post_text
+    padding: $post-header-padding
     margin-bottom: 30px
 
+  .post_about
+    display: flex
+
   .post_author
+    box-sizing: border-box
     border:
       width: 3px
       style: solid
@@ -160,15 +170,34 @@ svg.error_requests
     margin:
       right: 0
       left: auto
-    padding: 5px
+    padding: $post-header-padding
     flex: 1 1 auto
+
+  .post_date
+    box-sizing: border-box
+    border:
+      width: 3px
+      style: solid
+      color: $header-color
+      bottom: none
+      left: none
+      top-right-radius: 10px
+    width: 50%
+    margin:
+      right: auto
+      left: 0
+    padding: $post-header-padding
+    flex: 1 1 auto
+    &_text
+      display: inline-block
+
 
   .event_date
     background-color: $header-color
     color: $background-color
     margin: 0
     font-weight: bold
-    padding: 5px
+    padding: $post-header-padding / 2
 
   &_example
     display: flex

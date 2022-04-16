@@ -21,6 +21,7 @@ from app.forms import LoginForm, RegisterForm, NewAdForm, NewEventForm
 from werkzeug.security import generate_password_hash
 from werkzeug.wrappers import Response
 from colorama import Fore, Style
+from datetime import datetime
 
 
 @login_manager.user_loader
@@ -112,6 +113,7 @@ def logout() -> Response:
     return redirect(url_for("index"))
 
 
+# Publications
 @app.route('/new_ad', methods=['GET', 'POST'])
 def new_ad() -> str or Response:
     """Create ad
@@ -129,9 +131,10 @@ def new_ad() -> str or Response:
             user_id=current_user.id,
             header=form.header.data,
             post=form.text.data,
-            type="ad"
+            type="ad",
+            publication_date=datetime.now().timestamp()
         )
-        print(form.text.data)
+
         db.session.add(post)
         db.session.commit()
     return render_template("publications/new_ad.html", form=form)
@@ -146,7 +149,8 @@ def new_event():
             header=form.header.data,
             post=form.text.data,
             date=form.datetime.data.timestamp(),
-            type="event"
+            type="event",
+            publication_date=datetime.now().timestamp()
         )
         db.session.add(post)
         db.session.commit()
