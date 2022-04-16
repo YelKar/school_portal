@@ -11,7 +11,7 @@ $profile-contextmenu-width: $navbar-open-width / 1.5
   width: $navbar-width
   top: 0
   padding: $navbar-padding
-  background-color: $navbar-background-color
+  background-color: $navbar-bgc
   transition: all .2s
   z-index: 8
 
@@ -69,7 +69,7 @@ $profile-contextmenu-width: $navbar-open-width / 1.5
 
     color: $text-color
     &:hover
-      background-color: $element-hover-background-color
+      background-color: $element-hover-bgc
 
     svg /* icons in elements */
         display: inline-block
@@ -97,7 +97,7 @@ header
   margin-bottom: $navbar-padding * 5
 
   background-color: $header-color
-  color: $navbar-background-color
+  color: $navbar-bgc
 
   font-size: 25px
 
@@ -113,12 +113,12 @@ header
   @include cursor(pointer, $c_style)
 
   background-color: $header-color
-  color: $navbar-background-color
+  color: $navbar-bgc
   svg
     fill: none
-    stroke: $navbar-background-color
+    stroke: $navbar-bgc
     &#moon
-      fill: $navbar-background-color
+      fill: $navbar-bgc
 
 
   &.open
@@ -138,9 +138,9 @@ header
     top: 0
     a
       box-sizing: border-box
-      border: 2px solid $background-color
+      border: 2px solid $bgc
       background-color: $header-color
-      color: $navbar-background-color
+      color: $navbar-bgc
       justify-content: center
       span.element-text
         left: 0

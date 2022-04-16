@@ -23,7 +23,7 @@ body
   height: 100vh
 
   color: $text_color
-  background: $background-color
+  background: $bgc
   font:
     family: "Comfortaa"
     size: 15px
@@ -35,11 +35,11 @@ body
     width: $scroll-bar-width
     padding: 2px
     &-track // трек индикатора прокрутки
-      background-color: $navbar-background-color
+      background-color: $navbar-bgc
     &-thumb // индикатор прокрутки
       background-color: $header-color
       border-radius: 10px
-      border: 4px solid $navbar-background-color
+      border: 4px solid $navbar-bgc
 
 @import "navbar"
 
@@ -112,7 +112,7 @@ svg.error_requests
   tr
     height: 36px
   th, td
-    color: $background-color
+    color: $bgc
     padding: 10px
     background-color: $header-color
     border-radius: 5px
@@ -148,7 +148,7 @@ svg.error_requests
     margin: 0
     padding: $post-header-padding
     background-color: $header-color
-    color: $background-color
+    color: $bgc
 
   .post_text
     padding: $post-header-padding
@@ -194,7 +194,7 @@ svg.error_requests
 
   .event_date
     background-color: $header-color
-    color: $background-color
+    color: $bgc
     margin: 0
     font-weight: bold
     padding: $post-header-padding / 2

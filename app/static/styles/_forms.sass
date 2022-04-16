@@ -7,13 +7,13 @@ $fields-border-style: solid
 $fields-border-color: $header-color
 $fields-border-radius: $element-border-radius
 
-$fields-background-color: $header-color
-$fields-text-color: $background-color
+$fields-bgc: $header-color
+$fields-text-color: $bgc
 $fields-horizontal-padding: $element-padding
 $fields-vertical-padding: $element-padding
 $fields-groups-space: 60px
 
-$caret-color: $navbar-background-color
+$caret-color: $navbar-bgc
 
 $checkbox-size: 20px
 $checkbox-label-line-height: 30px
@@ -35,7 +35,7 @@ input:not([type="checkbox"], [type="radio"]),
   box-sizing: border-box
   height: $fields-height
   width: $form-width
-  background-color: $fields-background-color
+  background-color: $fields-bgc
   border:
     width: $fields-border-width
     style: $fields-border-style
@@ -82,7 +82,7 @@ select:focus
         appearance: none
         position: absolute
     input:checked + label::before
-        background-color: $fields-background-color
+        background-color: $fields-bgc
     label
         position: absolute
         padding-left: $checkbox-size * 2
@@ -117,10 +117,10 @@ select:focus
 // Отображение ошибок
 .form_error
   position: relative
-  background-color: $fields-background-color
+  background-color: $fields-bgc
   border-radius: $fields-border-radius
   padding: $errors-padding
-  color: $navbar-background-color
+  color: $navbar-bgc
   font-weight: bold
   margin: 5px 0
 
@@ -177,13 +177,13 @@ div.tools_panel
   width: 105px
   display: flex
   flex-direction: column
-  background-color: $navbar-background-color
+  background-color: $navbar-bgc
   border-radius: $fields-border-radius
   overflow: hidden
   margin-right: 15px
   button
     color: $fields-text-color
-    background-color: $fields-background-color
+    background-color: $fields-bgc
     height: 30px
     width: 100%
     box-sizing: border-box
@@ -192,6 +192,6 @@ div.tools_panel
       weight: bold
     border:
       width: 3px
-      color: $navbar-background-color
+      color: $navbar-bgc
       style: solid
       radius: $fields-border-radius
