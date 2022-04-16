@@ -30,8 +30,15 @@
         {% endif %}
 
         {% if current_user.is_admin %}
-            <a href="/admin">
+            <a href="{{ url_for('admin.index') }}">
                 {{ ico.admin_panel() }}
+                <span class="element-text">Админ-панель</span>
+            </a>
+        {% endif %}
+
+        {% if current_user.is_admin %}
+            <a href="{{ url_for('new_post') }}">
+                {{ ico.new_publication() }}
                 <span class="element-text">Админ-панель</span>
             </a>
         {% endif %}

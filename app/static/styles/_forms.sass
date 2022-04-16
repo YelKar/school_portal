@@ -23,13 +23,15 @@ $classletter-field-width: $form-width - $classroom-field-width - 5px
 
 $errors-padding: 4px 10px
 
+$form-new-publication-width: 800px
+
 form
   display: block
   text-align: left
   width: $form-width
 
 input:not([type="checkbox"], [type="radio"]),
-.button, select
+.button, select, textarea
   box-sizing: border-box
   height: $fields-height
   width: $form-width
@@ -49,7 +51,7 @@ input:not([type="checkbox"], [type="radio"]),
 
   transition: all 0.2s
   // styles for text elements
-  &[type=text], &[type=password], &[type=email], &[type=number]
+  &[type=text], &[type=password], &[type=email], &[type=number], &[type=datetime-local]
     &:hover
       background-color: $input-hover-color
     &:focus
@@ -148,3 +150,48 @@ label
 
 .submit
   margin-top: 30px
+
+div.new_publication
+  display: flex
+  flex-direction: row
+  height: auto
+  width: 80%
+  margin-top: 15px
+  form
+    height: 100%
+    width: 100%
+    textarea
+      margin: 0
+      height: 500px
+      width: 100%
+      caret-color: $caret-color
+    input[type=text],
+    input[type=datetime-local]
+      margin-bottom: 3px
+      width: 100%
+    input[type=submit]
+      width: 100%
+      max-width: $form-width
+
+div.tools_panel
+  width: 105px
+  display: flex
+  flex-direction: column
+  background-color: $navbar-background-color
+  border-radius: $fields-border-radius
+  overflow: hidden
+  margin-right: 15px
+  button
+    color: $fields-text-color
+    background-color: $fields-background-color
+    height: 30px
+    width: 100%
+    box-sizing: border-box
+    font:
+      size: 10px
+      weight: bold
+    border:
+      width: 3px
+      color: $navbar-background-color
+      style: solid
+      radius: $fields-border-radius

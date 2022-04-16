@@ -2,13 +2,15 @@
 from app.database import Users
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, EmailField, IntegerField, \
-    SubmitField, SelectField, BooleanField
+from wtforms import StringField, PasswordField, EmailField, IntegerField, TextAreaField,\
+    SubmitField, SelectField, BooleanField, DateTimeLocalField
 from wtforms.validators import DataRequired, Length,\
     Email, EqualTo, \
     NumberRange, ValidationError
 
 from werkzeug.security import check_password_hash
+
+import datetime as dt
 
 
 class LoginForm(FlaskForm):
@@ -111,3 +113,23 @@ class RegisterForm(FlaskForm):
     classletter = SelectField("Буква: ", choices=["н", "о", "п"])
 
     submit = SubmitField("Создать")
+
+
+class NewAdForm(FlaskForm):
+    header = StringField(validators=[DataRequired()], render_kw={"placeholder": "Заголовок"})
+    text = TextAreaField(validators=[DataRequired()], render_kw={"placeholder": "Текст объявления"})
+
+    submit = SubmitField("Опубликовать")
+
+
+class NewEventForm(NewAdForm):
+    def validate_datetime(self, field: DateTimeLocalField):
+        try:
+            if field.data.timestamp() < dt.datetime.now().timestamp():
+                raise ValidationError(f"Укажите время больше {dt.datetime.now().strftime('%H:%M %d.%m.%Y')}")
+        except OSError:
+            raise ValidationError(
+                f"Укажите время от {dt.datetime.fromtimestamp(86400).strftime('%H:%M %d.%m.%Y')}"
+                f" до {dt.datetime.fromtimestamp(32536789199).strftime('%H:%M %d.%m.%Y')}"
+            )
+    datetime = DateTimeLocalField(validators=[], format="%Y-%m-%dT%H:%M")

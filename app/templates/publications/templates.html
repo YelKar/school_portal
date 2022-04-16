@@ -1,0 +1,35 @@
+{% macro ad(post, author) %}
+    {% autoescape false %}
+        <div class="post">
+            <h2>{{ post.header if post else "Объявление" }}</h2>
+            <p>{{ post.post|line_breaks if post else "Текст объявления" }}</p>
+            <div class="post_author">Автор:
+                {% if author %}
+                    {{ author.lastname }} {{ author.firstname }}
+                {% else %}
+                    Фамилия и Имя автора
+                {% endif %}
+            </div>
+        </div>
+    {% endautoescape %}
+{% endmacro %}
+
+{% macro event(post, author) %}
+    {% autoescape false %}
+        <div class="post">
+            <h2>{{ post.header if post else "Событие" }}</h2>
+            <div class="event_date">
+                Дата события:
+                {{ post.date|fromTimestamp if post else "hh:mm DD:MM:YY" }}
+            </div>
+            <p>{{ post.post|line_breaks if post else "Описание события" }}</p>
+            <div class="post_author">Автор:
+                {% if author %}
+                    {{ author.lastname }} {{ author.firstname }}
+                {% else %}
+                    Фамилия и Имя автора
+                {% endif %}
+            </div>
+        </div>
+    {% endautoescape %}
+{% endmacro %}

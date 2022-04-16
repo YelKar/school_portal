@@ -1,0 +1,24 @@
+{% extends base %}
+{% block head %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='scripts/new_publication.js') }}"></script>
+{% endblock %}
+{% block content %}
+    <div class="new_publication">
+        {% include "publications/tools_panel.html" %}
+        <form method="post">
+            {% for field in form.errors.values() %}
+                {% for error in field %}
+                    <div class="form_error">{{ error }}</div>
+                {% endfor %}
+
+            {% endfor %}
+
+            {{ form.csrf_token }}
+            {{ form.header }}
+            {{ form.datetime }}
+            {{ form.text }}
+            {{ form.submit }}
+        </form>
+    </div>
+{% endblock %}

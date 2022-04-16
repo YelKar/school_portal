@@ -11,12 +11,12 @@ from flask import render_template, url_for, redirect, request
 # import configuration and db models
 from app import app, login_manager, db
 from app.config import my_resp
-from app.database import Users, UserInfo
+from app.database import Users, UserInfo, Publications
 
 # import all for authorization
 from flask_login import login_user, logout_user, current_user
 from app.userLogin import UserLogin
-from app.forms import LoginForm, RegisterForm
+from app.forms import LoginForm, RegisterForm, NewAdForm, NewEventForm
 
 from werkzeug.security import generate_password_hash
 from werkzeug.wrappers import Response
@@ -110,3 +110,44 @@ def logout() -> Response:
     """
     logout_user()
     return redirect(url_for("index"))
+
+
+@app.route('/new_ad', methods=['GET', 'POST'])
+def new_ad() -> str or Response:
+    """Create ad
+
+    Render form for creating ad
+
+    get form data if form passed validation
+    adding data to database
+
+    :return: str (HTML_Template) or Response
+    """
+    form = NewAdForm()
+    if form.validate_on_submit():
+        post = Publications(
+            user_id=current_user.id,
+            header=form.header.data,
+            post=form.text.data,
+            type="ad"
+        )
+        print(form.text.data)
+        db.session.add(post)
+        db.session.commit()
+    return render_template("publications/new_ad.html", form=form)
+
+
+@app.route('/new_event', methods=["GET", "POST"])
+def new_event():
+    form = NewEventForm()
+    if form.validate_on_submit():
+        post = Publications(
+            user_id=current_user.id,
+            header=form.header.data,
+            post=form.text.data,
+            date=form.datetime.data.timestamp(),
+            type="event"
+        )
+        db.session.add(post)
+        db.session.commit()
+    return render_template("publications/new_event.html", form=form)

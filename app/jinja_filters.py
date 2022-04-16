@@ -23,3 +23,13 @@ def strftime_filter(product: datetime.datetime, form: str) -> str:
     :return:
     """
     return product.strftime(form)
+
+
+@app.template_filter("line_breaks")
+def line_breaks(product: str):
+    """
+
+    :param product:
+    :return:
+    """
+    return product.replace("\n", "<br>")

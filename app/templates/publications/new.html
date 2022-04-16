@@ -1,0 +1,9 @@
+{% extends base %}
+{% import "publications/templates.html" as temps %}
+{% block content %}
+    <div class="post_example">
+        {% for t in ["ad", "event"] %}
+            <a href="{{ url_for('new_' + t) }}">{{ temps[t]() }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

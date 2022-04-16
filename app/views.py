@@ -4,10 +4,15 @@ all routes for app
 error handling
 and importing other routes
 """
-from app import app
+from app import app, db
+from app.database import Users, Publications
 from flask import render_template, abort
 from flask_login import login_required
 from werkzeug.exceptions import HTTPException
+
+
+from . import docs_views
+from . import form_views
 
 
 # main page
@@ -20,7 +25,10 @@ def index() -> str:
 
     return render_template(
         "index.html",
-        title="1060"
+        title="1060",
+        db=db,
+        users=Users,
+        posts=Publications
     )
 
 
@@ -57,6 +65,16 @@ def profile_info():
     return render_template("profile/profile_info.html")
 
 
+@app.route("/new")
+def new_post():
+    return render_template("publications/new.html")
+
+
+@app.route('/my_posts')
+def my_posts():
+    return render_template("profile/my_publications.html", posts=Publications, users=Users)
+
+
 @app.errorhandler(HTTPException)
 def error_requests(e: HTTPException):
     """
@@ -69,7 +87,3 @@ def error_requests(e: HTTPException):
         error=e,
         title=e.name
     ), e.code
-
-
-from . import docs_views
-from . import form_views

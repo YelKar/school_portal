@@ -7,6 +7,8 @@ $footer-elements-space: 20px
 $footer-padding: 30px
 $footer-margin-top: 300px
 
+$scroll-bar-width: 20px
+
 
 
 body
@@ -26,7 +28,7 @@ body
 
   // Стилизация scrollbar
   &::-webkit-scrollbar
-    width: 20px
+    width: $scroll-bar-width
     padding: 2px
     &-track // трек индикатора прокрутки
       background-color: $navbar-background-color
@@ -118,7 +120,69 @@ svg.error_requests
     text-align: right
     min-width: 300px
     width: 50%
+.post
+  display: flex
+  flex-direction: column
+  margin:
+    top: 30px
+    bottom: 30px
+    left: auto
+    right: auto
+  width: 700px
+  max-width: 80%
+  background-color: $navbar-background-color
 
+  border:
+    width: 5px
+    style: solid
+    color: $header-color
+    radius: $element-border-radius
+
+  h2
+    margin: 0
+    padding: 10px
+    background-color: $header-color
+    color: $background-color
+
+  p
+    padding: 10px
+    margin-bottom: 30px
+
+  .post_author
+    border:
+      width: 3px
+      style: solid
+      color: $header-color
+      bottom: none
+      right: none
+      top-left-radius: 10px
+    width: 50%
+    margin:
+      right: 0
+      left: auto
+    padding: 5px
+    flex: 1 1 auto
+
+  .event_date
+    background-color: $header-color
+    color: $background-color
+    margin: 0
+    font-weight: bold
+    padding: 5px
+
+  &_example
+    display: flex
+    justify-content: space-around
+    flex-wrap: wrap
+    a
+      width: 400px
+      text-decoration: none
+      color: $text-color
+      padding: 0
+      div.post
+        transition: all .2s
+        &:hover
+          box-shadow: 0 0 5px $header-color
 
 @import "forms"
 @import "documents"

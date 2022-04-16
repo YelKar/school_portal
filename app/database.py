@@ -51,3 +51,20 @@ class UserInfo(db.Model):
 
     def __repr__(self):
         return f"<UserInfo {self.id} for {self.user_id}>"
+
+
+class Publications(db.Model):
+    """Database for publications
+
+    user_id - id of the user who created post
+    """
+    __tablename__ = "publications"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer)
+
+    header = db.Column(db.Text)
+    post = db.Column(db.Text)
+
+    type = db.Column(db.String(15), default=False)
+    date = db.Column(db.Integer)

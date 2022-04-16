@@ -268,13 +268,75 @@ html {
   min-width: 300px;
   width: 50%;
 }
+.dark-theme .post {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  max-width: 80%;
+  background-color: #333;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #999;
+  border-radius: 8px;
+}
+.dark-theme .post h2 {
+  margin: 0;
+  padding: 10px;
+  background-color: #999;
+  color: #2a2a2a;
+}
+.dark-theme .post p {
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.dark-theme .post .post_author {
+  border-width: 3px;
+  border-style: solid;
+  border-color: #999;
+  border-bottom: none;
+  border-right: none;
+  border-top-left-radius: 10px;
+  width: 50%;
+  margin-right: 0;
+  margin-left: auto;
+  padding: 5px;
+  flex: 1 1 auto;
+}
+.dark-theme .post .event_date {
+  background-color: #999;
+  color: #2a2a2a;
+  margin: 0;
+  font-weight: bold;
+  padding: 5px;
+}
+.dark-theme .post_example {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.dark-theme .post_example a {
+  width: 400px;
+  text-decoration: none;
+  color: #999;
+  padding: 0;
+}
+.dark-theme .post_example a div.post {
+  transition: all 0.2s;
+}
+.dark-theme .post_example a div.post:hover {
+  box-shadow: 0 0 5px #999;
+}
 .dark-theme form {
   display: block;
   text-align: left;
   width: 400px;
 }
 .dark-theme input:not([type=checkbox], [type=radio]),
-.dark-theme .button, .dark-theme select {
+.dark-theme .button, .dark-theme select, .dark-theme textarea {
   box-sizing: border-box;
   height: 60px;
   width: 400px;
@@ -291,18 +353,20 @@ html {
   padding: 20px 20px;
   transition: all 0.2s;
 }
-.dark-theme input:not([type=checkbox], [type=radio])[type=text]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=password]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=email]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=number]:hover,
+.dark-theme input:not([type=checkbox], [type=radio])[type=text]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=password]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=email]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=number]:hover, .dark-theme input:not([type=checkbox], [type=radio])[type=datetime-local]:hover,
 .dark-theme .button[type=text]:hover,
 .dark-theme .button[type=password]:hover,
 .dark-theme .button[type=email]:hover,
-.dark-theme .button[type=number]:hover, .dark-theme select[type=text]:hover, .dark-theme select[type=password]:hover, .dark-theme select[type=email]:hover, .dark-theme select[type=number]:hover {
+.dark-theme .button[type=number]:hover,
+.dark-theme .button[type=datetime-local]:hover, .dark-theme select[type=text]:hover, .dark-theme select[type=password]:hover, .dark-theme select[type=email]:hover, .dark-theme select[type=number]:hover, .dark-theme select[type=datetime-local]:hover, .dark-theme textarea[type=text]:hover, .dark-theme textarea[type=password]:hover, .dark-theme textarea[type=email]:hover, .dark-theme textarea[type=number]:hover, .dark-theme textarea[type=datetime-local]:hover {
   background-color: #888888;
 }
-.dark-theme input:not([type=checkbox], [type=radio])[type=text]:focus, .dark-theme input:not([type=checkbox], [type=radio])[type=password]:focus, .dark-theme input:not([type=checkbox], [type=radio])[type=email]:focus, .dark-theme input:not([type=checkbox], [type=radio])[type=number]:focus,
+.dark-theme input:not([type=checkbox], [type=radio])[type=text]:focus, .dark-theme input:not([type=checkbox], [type=radio])[type=password]:focus, .dark-theme input:not([type=checkbox], [type=radio])[type=email]:focus, .dark-theme input:not([type=checkbox], [type=radio])[type=number]:focus, .dark-theme input:not([type=checkbox], [type=radio])[type=datetime-local]:focus,
 .dark-theme .button[type=text]:focus,
 .dark-theme .button[type=password]:focus,
 .dark-theme .button[type=email]:focus,
-.dark-theme .button[type=number]:focus, .dark-theme select[type=text]:focus, .dark-theme select[type=password]:focus, .dark-theme select[type=email]:focus, .dark-theme select[type=number]:focus {
+.dark-theme .button[type=number]:focus,
+.dark-theme .button[type=datetime-local]:focus, .dark-theme select[type=text]:focus, .dark-theme select[type=password]:focus, .dark-theme select[type=email]:focus, .dark-theme select[type=number]:focus, .dark-theme select[type=datetime-local]:focus, .dark-theme textarea[type=text]:focus, .dark-theme textarea[type=password]:focus, .dark-theme textarea[type=email]:focus, .dark-theme textarea[type=number]:focus, .dark-theme textarea[type=datetime-local]:focus {
   outline: none;
   background-color: #888888;
 }
@@ -310,7 +374,7 @@ html {
 .dark-theme .button[type=button]:hover,
 .dark-theme .button[type=reset]:hover,
 .dark-theme .button[type=submit]:hover,
-.dark-theme .button[href]:hover, .dark-theme select[type=button]:hover, .dark-theme select[type=reset]:hover, .dark-theme select[type=submit]:hover, .dark-theme select[href]:hover {
+.dark-theme .button[href]:hover, .dark-theme select[type=button]:hover, .dark-theme select[type=reset]:hover, .dark-theme select[type=submit]:hover, .dark-theme select[href]:hover, .dark-theme textarea[type=button]:hover, .dark-theme textarea[type=reset]:hover, .dark-theme textarea[type=submit]:hover, .dark-theme textarea[href]:hover {
   background-color: #888888;
   border-color: #888888;
 }
@@ -318,11 +382,11 @@ html {
 .dark-theme .button[type=button]:active,
 .dark-theme .button[type=reset]:active,
 .dark-theme .button[type=submit]:active,
-.dark-theme .button[href]:active, .dark-theme select[type=button]:active, .dark-theme select[type=reset]:active, .dark-theme select[type=submit]:active, .dark-theme select[href]:active {
+.dark-theme .button[href]:active, .dark-theme select[type=button]:active, .dark-theme select[type=reset]:active, .dark-theme select[type=submit]:active, .dark-theme select[href]:active, .dark-theme textarea[type=button]:active, .dark-theme textarea[type=reset]:active, .dark-theme textarea[type=submit]:active, .dark-theme textarea[href]:active {
   opacity: 0.8;
 }
 .dark-theme input:not([type=checkbox], [type=radio])::placeholder,
-.dark-theme .button::placeholder, .dark-theme select::placeholder {
+.dark-theme .button::placeholder, .dark-theme select::placeholder, .dark-theme textarea::placeholder {
   color: #2a2a2a;
   opacity: 0.5;
 }
@@ -405,6 +469,54 @@ html {
 }
 .dark-theme .submit {
   margin-top: 30px;
+}
+.dark-theme div.new_publication {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 80%;
+  margin-top: 15px;
+}
+.dark-theme div.new_publication form {
+  height: 100%;
+  width: 100%;
+}
+.dark-theme div.new_publication form textarea {
+  margin: 0;
+  height: 500px;
+  width: 100%;
+  caret-color: #333;
+}
+.dark-theme div.new_publication form input[type=text],
+.dark-theme div.new_publication form input[type=datetime-local] {
+  margin-bottom: 3px;
+  width: 100%;
+}
+.dark-theme div.new_publication form input[type=submit] {
+  width: 100%;
+  max-width: 400px;
+}
+.dark-theme div.tools_panel {
+  width: 105px;
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-right: 15px;
+}
+.dark-theme div.tools_panel button {
+  color: #2a2a2a;
+  background-color: #999;
+  height: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-weight: bold;
+  border-width: 3px;
+  border-color: #333;
+  border-style: solid;
+  border-radius: 8px;
 }
 .dark-theme .documents {
   display: flex;
@@ -734,13 +846,75 @@ html {
   min-width: 300px;
   width: 50%;
 }
+.light-theme .post {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  max-width: 80%;
+  background-color: #ffffff;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #8658ea;
+  border-radius: 8px;
+}
+.light-theme .post h2 {
+  margin: 0;
+  padding: 10px;
+  background-color: #8658ea;
+  color: #e4e9f7;
+}
+.light-theme .post p {
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.light-theme .post .post_author {
+  border-width: 3px;
+  border-style: solid;
+  border-color: #8658ea;
+  border-bottom: none;
+  border-right: none;
+  border-top-left-radius: 10px;
+  width: 50%;
+  margin-right: 0;
+  margin-left: auto;
+  padding: 5px;
+  flex: 1 1 auto;
+}
+.light-theme .post .event_date {
+  background-color: #8658ea;
+  color: #e4e9f7;
+  margin: 0;
+  font-weight: bold;
+  padding: 5px;
+}
+.light-theme .post_example {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.light-theme .post_example a {
+  width: 400px;
+  text-decoration: none;
+  color: #555;
+  padding: 0;
+}
+.light-theme .post_example a div.post {
+  transition: all 0.2s;
+}
+.light-theme .post_example a div.post:hover {
+  box-shadow: 0 0 5px #8658ea;
+}
 .light-theme form {
   display: block;
   text-align: left;
   width: 400px;
 }
 .light-theme input:not([type=checkbox], [type=radio]),
-.light-theme .button, .light-theme select {
+.light-theme .button, .light-theme select, .light-theme textarea {
   box-sizing: border-box;
   height: 60px;
   width: 400px;
@@ -757,18 +931,20 @@ html {
   padding: 20px 20px;
   transition: all 0.2s;
 }
-.light-theme input:not([type=checkbox], [type=radio])[type=text]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=password]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=email]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=number]:hover,
+.light-theme input:not([type=checkbox], [type=radio])[type=text]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=password]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=email]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=number]:hover, .light-theme input:not([type=checkbox], [type=radio])[type=datetime-local]:hover,
 .light-theme .button[type=text]:hover,
 .light-theme .button[type=password]:hover,
 .light-theme .button[type=email]:hover,
-.light-theme .button[type=number]:hover, .light-theme select[type=text]:hover, .light-theme select[type=password]:hover, .light-theme select[type=email]:hover, .light-theme select[type=number]:hover {
+.light-theme .button[type=number]:hover,
+.light-theme .button[type=datetime-local]:hover, .light-theme select[type=text]:hover, .light-theme select[type=password]:hover, .light-theme select[type=email]:hover, .light-theme select[type=number]:hover, .light-theme select[type=datetime-local]:hover, .light-theme textarea[type=text]:hover, .light-theme textarea[type=password]:hover, .light-theme textarea[type=email]:hover, .light-theme textarea[type=number]:hover, .light-theme textarea[type=datetime-local]:hover {
   background-color: #753def;
 }
-.light-theme input:not([type=checkbox], [type=radio])[type=text]:focus, .light-theme input:not([type=checkbox], [type=radio])[type=password]:focus, .light-theme input:not([type=checkbox], [type=radio])[type=email]:focus, .light-theme input:not([type=checkbox], [type=radio])[type=number]:focus,
+.light-theme input:not([type=checkbox], [type=radio])[type=text]:focus, .light-theme input:not([type=checkbox], [type=radio])[type=password]:focus, .light-theme input:not([type=checkbox], [type=radio])[type=email]:focus, .light-theme input:not([type=checkbox], [type=radio])[type=number]:focus, .light-theme input:not([type=checkbox], [type=radio])[type=datetime-local]:focus,
 .light-theme .button[type=text]:focus,
 .light-theme .button[type=password]:focus,
 .light-theme .button[type=email]:focus,
-.light-theme .button[type=number]:focus, .light-theme select[type=text]:focus, .light-theme select[type=password]:focus, .light-theme select[type=email]:focus, .light-theme select[type=number]:focus {
+.light-theme .button[type=number]:focus,
+.light-theme .button[type=datetime-local]:focus, .light-theme select[type=text]:focus, .light-theme select[type=password]:focus, .light-theme select[type=email]:focus, .light-theme select[type=number]:focus, .light-theme select[type=datetime-local]:focus, .light-theme textarea[type=text]:focus, .light-theme textarea[type=password]:focus, .light-theme textarea[type=email]:focus, .light-theme textarea[type=number]:focus, .light-theme textarea[type=datetime-local]:focus {
   outline: none;
   background-color: #753def;
 }
@@ -776,7 +952,7 @@ html {
 .light-theme .button[type=button]:hover,
 .light-theme .button[type=reset]:hover,
 .light-theme .button[type=submit]:hover,
-.light-theme .button[href]:hover, .light-theme select[type=button]:hover, .light-theme select[type=reset]:hover, .light-theme select[type=submit]:hover, .light-theme select[href]:hover {
+.light-theme .button[href]:hover, .light-theme select[type=button]:hover, .light-theme select[type=reset]:hover, .light-theme select[type=submit]:hover, .light-theme select[href]:hover, .light-theme textarea[type=button]:hover, .light-theme textarea[type=reset]:hover, .light-theme textarea[type=submit]:hover, .light-theme textarea[href]:hover {
   background-color: #753def;
   border-color: #753def;
 }
@@ -784,11 +960,11 @@ html {
 .light-theme .button[type=button]:active,
 .light-theme .button[type=reset]:active,
 .light-theme .button[type=submit]:active,
-.light-theme .button[href]:active, .light-theme select[type=button]:active, .light-theme select[type=reset]:active, .light-theme select[type=submit]:active, .light-theme select[href]:active {
+.light-theme .button[href]:active, .light-theme select[type=button]:active, .light-theme select[type=reset]:active, .light-theme select[type=submit]:active, .light-theme select[href]:active, .light-theme textarea[type=button]:active, .light-theme textarea[type=reset]:active, .light-theme textarea[type=submit]:active, .light-theme textarea[href]:active {
   opacity: 0.8;
 }
 .light-theme input:not([type=checkbox], [type=radio])::placeholder,
-.light-theme .button::placeholder, .light-theme select::placeholder {
+.light-theme .button::placeholder, .light-theme select::placeholder, .light-theme textarea::placeholder {
   color: #e4e9f7;
   opacity: 0.5;
 }
@@ -871,6 +1047,54 @@ html {
 }
 .light-theme .submit {
   margin-top: 30px;
+}
+.light-theme div.new_publication {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 80%;
+  margin-top: 15px;
+}
+.light-theme div.new_publication form {
+  height: 100%;
+  width: 100%;
+}
+.light-theme div.new_publication form textarea {
+  margin: 0;
+  height: 500px;
+  width: 100%;
+  caret-color: #ffffff;
+}
+.light-theme div.new_publication form input[type=text],
+.light-theme div.new_publication form input[type=datetime-local] {
+  margin-bottom: 3px;
+  width: 100%;
+}
+.light-theme div.new_publication form input[type=submit] {
+  width: 100%;
+  max-width: 400px;
+}
+.light-theme div.tools_panel {
+  width: 105px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-right: 15px;
+}
+.light-theme div.tools_panel button {
+  color: #e4e9f7;
+  background-color: #8658ea;
+  height: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-weight: bold;
+  border-width: 3px;
+  border-color: #ffffff;
+  border-style: solid;
+  border-radius: 8px;
 }
 .light-theme .documents {
   display: flex;
