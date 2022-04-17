@@ -22,7 +22,7 @@
             <span class="element-text">Главная</span>
         </a>
 
-        {% if current_user.is_authenticated and not current_user.is_student %}
+        {% if current_user.is_authenticated and current_user.is_admin %}
             <a href="{{ url_for('chose_documents') }}">
                 {{ ico.print_doc() }}
                 <span class="element-text">Документы</span>

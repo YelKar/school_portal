@@ -3,7 +3,7 @@
 from flask import render_template, redirect, request, url_for
 from app import app, db
 from app.database import Users
-from app.userLogin import is_role
+from app.config import is_role
 from flask_login import login_required
 
 

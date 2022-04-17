@@ -14,7 +14,7 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_admin import Admin
-from .config import Config
+from .config import Config, is_role, IndexView
 
 
 app = Flask(__name__)  # creating main object for app
@@ -29,7 +29,13 @@ db = SQLAlchemy(app)  # creating database model object
 
 migrate = Migrate(app, db)
 
-admin = Admin(app, name="School_№1060", template_mode='bootstrap4')  # creating object for admin panel
+# creating object for admin panel
+admin = Admin(
+    app,
+    name="School_№1060",
+    template_mode='bootstrap4',
+    index_view=IndexView()
+)
 
 
 from app import admin_panel

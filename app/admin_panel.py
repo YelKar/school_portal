@@ -8,6 +8,7 @@ from flask_login import current_user
 
 from flask_admin.contrib.sqla import ModelView
 from flask_admin import expose, BaseView
+from flask_admin.menu import MenuLink
 
 
 class AdminView(ModelView):
@@ -21,7 +22,7 @@ class AdminView(ModelView):
 
     def is_accessible(self) -> bool:
         """check user role and return True if user is admin"""
-        return current_user.is_authenticated and current_user.user.role == "admin"
+        return current_user.is_authenticated and current_user.is_admin
 
     def inaccessible_callback(self, name, **kwargs):
         """if user not authorized or he is not admin redirect his to main page"""
@@ -67,7 +68,7 @@ UserInfo_column_list = (
     ("mothers_patronymic", "Отчество матери"),
 )
 
-admin.add_view(ToMainPage(name="На главную страницу"))
+admin.add_link(MenuLink(name="На главную страницу", url="/"))
 
 admin.add_view(AdminView(Users, db.session,
                          name="Пользователи",
