@@ -358,6 +358,7 @@ html {
 }
 .dark-theme input:not([type=checkbox], [type=radio]),
 .dark-theme .button, .dark-theme select, .dark-theme textarea {
+  display: block;
   box-sizing: border-box;
   height: 60px;
   width: 400px;
@@ -539,45 +540,6 @@ html {
   border-style: solid;
   border-radius: 8px;
 }
-.dark-theme .documents {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 80px 50px 100px 120px;
-  width: 970px;
-  text-align: center;
-  color: black;
-  background-color: #fff;
-  border: 1px solid black;
-}
-.dark-theme .documents p {
-  margin: 3px;
-}
-.dark-theme .documents hr {
-  border: none;
-  height: 1px;
-  border-top: 3px solid #000000;
-  border-bottom: 1px solid #000000;
-  margin: 0;
-  width: 100%;
-}
-.dark-theme .tnr {
-  font-family: "Times New Roman", serif;
-}
-.dark-theme .ar {
-  font-family: Arial, sans-serif;
-  font-weight: lighter;
-}
-@media print {
-  .dark-theme .navbar {
-    display: none;
-  }
-  .dark-theme .documents {
-    border: none;
-    padding: 80px 50px 100px 80px;
-  }
-}
 .dark-theme .chose_students {
   width: 500px;
 }
@@ -587,15 +549,16 @@ html {
 .dark-theme .chose_students, .dark-theme .chose_documents {
   text-align: left;
 }
-.dark-theme .chose_students details, .dark-theme .chose_documents details {
+.dark-theme .chose_students details, .dark-theme .chose_students .button, .dark-theme .chose_documents details, .dark-theme .chose_documents .button {
   border-width: 4px;
   border-style: solid;
   border-color: #999;
   border-radius: 8px;
   margin: 10px;
   background-color: #333;
+  width: auto;
 }
-.dark-theme .chose_students details p, .dark-theme .chose_documents details p {
+.dark-theme .chose_students details p, .dark-theme .chose_students .button p, .dark-theme .chose_documents details p, .dark-theme .chose_documents .button p {
   margin: 10px;
 }
 .dark-theme .chose_students summary, .dark-theme .chose_documents summary {
@@ -611,6 +574,12 @@ html {
 }
 .dark-theme .chose_students input[type=submit], .dark-theme .chose_documents input[type=submit] {
   width: 100%;
+}
+.dark-theme .chose_students .button, .dark-theme .chose_documents .button {
+  color: #999;
+}
+.dark-theme .chose_students .button:hover, .dark-theme .chose_documents .button:hover {
+  color: #2a2a2a;
 }
 
 .light-theme {
@@ -957,6 +926,7 @@ html {
 }
 .light-theme input:not([type=checkbox], [type=radio]),
 .light-theme .button, .light-theme select, .light-theme textarea {
+  display: block;
   box-sizing: border-box;
   height: 60px;
   width: 400px;
@@ -1138,45 +1108,6 @@ html {
   border-style: solid;
   border-radius: 8px;
 }
-.light-theme .documents {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 80px 50px 100px 120px;
-  width: 970px;
-  text-align: center;
-  color: black;
-  background-color: #fff;
-  border: 1px solid black;
-}
-.light-theme .documents p {
-  margin: 3px;
-}
-.light-theme .documents hr {
-  border: none;
-  height: 1px;
-  border-top: 3px solid #000000;
-  border-bottom: 1px solid #000000;
-  margin: 0;
-  width: 100%;
-}
-.light-theme .tnr {
-  font-family: "Times New Roman", serif;
-}
-.light-theme .ar {
-  font-family: Arial, sans-serif;
-  font-weight: lighter;
-}
-@media print {
-  .light-theme .navbar {
-    display: none;
-  }
-  .light-theme .documents {
-    border: none;
-    padding: 80px 50px 100px 80px;
-  }
-}
 .light-theme .chose_students {
   width: 500px;
 }
@@ -1186,15 +1117,16 @@ html {
 .light-theme .chose_students, .light-theme .chose_documents {
   text-align: left;
 }
-.light-theme .chose_students details, .light-theme .chose_documents details {
+.light-theme .chose_students details, .light-theme .chose_students .button, .light-theme .chose_documents details, .light-theme .chose_documents .button {
   border-width: 4px;
   border-style: solid;
   border-color: #8658ea;
   border-radius: 8px;
   margin: 10px;
   background-color: #ffffff;
+  width: auto;
 }
-.light-theme .chose_students details p, .light-theme .chose_documents details p {
+.light-theme .chose_students details p, .light-theme .chose_students .button p, .light-theme .chose_documents details p, .light-theme .chose_documents .button p {
   margin: 10px;
 }
 .light-theme .chose_students summary, .light-theme .chose_documents summary {
@@ -1210,6 +1142,12 @@ html {
 }
 .light-theme .chose_students input[type=submit], .light-theme .chose_documents input[type=submit] {
   width: 100%;
+}
+.light-theme .chose_students .button, .light-theme .chose_documents .button {
+  color: #555;
+}
+.light-theme .chose_students .button:hover, .light-theme .chose_documents .button:hover {
+  color: #e4e9f7;
 }
 
 /*# sourceMappingURL=styles_with_themes.css.map */

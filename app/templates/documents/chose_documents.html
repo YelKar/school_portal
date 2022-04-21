@@ -3,18 +3,20 @@
 
 {% block content %}
     <form class="chose_documents" method="post">
-    {% for code_word, (document, name) in documents.items() %}
-        <details>
-        <summary>
-            {{ name }}
-            <div class="checkbox">
-                <input id="{{ code_word }}" type="radio" name="doc" value="{{ code_word }}">
-                <label for="{{ code_word }}"></label>
-            </div>
-        </summary>
-        {{ document() }}
-        </details>
-    {% endfor %}
-    <input type="submit" value="Далее">
+        {% for name in doc_names %}
+            {% set name = name[:-5] %}
+            <details>
+            <summary>
+                {{ name }}
+                <div class="checkbox">
+                    <input id="{{ name }}" type="radio" name="doc" value="{{ name }}">
+                    <label for="{{ name }}"></label>
+                </div>
+            </summary>
+            <a href="#" class="button">Распечатать шаблон</a>
+            <a href="{{ url_for('download_document', filename=name) }}" class="button">Скачать шаблон</a>
+            </details>
+        {% endfor %}
+        <input type="submit" value="Далее">
     </form>
 {% endblock %}

@@ -1,4 +1,5 @@
 """All views for documents"""
+import os
 
 from flask import render_template, redirect, request, url_for
 from app import app, db
@@ -23,7 +24,11 @@ def chose_documents():
     return render_template(
         "documents/chose_documents.html",
         users=Users,
-        db=db
+        db=db,
+        doc_names=filter(
+            lambda x: ".docx" in x,
+            os.listdir("app/templates/documents/word")
+        )
     )
 
 
@@ -66,11 +71,11 @@ def print_document():
     :return:
     """
     return render_template("documents/print.html", Users=Users)
-
-
-@app.route('/docs-<name>')
-@is_role(role="teacher admin")
-@login_required
-def docs(name):
-    """getting doc name from url and showing this document"""
-    return render_template("documents/show_docs.html", name=name)
+#
+#
+# @app.route('/docs-<name>')
+# @is_role(role="teacher admin")
+# @login_required
+# def docs(name):
+#     """getting doc name from url and showing this document"""
+#     return render_template("documents/show_docs.html", name=name)

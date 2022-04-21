@@ -1,50 +1,10 @@
-
-.documents
-  display: flex
-  flex-direction: column
-  justify-content: center
-  box-sizing: border-box
-  padding: 80px 50px 100px 120px
-  width: 970px
-  text-align: center
-
-  color: black
-  background-color: #fff
-
-  border: 1px solid black
-  p
-    margin: 3px
-  hr
-    border: none
-    height: 1px
-    border-top: 3px solid #000000
-    border-bottom: 1px solid #000000
-    margin: 0
-    width: 100%
-
-
-
-.tnr
-  font-family: "Times New Roman", serif
-.ar
-  font-family: Arial, sans-serif
-  font-weight: lighter
-
-@media print
-  .navbar
-    display: none
-  .documents
-    border: none
-    padding: 80px 50px 100px 80px
-
-
 .chose_students
   width: 500px
 .chose_documents
   width: 620px + 28px
 .chose_students, .chose_documents
   text-align: left
-  details
+  details, .button
     border:
       width: 4px
       style: solid
@@ -52,6 +12,7 @@
       radius: $element-border-radius
     margin: 10px
     background-color: $navbar-bgc
+    width: auto
     p
       margin: 10px
   summary
@@ -66,3 +27,8 @@
       right: $checkbox-size * 2
   input[type=submit]
     width: 100%
+
+  .button
+    color: $text-color
+    &:hover
+      color: $bgc
