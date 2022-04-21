@@ -7,3 +7,4 @@ pip install flask_wtf
 pip install email-validator
 pip install flask_admin
 pip install flask_migrate
+pip install docxtpl
