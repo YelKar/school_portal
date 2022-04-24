@@ -157,8 +157,14 @@ svg.error_requests
   .post_about
     display: flex
 
-  .post_author
+  .post_date, .post_author
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
     box-sizing: border-box
+
+  .post_author
     border:
       width: 3px
       style: solid
@@ -174,7 +180,6 @@ svg.error_requests
     flex: 1 1 auto
 
   .post_date
-    box-sizing: border-box
     border:
       width: 3px
       style: solid

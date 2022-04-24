@@ -296,8 +296,14 @@ html {
 .dark-theme .post .post_about {
   display: flex;
 }
-.dark-theme .post .post_author {
+.dark-theme .post .post_date, .dark-theme .post .post_author {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
+}
+.dark-theme .post .post_author {
   border-width: 3px;
   border-style: solid;
   border-color: #999;
@@ -311,7 +317,6 @@ html {
   flex: 1 1 auto;
 }
 .dark-theme .post .post_date {
-  box-sizing: border-box;
   border-width: 3px;
   border-style: solid;
   border-color: #999;
@@ -510,7 +515,8 @@ html {
   caret-color: #333;
 }
 .dark-theme div.new_publication form input[type=text],
-.dark-theme div.new_publication form input[type=datetime-local] {
+.dark-theme div.new_publication form input[type=datetime-local],
+.dark-theme div.new_publication form textarea {
   margin-bottom: 3px;
   width: 100%;
 }
@@ -864,8 +870,14 @@ html {
 .light-theme .post .post_about {
   display: flex;
 }
-.light-theme .post .post_author {
+.light-theme .post .post_date, .light-theme .post .post_author {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
+}
+.light-theme .post .post_author {
   border-width: 3px;
   border-style: solid;
   border-color: #8658ea;
@@ -879,7 +891,6 @@ html {
   flex: 1 1 auto;
 }
 .light-theme .post .post_date {
-  box-sizing: border-box;
   border-width: 3px;
   border-style: solid;
   border-color: #8658ea;
@@ -1078,7 +1089,8 @@ html {
   caret-color: #ffffff;
 }
 .light-theme div.new_publication form input[type=text],
-.light-theme div.new_publication form input[type=datetime-local] {
+.light-theme div.new_publication form input[type=datetime-local],
+.light-theme div.new_publication form textarea {
   margin-bottom: 3px;
   width: 100%;
 }

@@ -137,6 +137,7 @@ def new_ad() -> str or Response:
 
         db.session.add(post)
         db.session.commit()
+        return redirect(url_for("index"))
     return render_template("publications/new_ad.html", form=form)
 
 
@@ -154,4 +155,5 @@ def new_event():
         )
         db.session.add(post)
         db.session.commit()
+        return redirect(url_for("index"))
     return render_template("publications/new_event.html", form=form)

@@ -132,4 +132,4 @@ class NewEventForm(NewAdForm):
                 f"Укажите время от {dt.datetime.fromtimestamp(86400).strftime('%H:%M %d.%m.%Y')}"
                 f" до {dt.datetime.fromtimestamp(32536789199).strftime('%H:%M %d.%m.%Y')}"
             )
-    datetime = DateTimeLocalField(validators=[], format="%Y-%m-%dT%H:%M")
+    datetime = DateTimeLocalField(validators=[DataRequired()], format="%Y-%m-%dT%H:%M")

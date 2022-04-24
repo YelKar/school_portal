@@ -24,6 +24,7 @@ $classletter-field-width: $form-width - $classroom-field-width - 5px
 $errors-padding: 4px 10px
 
 $form-new-publication-width: 800px
+$new-post-field-space: 3px
 
 form
   display: block
@@ -167,8 +168,9 @@ div.new_publication
       width: 100%
       caret-color: $caret-color
     input[type=text],
-    input[type=datetime-local]
-      margin-bottom: 3px
+    input[type=datetime-local],
+    textarea
+      margin-bottom: $new-post-field-space
       width: 100%
     input[type=submit]
       width: 100%
