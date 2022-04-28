@@ -1,7 +1,6 @@
 {% extends base %}
-{% from "documents/documents.html" import documents %}
 {% block content %}
-    <h2>Выберите учеников для печати документа<br> "{{ documents[request.args.get("doc_name")][1] }}"</h2>
+    <h2>Выберите учеников для генерации документа<br> "{{ request.args.get("doc_name") }}"</h2>
     <form name="chose_students" class="chose_students" method="post">
     {% set full_names = db.session.query(users.firstname, users.lastname,  users.patronymic, users.id) %}
     {% for classroom in range(1, 12) if full_names.filter(users.classroom == classroom|string + "н").all() %}
@@ -32,7 +31,7 @@
         {% endfor %}
         </details>
     {% endfor %}
-        <input type="submit">
+        <input type="submit" value="Сгенерировать документ">
     </form>
     <script src="{{ url_for('static', filename='scripts/chose_students.js') }}"></script>
 {% endblock %}

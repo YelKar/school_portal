@@ -1,11 +1,13 @@
 """All views for documents"""
 import os
 
-from flask import render_template, redirect, request, url_for
+from flask import render_template, redirect, request, url_for, send_file
 from app import app, db
 from app.database import Users
 from app.config import is_role
 from flask_login import login_required
+from docxtpl import DocxTemplate
+import datetime
 
 
 @app.route('/chose/documents', methods=["GET", "POST"])
@@ -46,15 +48,16 @@ def chose_students():
     """
     if request.method == "POST":
         students_for_print = list(map(
-                lambda u: int(u[1:]),
+                lambda u: Users.query.filter_by(id=int(u[1:])).first(),
                 list(request.form)
             ))
-        return redirect(
-            url_for(
-                "print_document",
-                s=students_for_print
-            )
+        return send_file(
+            generate_doc(
+                request.args.get("doc_name"),
+                students_for_print
+            ), as_attachment=True
         )
+
     return render_template(
         "documents/chose_students.html",
         users=Users,
@@ -71,8 +74,31 @@ def print_document():
     :return:
     """
     return render_template("documents/print.html", Users=Users)
-#
-#
+
+
+@app.route("/download_document/<string:filename>")
+def download_document(filename: str):
+    return send_file(f"templates/documents/word/{filename}.docx", as_attachment=True)
+
+
+def generate_doc(name: str, users: list):
+    doc = DocxTemplate(f"app/templates/documents/word/{name}.docx")
+    doc.render(
+        context={
+            "users": users,
+            "lrjust": lrjust,
+            "fromtimestamp": datetime.datetime.fromtimestamp
+        }
+    )
+    save_route = f"app/templates/documents/word/for_download/{name}_сгенерированный.docx"
+    doc.save(save_route)
+    return save_route[4:]
+
+
+def lrjust(s: str, need_length: int) -> str:
+    c = (need_length - len(s)) // 2
+    return " " * c + s + " " * c
+
 # @app.route('/docs-<name>')
 # @is_role(role="teacher admin")
 # @login_required

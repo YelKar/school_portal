@@ -6,7 +6,7 @@ and importing other routes
 """
 from app import app, db
 from app.database import Users, Publications
-from flask import render_template, abort, send_file
+from flask import render_template, abort
 from flask_login import login_required
 from werkzeug.exceptions import HTTPException
 
@@ -73,11 +73,6 @@ def new_post():
 @app.route('/my_posts')
 def my_posts():
     return render_template("profile/my_publications.html", posts=Publications, users=Users)
-
-
-@app.route("/download_document/<string:filename>")
-def download_document(filename: str):
-    return send_file(f"templates/documents/word/{filename}.docx", as_attachment=True)
 
 
 @app.errorhandler(HTTPException)
