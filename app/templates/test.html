@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru" dir="ltr">
-    <head>
-        <title>⠀</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        {% from "base/navbar_icons.html" import admin_panel %}
-        {{ admin_panel() }}
-    </body>
-</html>
+{% extends base %}
+{% block content %}
+    <iframe src="{{ url_for('index') }}" frameborder="0" width="80%" height="600"></iframe>
+{% endblock %}

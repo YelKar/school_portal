@@ -39,41 +39,52 @@ import datetime
 # db.session.commit()
 
 
-doc = DocxTemplate("app/templates/documents/word/Справка.docx")
+doc = DocxTemplate("app/templates/documents/word/Справка об обучении.docx")
 
 t1 = datetime.datetime.now().timestamp()
 
 
-def write_data(user: Users):
-    name = user.firstname
-    lastname = user.lastname
-    patronymic = user.patronymic
-
+def write_data(users: list or Users):
     need_length = 45
-    length = sum(map(lambda x: len(x), [name, lastname, patronymic])) + 4
-    residual = (need_length - length) if length < need_length else 0
+    users = users if type(users) is list else [users]
+    for index, user in enumerate(users):
+        name = user.firstname
+        lastname = user.lastname
+        patronymic = user.patronymic
+        length = sum(map(lambda x: len(x), [name, lastname, patronymic])) + 4
+        residual = (need_length - length) if length < need_length else 0
+        # user = [
+        #     " " * (residual // 2) + name,
+        #     lastname,
+        #     patronymic + " " * (residual // 2),
+        #     datetime.datetime.fromtimestamp(user.info.birthdate).strftime("%d.%m.%Y"),
+        #     user.classroom[:-1],
+        #     user.classroom[-1]
+        # ]
+        users[index].firstname = " " * (residual // 2) + name
+        users[index].patronymic = patronymic + " " * (residual // 2)
+        users[index].birthdate = datetime.datetime.fromtimestamp(user.info.birthdate).strftime("%d.%m.%Y")
 
-    doc.render({
-        "name": " " * (residual // 2) + name,
-        "lastname": lastname,
-        "patronymic": patronymic + " " * (residual // 2),
-        "birthdate": datetime.datetime.fromtimestamp(user.info.birthdate).strftime("%d.%m.%Y"),
-        "class": user.classroom[:-1],
-        "letter": user.classroom[-1]
-    })
-
-    doc.save(f"word/справка-{user.username}.docx")
+    doc.render(context={"users": users})
+    doc.save(f"word/справка-Пользователи.docx")
 
 
-for user in Users.query.all():
-    user: Users
-    if "student" not in user.role:
-        continue
-    if not (user.id - 19) % 50:
-        print(f"Осталось: {669 - user.id}")
-    write_data(user)
+# user_list = sample(Users.query.all(), 100)
+#
+# for num, user in enumerate(user_list):
+#     user: Users
+#     if "student" not in user.role:
+#         continue
+#     l = len(user_list)
+#     if not (l - num) % 50:
+#         print(f"Осталось: {l - num}")
+#     write_data(user)
+#
+#
+# t2 = datetime.datetime.now().timestamp()
+#
+# t = t2 - t1
+#
+# print("Время выполнения:", t, "Секунд")
 
-
-t2 = datetime.datetime.now().timestamp()
-
-print(t2 - t1)
+write_data(Users.query.first())

@@ -553,6 +553,7 @@ html {
   width: 648px;
 }
 .dark-theme .chose_students, .dark-theme .chose_documents {
+  max-width: 94%;
   text-align: left;
 }
 .dark-theme .chose_students details, .dark-theme .chose_students .button, .dark-theme .chose_documents details, .dark-theme .chose_documents .button {
@@ -1127,6 +1128,7 @@ html {
   width: 648px;
 }
 .light-theme .chose_students, .light-theme .chose_documents {
+  max-width: 94%;
   text-align: left;
 }
 .light-theme .chose_students details, .light-theme .chose_students .button, .light-theme .chose_documents details, .light-theme .chose_documents .button {

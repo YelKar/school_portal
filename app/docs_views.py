@@ -25,6 +25,7 @@ def chose_documents():
         "documents/chose_documents.html",
         users=Users,
         db=db,
+        # Creating iterator with document names
         doc_names=filter(
             lambda x: ".docx" in x,
             os.listdir("app/templates/documents/word")
@@ -40,7 +41,6 @@ def chose_students():
 
     if request method is POST goto print
     else render form for chose students
-    TODO и переброску их на страницу печати
     TODO реализовать фильтры
     :return: str (HTML_Template)
     """
