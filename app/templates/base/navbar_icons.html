@@ -20,6 +20,10 @@
     {% include icons("new_publication") %}
 {% endmacro %}
 
+{% macro download_icon() %}
+    {% include icons("download_icon") %}
+{% endmacro %}
+
 {% macro theme_button(theme) %}
     {% if theme == "light" %}
         <svg viewBox="-50 -50 100 100"

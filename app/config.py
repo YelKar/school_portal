@@ -19,6 +19,7 @@ class Config(object):
 
 
 def my_resp(text: str = ""):
+    """."""
     return f'{request.remote_addr} - - {strftime("[%d/%b/%Y %H:%M:%S]")} {text}'
 
 
@@ -43,8 +44,12 @@ def is_role(role: str):
 
 
 class IndexView(AdminIndexView):
+    """View for main page in admin-panel
+    checking role and authorization
+    """
     @expose()
     @is_role("admin")
     @login_required
     def index(self):
+        """rendering main template"""
         return self.render(self._template)

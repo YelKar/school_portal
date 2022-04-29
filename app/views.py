@@ -25,7 +25,7 @@ def index() -> str:
 
     return render_template(
         "index.html",
-        title="1060",
+        title="Школа 1060",
         db=db,
         users=Users,
         posts=Publications
@@ -55,24 +55,26 @@ def profile():
     else redirect to <login_manager.login_view> and show message <login_manager.login_message>
     :return: str (HTML_Template)
     """
-    return render_template("profile/profile.html")
+    return render_template("profile/profile.html", title="Профиль")
 
 
 @app.route('/profile/info')
 @login_required
 def profile_info():
     """Table with information about user"""
-    return render_template("profile/profile_info.html")
+    return render_template("profile/profile_info.html", title="Информация о пользователе")
 
 
 @app.route("/new")
 def new_post():
-    return render_template("publications/new.html")
+    """Rendering page with a selection of post templates"""
+    return render_template("publications/new.html", title="Новая публикация")
 
 
 @app.route('/my_posts')
 def my_posts():
-    return render_template("profile/my_publications.html", posts=Publications, users=Users)
+    """Rendering page with all publications that has been published by this user"""
+    return render_template("profile/my_publications.html", title="Мои публикации", posts=Publications, users=Users)
 
 
 @app.errorhandler(HTTPException)

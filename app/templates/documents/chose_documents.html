@@ -1,21 +1,25 @@
 {% extends base %}
-{% from "documents/documents.html" import documents %}
+{% from "base/navbar_icons.html" import print_doc, download_icon %}
 
 {% block content %}
     <form class="chose_documents" method="post">
         {% for name in doc_names %}
             {% set name = name[:-5] %}
-            <details>
-            <summary>
-                {{ name }}
-                <div class="checkbox">
-                    <input id="{{ name }}" type="radio" name="doc" value="{{ name }}">
-                    <label for="{{ name }}"></label>
+            <div class="chose_documents_el">
+                <div class="el_text">
+                    {{ name }}
                 </div>
-            </summary>
-            <a href="#" class="button">Распечатать шаблон</a>
-            <a href="{{ url_for('download_document', filename=name) }}" class="button">Скачать шаблон</a>
-            </details>
+                <div>
+                    <a href="#" class="button">{{ print_doc() }}</a>
+                    <a href="{{ url_for('download_document', filename=name) }}" class="button">
+                        {{ download_icon() }}
+                    </a>
+                    <div class="checkbox">
+                        <input id="{{ name }}" type="radio" name="doc" value="{{ name }}">
+                        <label for="{{ name }}"></label>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
         <input type="submit" value="Далее">
     </form>

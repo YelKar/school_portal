@@ -1,8 +1,54 @@
+.chose_documents
+  width: auto
+  &_el
+    min-width: 500px
+    display: flex
+    justify-content: space-between
+    padding: 5px
+    border:
+      width: 4px
+      style: solid
+      color: $header-color
+      radius: $element-border-radius
+    margin: 10px
+    background-color: $navbar-bgc
+    width: auto
+    > div
+      width: 150px
+      display: flex
+      justify-content: space-around
+      align-items: center
+      &.el_text
+        box-sizing: border-box
+        padding: 10px
+        font-weight: bold
+        width: 200px
+        text-align: left
+  .button
+    padding: unset
+    border:
+      width: 4px
+      style: solid
+      color: $header-color
+      radius: $element-border-radius
+    background-color: $navbar-bgc
+    width: auto
+    height: auto
+    margin: auto
+    svg
+      width: 35px
+      height: 30px
+      fill: $text-color
+  .checkbox
+    display: block
+    width: 28px
+    height: 28px
+    margin: 10px
+  input[type=submit]
+    width: 100%
+
 .chose_students
   width: 500px
-.chose_documents
-  width: 620px + 28px
-.chose_students, .chose_documents
   max-width: 94%
   text-align: left
   details, .button
@@ -24,7 +70,8 @@
     position: relative
     div.checkbox
       position: absolute
-      top: 3px
+      top: 0
+      margin-top: 8px
       right: $checkbox-size * 2
   input[type=submit]
     width: 100%

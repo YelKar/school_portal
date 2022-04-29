@@ -99,7 +99,7 @@ def login() -> str or Response:
             login_user(user_login, remember=form.remember.data)    # user authorization
             next_page = request.args.get("next")
             return redirect(next_page or url_for("profile"))
-    return render_template("accounts/login.html", form=form)
+    return render_template("accounts/login.html", form=form, title="Авторизация")
 
 
 @app.route("/logout")
@@ -118,9 +118,9 @@ def logout() -> Response:
 def new_ad() -> str or Response:
     """Create ad
 
-    Render form for creating ad
+    Rendering form for creating ad
 
-    get form data if form passed validation
+    getting form data if form passed validation
     adding data to database
 
     :return: str (HTML_Template) or Response
@@ -138,11 +138,20 @@ def new_ad() -> str or Response:
         db.session.add(post)
         db.session.commit()
         return redirect(url_for("index"))
-    return render_template("publications/new_ad.html", form=form)
+    return render_template("publications/new_ad.html", form=form, title="Новое объявление")
 
 
 @app.route('/new_event', methods=["GET", "POST"])
 def new_event():
+    """Create event
+
+    Rendering form for creating event
+
+    getting form data if form passed validation
+    adding data to database
+
+    :return: str (HTML_Template) or Response
+    """
     form = NewEventForm()
     if form.validate_on_submit():
         post = Publications(
@@ -156,4 +165,4 @@ def new_event():
         db.session.add(post)
         db.session.commit()
         return redirect(url_for("index"))
-    return render_template("publications/new_event.html", form=form)
+    return render_template("publications/new_event.html", form=form, title="Новое событие")

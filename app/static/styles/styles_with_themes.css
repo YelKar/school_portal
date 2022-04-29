@@ -446,7 +446,7 @@ html {
   width: 20px;
   height: 20px;
   position: absolute;
-  top: 0;
+  top: -5px;
   left: 0;
   background-color: unset;
   border-width: 4px;
@@ -546,17 +546,14 @@ html {
   border-style: solid;
   border-radius: 8px;
 }
-.dark-theme .chose_students {
-  width: 500px;
-}
 .dark-theme .chose_documents {
-  width: 648px;
+  width: auto;
 }
-.dark-theme .chose_students, .dark-theme .chose_documents {
-  max-width: 94%;
-  text-align: left;
-}
-.dark-theme .chose_students details, .dark-theme .chose_students .button, .dark-theme .chose_documents details, .dark-theme .chose_documents .button {
+.dark-theme .chose_documents_el {
+  min-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
   border-width: 4px;
   border-style: solid;
   border-color: #999;
@@ -565,27 +562,80 @@ html {
   background-color: #333;
   width: auto;
 }
-.dark-theme .chose_students details p, .dark-theme .chose_students .button p, .dark-theme .chose_documents details p, .dark-theme .chose_documents .button p {
+.dark-theme .chose_documents_el > div {
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.dark-theme .chose_documents_el > div.el_text {
+  box-sizing: border-box;
+  padding: 10px;
+  font-weight: bold;
+  width: 200px;
+  text-align: left;
+}
+.dark-theme .chose_documents .button {
+  padding: unset;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #999;
+  border-radius: 8px;
+  background-color: #333;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+.dark-theme .chose_documents .button svg {
+  width: 35px;
+  height: 30px;
+  fill: #999;
+}
+.dark-theme .chose_documents .checkbox {
+  display: block;
+  width: 28px;
+  height: 28px;
   margin: 10px;
 }
-.dark-theme .chose_students summary, .dark-theme .chose_documents summary {
+.dark-theme .chose_documents input[type=submit] {
+  width: 100%;
+}
+.dark-theme .chose_students {
+  width: 500px;
+  max-width: 94%;
+  text-align: left;
+}
+.dark-theme .chose_students details, .dark-theme .chose_students .button {
+  border-width: 4px;
+  border-style: solid;
+  border-color: #999;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: #333;
+  width: auto;
+}
+.dark-theme .chose_students details p, .dark-theme .chose_students .button p {
+  margin: 10px;
+}
+.dark-theme .chose_students summary {
   font-size: 20px;
   font-weight: bold;
   padding: 10px;
   position: relative;
 }
-.dark-theme .chose_students summary div.checkbox, .dark-theme .chose_documents summary div.checkbox {
+.dark-theme .chose_students summary div.checkbox {
   position: absolute;
-  top: 3px;
+  top: 0;
+  margin-top: 8px;
   right: 40px;
 }
-.dark-theme .chose_students input[type=submit], .dark-theme .chose_documents input[type=submit] {
+.dark-theme .chose_students input[type=submit] {
   width: 100%;
 }
-.dark-theme .chose_students .button, .dark-theme .chose_documents .button {
+.dark-theme .chose_students .button {
   color: #999;
 }
-.dark-theme .chose_students .button:hover, .dark-theme .chose_documents .button:hover {
+.dark-theme .chose_students .button:hover {
   color: #2a2a2a;
 }
 
@@ -1021,7 +1071,7 @@ html {
   width: 20px;
   height: 20px;
   position: absolute;
-  top: 0;
+  top: -5px;
   left: 0;
   background-color: unset;
   border-width: 4px;
@@ -1121,17 +1171,14 @@ html {
   border-style: solid;
   border-radius: 8px;
 }
-.light-theme .chose_students {
-  width: 500px;
-}
 .light-theme .chose_documents {
-  width: 648px;
+  width: auto;
 }
-.light-theme .chose_students, .light-theme .chose_documents {
-  max-width: 94%;
-  text-align: left;
-}
-.light-theme .chose_students details, .light-theme .chose_students .button, .light-theme .chose_documents details, .light-theme .chose_documents .button {
+.light-theme .chose_documents_el {
+  min-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
   border-width: 4px;
   border-style: solid;
   border-color: #8658ea;
@@ -1140,27 +1187,80 @@ html {
   background-color: #ffffff;
   width: auto;
 }
-.light-theme .chose_students details p, .light-theme .chose_students .button p, .light-theme .chose_documents details p, .light-theme .chose_documents .button p {
+.light-theme .chose_documents_el > div {
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.light-theme .chose_documents_el > div.el_text {
+  box-sizing: border-box;
+  padding: 10px;
+  font-weight: bold;
+  width: 200px;
+  text-align: left;
+}
+.light-theme .chose_documents .button {
+  padding: unset;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #8658ea;
+  border-radius: 8px;
+  background-color: #ffffff;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+.light-theme .chose_documents .button svg {
+  width: 35px;
+  height: 30px;
+  fill: #555;
+}
+.light-theme .chose_documents .checkbox {
+  display: block;
+  width: 28px;
+  height: 28px;
   margin: 10px;
 }
-.light-theme .chose_students summary, .light-theme .chose_documents summary {
+.light-theme .chose_documents input[type=submit] {
+  width: 100%;
+}
+.light-theme .chose_students {
+  width: 500px;
+  max-width: 94%;
+  text-align: left;
+}
+.light-theme .chose_students details, .light-theme .chose_students .button {
+  border-width: 4px;
+  border-style: solid;
+  border-color: #8658ea;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: #ffffff;
+  width: auto;
+}
+.light-theme .chose_students details p, .light-theme .chose_students .button p {
+  margin: 10px;
+}
+.light-theme .chose_students summary {
   font-size: 20px;
   font-weight: bold;
   padding: 10px;
   position: relative;
 }
-.light-theme .chose_students summary div.checkbox, .light-theme .chose_documents summary div.checkbox {
+.light-theme .chose_students summary div.checkbox {
   position: absolute;
-  top: 3px;
+  top: 0;
+  margin-top: 8px;
   right: 40px;
 }
-.light-theme .chose_students input[type=submit], .light-theme .chose_documents input[type=submit] {
+.light-theme .chose_students input[type=submit] {
   width: 100%;
 }
-.light-theme .chose_students .button, .light-theme .chose_documents .button {
+.light-theme .chose_students .button {
   color: #555;
 }
-.light-theme .chose_students .button:hover, .light-theme .chose_documents .button:hover {
+.light-theme .chose_students .button:hover {
   color: #e4e9f7;
 }
 

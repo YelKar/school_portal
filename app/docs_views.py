@@ -31,7 +31,8 @@ def chose_documents():
         doc_names=filter(
             lambda x: ".docx" in x,
             os.listdir("app/templates/documents/word")
-        )
+        ),
+        title="Выбор шаблонов документов для генерации"
     )
 
 
@@ -61,27 +62,36 @@ def chose_students():
     return render_template(
         "documents/chose_students.html",
         users=Users,
-        db=db
+        db=db,
+        title=f'Выбор учеников для печати документа "{request.args.get("doc_name")}"'
     )
 
 
-@app.route("/print")
-@is_role(role="teacher admin")
-@login_required
-def print_document():
-    """page for getting document and students data from request.args and printing
-
-    :return:
-    """
-    return render_template("documents/print.html", Users=Users)
+# @app.route("/print")
+# @is_role(role="teacher admin")
+# @login_required
+# def print_document():
+#     """page for getting document and students data from request.args and printing
+#
+#     :return:
+#     """
+#     return render_template("documents/print.html", Users=Users)
 
 
 @app.route("/download_document/<string:filename>")
 def download_document(filename: str):
+    """get filename from url and download document"""
     return send_file(f"templates/documents/word/{filename}.docx", as_attachment=True)
 
 
 def generate_doc(name: str, users: list):
+    """generate document
+
+    getting document name and generate docx-file with users data
+    :param name:
+    :param users:
+    :return:
+    """
     doc = DocxTemplate(f"app/templates/documents/word/{name}.docx")
     doc.render(
         context={
@@ -96,6 +106,7 @@ def generate_doc(name: str, users: list):
 
 
 def lrjust(s: str, need_length: int) -> str:
+    """increasing the length of the string if it`s too short"""
     c = (need_length - len(s)) // 2
     return " " * c + s + " " * c
 

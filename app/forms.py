@@ -67,18 +67,36 @@ class RegisterForm(FlaskForm):
             raise ValidationError("Такой email уже зарегистрирован")
 
     def validate_firstname(self, field: StringField):
+        """validate name
+
+        checking if first letter is upper,
+        other letters is lower and
+        digits not in name
+        """
         if not field.data.isalpha():
             raise ValidationError("Имя должно состоять из букв")
         elif not (field.data[0].isupper() and field.data[1:].islower()):
             raise ValidationError("Имя должно начинаться с большой буквы")
 
     def validate_lastname(self, field: StringField):
+        """validate lastname
+
+        checking if first letter is upper,
+        other letters is lower and
+        digits not in lastname
+        """
         if not field.data.isalpha():
             raise ValidationError("Фамилия должна состоять из букв")
         elif not (field.data[0].isupper() and field.data[1:].islower()):
             raise ValidationError("Фамилия должна начинаться с большой буквы")
 
     def validate_patronymic(self, field: StringField):
+        """validate patronymic
+
+        checking if first letter is upper,
+        other letters is lower and
+        digits not in patronymic
+        """
         if not field.data.isalpha():
             raise ValidationError("Отчество должно состоять из букв")
         elif not (field.data[0].isupper() and field.data[1:].islower()):
@@ -116,6 +134,7 @@ class RegisterForm(FlaskForm):
 
 
 class NewAdForm(FlaskForm):
+    """Form for creating ad"""
     header = StringField(validators=[DataRequired()], render_kw={"placeholder": "Заголовок"})
     text = TextAreaField(validators=[DataRequired()], render_kw={"placeholder": "Текст объявления"})
 
@@ -123,6 +142,7 @@ class NewAdForm(FlaskForm):
 
 
 class NewEventForm(NewAdForm):
+    """From for creating event"""
     def validate_datetime(self, field: DateTimeLocalField):
         try:
             if field.data.timestamp() < dt.datetime.now().timestamp():

@@ -1,7 +1,4 @@
-"""creating SQlite models
-
-
-"""
+"""creating SQlite models"""
 from app import db
 
 
