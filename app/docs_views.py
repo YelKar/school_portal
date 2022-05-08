@@ -81,7 +81,7 @@ def chose_students():
 @app.route("/download_document/<string:filename>")
 def download_document(filename: str):
     """get filename from url and download document"""
-    return send_file(f"templates/documents/word/{filename}.docx", as_attachment=True)
+    return send_file(f"templates/documents/word/templates/{filename}.docx", as_attachment=True)
 
 
 def generate_doc(name: str, users: list):
@@ -100,7 +100,8 @@ def generate_doc(name: str, users: list):
             "fromtimestamp": datetime.datetime.fromtimestamp
         }
     )
-    save_route = f"app/templates/documents/word/for_download/{name}_сгенерированный.docx"
+    save_route = "app/templates/documents/word/for_download/" \
+                 f"{name}_{datetime.datetime.now().strftime('_%d-%m-%Y__%H-%M-%S_')}.docx"
     doc.save(save_route)
     return save_route[4:]
 
