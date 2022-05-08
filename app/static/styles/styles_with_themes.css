@@ -563,7 +563,7 @@ html {
   width: auto;
 }
 .dark-theme .chose_documents_el > div {
-  width: 150px;
+  width: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -1188,7 +1188,7 @@ html {
   width: auto;
 }
 .light-theme .chose_documents_el > div {
-  width: 150px;
+  width: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
