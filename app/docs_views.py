@@ -97,7 +97,8 @@ def generate_doc(name: str, users: list):
         context={
             "users": users,
             "lrjust": lrjust,
-            "fromtimestamp": datetime.datetime.fromtimestamp
+            "fromtimestamp": datetime.datetime.fromtimestamp,
+            "now_datetime": datetime.datetime.now()
         }
     )
     save_route = "app/templates/documents/word/for_download/" \
