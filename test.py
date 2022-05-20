@@ -1,9 +1,13 @@
-from app.database import Users
+import os
+import time
+
+from application.database import Users
 
 from docxtpl import DocxTemplate
 
 
 import datetime
+
 # from werkzeug.security import generate_password_hash
 # from random import choice, randint
 #
@@ -38,37 +42,6 @@ import datetime
 #
 # db.session.commit()
 
-
-doc = DocxTemplate("app/templates/documents/word/Справка об обучении.docx")
-
-t1 = datetime.datetime.now().timestamp()
-
-
-def write_data(users: list or Users):
-    need_length = 45
-    users = users if type(users) is list else [users]
-    for index, user in enumerate(users):
-        name = user.firstname
-        lastname = user.lastname
-        patronymic = user.patronymic
-        length = sum(map(lambda x: len(x), [name, lastname, patronymic])) + 4
-        residual = (need_length - length) if length < need_length else 0
-        # user = [
-        #     " " * (residual // 2) + name,
-        #     lastname,
-        #     patronymic + " " * (residual // 2),
-        #     datetime.datetime.fromtimestamp(user.info.birthdate).strftime("%d.%m.%Y"),
-        #     user.classroom[:-1],
-        #     user.classroom[-1]
-        # ]
-        users[index].firstname = " " * (residual // 2) + name
-        users[index].patronymic = patronymic + " " * (residual // 2)
-        users[index].birthdate = datetime.datetime.fromtimestamp(user.info.birthdate).strftime("%d.%m.%Y")
-
-    doc.render(context={"users": users})
-    doc.save(f"word/справка-Пользователи.docx")
-
-
 # user_list = sample(Users.query.all(), 100)
 #
 # for num, user in enumerate(user_list):
@@ -87,4 +60,38 @@ def write_data(users: list or Users):
 #
 # print("Время выполнения:", t, "Секунд")
 
-write_data(Users.query.first())
+
+# def progress_bar_update(
+#         value: int,
+#         bar="[%b]%d%",
+#         on_let="#",
+#         off_let=" ",
+#         max_val=100,
+#         step: int = 2,
+#         last: bool = False
+# ):
+#     value //= step
+#     max_val //= step
+#     print(
+#         "\r" +
+#         bar.replace(
+#             "%d",
+#             str(value * step)
+#         ).replace(
+#             "%b",
+#             on_let * value + off_let * (max_val - value)
+#         ), end="\n" if last else ""
+#     )
+#
+#
+# progress_bar_update(0, bar="%b Progress: %d", on_let="▓", off_let="░")
+# time.sleep(1)
+# for i in range(120):
+#     progress_bar_update(i, bar="%b Progress: %d", on_let="▓", off_let="░", last=i == 100)
+#     time.sleep(.1)
+from docx2pdf import convert
+
+
+for doc in os.listdir("app/templates/documents/docx/templates"):
+    convert(f"app/templates/documents/docx/templates/{doc}",
+            f"app/templates/documents/pdf/templates/{doc.replace('docx', 'pdf')}")

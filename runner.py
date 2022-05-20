@@ -1,8 +1,8 @@
 """
-importing app object and running site
+importing application object and running site
 """
-from app import app
+from application import application
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    application.run(host="0.0.0.0")

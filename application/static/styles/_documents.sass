@@ -1,0 +1,103 @@
+.button:hover
+  background-color: $input_hover_color
+.chose_documents
+  width: auto
+  &_el
+    min-width: 500px
+    display: flex
+    justify-content: space-between
+    padding: 5px
+    border:
+      width: 4px
+      style: solid
+      color: $header-color
+      radius: $element-border-radius
+    margin: 10px
+    background-color: $navbar-bgc
+    width: auto
+    > div
+      width: 150px
+      display: flex
+      justify-content: space-around
+      align-items: center
+      &.el_text
+        box-sizing: border-box
+        padding: 10px
+        font-weight: bold
+        width: 200px
+        text-align: left
+  .button
+    display: block
+    position: relative
+    padding: unset
+    border:
+      width: 4px
+      style: solid
+      color: $header-color
+      radius: $element-border-radius
+    background-color: $navbar-bgc
+    width: auto
+    height: 45px
+    margin: auto
+    &:hover
+      span
+        color: $navbar-bgc
+      svg
+        fill: $navbar-bgc
+
+    span
+      position: absolute
+      bottom: 0
+      color: $text-color
+      font-size: 10px
+    svg
+      width: 35px
+      height: 30px
+      fill: $text-color
+  .checkbox
+    display: block
+    width: 28px
+    height: 28px
+    margin: 10px
+  input[type=submit]
+    width: 100%
+
+.chose_students
+  width: 500px
+  max-width: 94%
+  text-align: left
+  details
+    border:
+      width: 4px
+      style: solid
+      color: $header-color
+      radius: $element-border-radius
+    margin: 10px
+    background-color: $navbar-bgc
+    width: auto
+    p
+      margin: 10px
+  summary
+    font:
+      size: 20px
+      weight: bold
+    padding: 10px
+    position: relative
+    div.checkbox
+      position: absolute
+      top: 0
+      margin-top: 8px
+      right: $checkbox-size * 2
+  input[type=submit], .button
+    width: 100%
+    margin: 10px 0
+  .download_doc
+    background-color: $header_color
+    border-radius: $fields-border-radius
+    display: flex
+    justify-content: space-between
+    .button
+      margin: 0
+
+
+
