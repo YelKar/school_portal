@@ -38,7 +38,5 @@ admin = Admin(
 )
 
 
-from application import admin_panel
-
-from application import jinja_filters
+from application import admin_panel, jinja_filters
 from application import database, views

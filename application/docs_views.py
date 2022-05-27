@@ -61,17 +61,17 @@ def chose_students():
         )
         if action_type == "docx":
             return send_file(
-                docx[4:], as_attachment=True
+                docx[12:], as_attachment=True
             )
         pdf = docx.replace("docx", "pdf")
         convert(docx, pdf)
         if action_type == "pdf":
             return send_file(
-                pdf[4:], as_attachment=True
+                pdf[12:], as_attachment=True
             )
         elif action_type == "print":
             return send_file(
-                pdf[4:]
+                pdf[12:]
             )
 
     for file in os.listdir("application/templates/documents/docx/for_download"):
