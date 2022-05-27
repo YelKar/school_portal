@@ -48,12 +48,11 @@
                 {{ ico.profile() }}
                 <span class="element-text">{{ "Профиль" if current_user.is_authenticated else "Войти" }}</span>
             </a>
-
-            {% if current_user.is_authenticated %}
-                <div class="profile-link-contextmenu">
-                    {% include "base/profile_links.html" %}
-                </div>
-            {% endif %}
+{#            {% if current_user.is_authenticated %}#}
+{#                <div class="profile-link-contextmenu">#}
+{#                    {% include "base/profile_links.html" %}#}
+{#                </div>#}
+{#            {% endif %}#}
         </div>
     </div>
 </nav>
