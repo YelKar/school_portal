@@ -34,7 +34,7 @@
     <div class="post">
         {{ post_header("Объявление", post, author, user) }}
         {% autoescape false %}
-            <p class="post_text">{{ post.post|line_breaks if post else "Текст объявления" }}</p>
+            <div class="post_text">{{ post.post|line_breaks if post else "Текст объявления" }}</div>
         {% endautoescape %}
         {{ post_about(post, author, user) }}
     </div>
@@ -48,7 +48,7 @@
             {{ post.date|fromTimestamp|strftime("%H:%M %d.%m.%Y") if post else "hh:mm DD:MM:YY" }}
         </div>
         {% autoescape false %}
-            <p class="post_text">{{ post.post|line_breaks if post else "Описание события" }}</p>
+            <div class="post_text">{{ post.post|line_breaks if post else "Описание события" }}</div>
         {% endautoescape %}
         {{ post_about(post, author, user) }}
     </div>

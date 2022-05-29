@@ -174,7 +174,9 @@ svg.error_requests
           box-sizing: border-box
   .post_text
     padding: $post-header-padding
-    margin-bottom: 30px
+    h1, h2, h3, h4, h5, h6
+      margin: 10px
+
 
   .post_about
     display: flex
@@ -232,6 +234,14 @@ svg.error_requests
         transition: all .2s
         &:hover
           box-shadow: 0 0 5px $header-color
+  hr
+    margin:
+      right: 20px
+      left: 20px
+    height: 2px
+    border: none
+    background-color: $header-color
+
 
 @import "forms"
 @import "documents"

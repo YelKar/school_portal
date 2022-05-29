@@ -320,7 +320,9 @@ html {
 }
 .dark-theme .post .post_text {
   padding: 10px;
-  margin-bottom: 30px;
+}
+.dark-theme .post .post_text h1, .dark-theme .post .post_text h2, .dark-theme .post .post_text h3, .dark-theme .post .post_text h4, .dark-theme .post .post_text h5, .dark-theme .post .post_text h6 {
+  margin: 10px;
 }
 .dark-theme .post .post_about {
   display: flex;
@@ -377,6 +379,13 @@ html {
 }
 .dark-theme .post_example a div.post:hover {
   box-shadow: 0 0 5px #999;
+}
+.dark-theme .post hr {
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 2px;
+  border: none;
+  background-color: #999;
 }
 .dark-theme form {
   display: block;
@@ -990,7 +999,9 @@ html {
 }
 .light-theme .post .post_text {
   padding: 10px;
-  margin-bottom: 30px;
+}
+.light-theme .post .post_text h1, .light-theme .post .post_text h2, .light-theme .post .post_text h3, .light-theme .post .post_text h4, .light-theme .post .post_text h5, .light-theme .post .post_text h6 {
+  margin: 10px;
 }
 .light-theme .post .post_about {
   display: flex;
@@ -1047,6 +1058,13 @@ html {
 }
 .light-theme .post_example a div.post:hover {
   box-shadow: 0 0 5px #8658ea;
+}
+.light-theme .post hr {
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 2px;
+  border: none;
+  background-color: #8658ea;
 }
 .light-theme form {
   display: block;
