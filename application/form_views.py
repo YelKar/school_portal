@@ -7,6 +7,7 @@ routes for:
 user authorization and creating accounts
 """
 from flask import render_template, url_for, redirect, request
+from flask_sqlalchemy import BaseQuery
 
 # import configuration and db models
 from application import application, login_manager, db
@@ -166,3 +167,38 @@ def new_event():
         db.session.commit()
         return redirect(url_for("index"))
     return render_template("publications/new_event.html", form=form, title="Новое событие")
+
+
+@application.route('/edit/<int:post_id>', methods=['GET', 'POST'])
+def edit_post(post_id: int):
+    post: Publications = Publications.query.filter_by(id=post_id).first()
+    if post.user_id != current_user.id:
+        return redirect(url_for("login"))
+    form: NewEventForm or NewAdForm = {
+        "event": NewEventForm,
+        "ad": NewAdForm,
+    }[post.type]()
+
+    if form.validate_on_submit():
+        post.header = form.header.data
+        post.post = form.text.data
+        if post.type == "event":
+            post.date = form.datetime.data.timestamp()
+        db.session.commit()
+        return redirect(url_for("my_posts"))
+    form.header.data = post.header
+    form.text.data = post.post
+    if post.type == "event":
+        form.datetime.data = datetime.fromtimestamp(post.date)
+    return render_template(f"publications/new_{post.type}.html", form=form, title="Новое событие")
+
+
+@application.route("/delete/<int:post_id>", methods=["GET", "POST"])
+def del_post(post_id: int):
+    post: BaseQuery = Publications.query.filter_by(id=post_id)
+    if post.first().user_id == current_user.id:
+        post.delete()
+        db.session.commit()
+    else:
+        return redirect(url_for("login"))
+    return redirect(url_for("index"))

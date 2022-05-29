@@ -22,7 +22,6 @@ def index() -> str:
     render html template from "index.html"
     :return: str
     """
-
     return render_template(
         "index.html",
         title="Школа 1060",

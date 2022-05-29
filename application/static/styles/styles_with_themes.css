@@ -294,6 +294,30 @@ html {
   padding: 0;
   margin: 0;
 }
+.dark-theme .post .post_header .post_edit_buttons {
+  position: absolute;
+  display: flex;
+  right: 5px;
+  top: 5px;
+  height: 30px;
+}
+.dark-theme .post .post_header .post_edit_buttons > a {
+  display: block;
+  width: auto;
+  height: inherit;
+  border-radius: 4px;
+}
+.dark-theme .post .post_header .post_edit_buttons > a:hover {
+  background-color: #888888;
+}
+.dark-theme .post .post_header .post_edit_buttons > a > svg {
+  height: inherit;
+  padding: 4px;
+  box-sizing: border-box;
+}
+.dark-theme .post .post_header .post_edit_buttons > a > svg path {
+  fill: #2a2a2a;
+}
 .dark-theme .post .post_text {
   padding: 10px;
   margin-bottom: 30px;
@@ -939,6 +963,30 @@ html {
 .light-theme .post .post_header h2 {
   padding: 0;
   margin: 0;
+}
+.light-theme .post .post_header .post_edit_buttons {
+  position: absolute;
+  display: flex;
+  right: 5px;
+  top: 5px;
+  height: 30px;
+}
+.light-theme .post .post_header .post_edit_buttons > a {
+  display: block;
+  width: auto;
+  height: inherit;
+  border-radius: 4px;
+}
+.light-theme .post .post_header .post_edit_buttons > a:hover {
+  background-color: #753def;
+}
+.light-theme .post .post_header .post_edit_buttons > a > svg {
+  height: inherit;
+  padding: 4px;
+  box-sizing: border-box;
+}
+.light-theme .post .post_header .post_edit_buttons > a > svg path {
+  fill: #e4e9f7;
 }
 .light-theme .post .post_text {
   padding: 10px;

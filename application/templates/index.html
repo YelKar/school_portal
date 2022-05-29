@@ -3,6 +3,6 @@
 {% block content %}
     {% for post in posts.query.all()[::-1] %}
         {% set author = users.query.filter_by(id=post.user_id).first() %}
-        {{ t[post.type](post, author) }}
+        {{ t[post.type](post, author, current_user) }}
     {% endfor %}
 {% endblock %}
