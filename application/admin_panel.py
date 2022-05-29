@@ -3,7 +3,7 @@
 """
 from flask import redirect, url_for
 from application import admin, db
-from application.database import Users, UserInfo
+from application.database import Users, UserInfo, Publications
 from flask_login import current_user
 
 from flask_admin.contrib.sqla import ModelView
@@ -68,6 +68,16 @@ UserInfo_column_list = (
     ("mothers_patronymic", "Отчество матери"),
 )
 
+Publications_column_list = (
+    ("id", "ID"),
+    ("user_id", "ID пользователя"),
+    ("header", "Заголовок"),
+    ("post", "Текст объявления"),
+    ("type", "Тип объявления\n«event/ad»"),
+    ("date", "Дата события\n«timestamp»"),
+    ("publication_date", "Дата публикации\n«timestamp»")
+)
+
 admin.add_link(MenuLink(name="На главную страницу", url="/"))
 
 admin.add_view(AdminView(Users, db.session,
@@ -78,4 +88,9 @@ admin.add_view(AdminView(Users, db.session,
 admin.add_view(AdminView(UserInfo, db.session,
                          name="Информация о пользователях",
                          column_list=UserInfo_column_list
+                         ))
+
+admin.add_view(AdminView(Publications, db.session,
+                         name="Публикации",
+                         column_list=Publications_column_list
                          ))
