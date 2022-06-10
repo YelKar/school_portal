@@ -285,7 +285,7 @@ html {
 }
 .dark-theme .post .post_header {
   position: relative;
-  margin: 0;
+  margin: -1px;
   padding: 10px;
   background-color: #999;
   color: #2a2a2a;
@@ -326,6 +326,7 @@ html {
 }
 .dark-theme .post .post_about {
   display: flex;
+  margin: -1px;
 }
 .dark-theme .post .post_date, .dark-theme .post .post_author {
   display: flex;
@@ -359,7 +360,7 @@ html {
 .dark-theme .post .event_date {
   background-color: #999;
   color: #2a2a2a;
-  margin: 0;
+  margin: -1px;
   font-weight: bold;
   padding: 5px;
 }
@@ -964,7 +965,7 @@ html {
 }
 .light-theme .post .post_header {
   position: relative;
-  margin: 0;
+  margin: -1px;
   padding: 10px;
   background-color: #8658ea;
   color: #e4e9f7;
@@ -1005,6 +1006,7 @@ html {
 }
 .light-theme .post .post_about {
   display: flex;
+  margin: -1px;
 }
 .light-theme .post .post_date, .light-theme .post .post_author {
   display: flex;
@@ -1038,7 +1040,7 @@ html {
 .light-theme .post .event_date {
   background-color: #8658ea;
   color: #e4e9f7;
-  margin: 0;
+  margin: -1px;
   font-weight: bold;
   padding: 5px;
 }
